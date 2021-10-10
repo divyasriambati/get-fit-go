@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 
 @Component({
@@ -9,13 +10,17 @@ import { DataService } from '../data.service';
 export class DashboardComponent implements OnInit {
  
 
-public routines : any[] | undefined
+public routineList : any[] | undefined
 
-  constructor(private _dataService: DataService) { }
+  constructor(private _dataService: DataService , public router :Router) { }
+
+  onSelect(routine: { id: any; }){
+    this.router.navigate(['/dashboard' , routine.id])
+  }
 
   ngOnInit(): void {
 
-      this.routines  = this._dataService.getDetails()
+      this.routineList  = this._dataService.userData
   }
 
   

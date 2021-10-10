@@ -2,16 +2,17 @@
 
     <!-- ROUTINE DETAILS  -->
 
-    <div class="horizontal">
-        <div><img src="../../assets/img.jfif"></div>
+    <div   class="horizontal">
+
+        <div><img class="image" src="{{this._dataService.userData[routineId].coverPic}}"></div>
         <div class="vertical routineDetails">
             <div class="horizontal row " >
                 <div>
-                    <div class="heading">Routinename</div>
-                    <div class="desc">duration</div>
+                    <div class="heading">{{this._dataService.userData[routineId].name}}</div>
+                    <div class="desc">{{this._dataService.userData[routineId].duration}}</div>
                 </div>
                 <div class="activeBtn primaryDarkBg primaryLight">
-                    <div class="heading">50</div>
+                    <div class="heading">{{this._dataService.userData[routineId].subscribers}}</div>
                     <div class="subscribers">Subscribers</div>
                 </div>
             </div>
@@ -26,25 +27,18 @@
 
     <!-- ROUTINE STRUCTURE  -->
 
-    <div class="heading section">Routine Designer : Sudarshan</div>
+    <div class="heading section">Routine Designer : {{this._dataService.userData[routineId].routineDesigner}}</div>
     <div class="desc">Set-1</div>
-    <div class="horizontal">
+
+    <div  class="horizontal">
+    <div *ngFor = "let chip of this._dataService.userData[routineId].routineStructure," >
+    
+
         <div class="chip primaryLightBg">
-            <div class="structureName">Suryanamaskara</div>
-            <div class="subscribers inActive">5 min</div>
+            <div class="structureName">{{chip.activity}}</div>
+            <div class="subscribers inActive">{{chip.time}} min</div>
         </div>
-        <div class="chip primaryLightBg">
-            <div class="structureName">Suryanamaskara</div>
-            <div class="subscribers inActive">5 min</div>
-        </div>
-        <div class="chip primaryLightBg">
-            <div class="structureName">Suryanamaskara</div>
-            <div class="subscribers inActive">5 min</div>
-        </div>
-        <div class="chip primaryLightBg">
-            <div class="structureName">Suryanamaskara</div>
-            <div class="subscribers inActive">5 min</div>
-        </div>
+       </div>
     </div>
 
     <!-- YOUTUBE VIDEOS -->
@@ -53,9 +47,11 @@
     <div class="heading section">Youtube Videos</div>
 
     <div class="horizontal section" >
-        <div class="card primaryLightBg">
+        <div *ngFor= "let link of this._dataService.userData[routineId].youtubeVideos" class="card primaryLightBg">
             <div><img src="../../assets/img.jfif"></div>
-            <div class="heading section">Youtube video name</div>
+            <a target="_blank" href="{{link.link}}" class="heading section links">
+                <div>{{link.linkName}}</div>
+            </a>
             <div class="subscribers inActive">100k Views</div>
         </div>
     </div>

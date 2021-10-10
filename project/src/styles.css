@@ -16,6 +16,17 @@ body {
     background: #FFFFFF;
     width: 100vw;
 }
+.template {
+    display: flex;
+    flex-direction: row;
+    height: 92vh;
+    width: 100vw;
+    position: fixed;
+    top: auto;
+    left: auto;
+    padding-right: 6px;
+    
+}
 
 .full-height {
     height: 100vh;
@@ -78,5 +89,7 @@ body {
 
 .image{
     border-radius: 20px;
+    height: 200px;
+    width: 300px;
 }
 

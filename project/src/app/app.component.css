@@ -1,15 +1,9 @@
 .mainCont{
     width: 75vw;
     height: auto;
-    /* background-color: lightgreen; */
+
 }
 .sideCont{
    width: 25vw;
     height: 90vh;
-    /* background-color:lightpink; */
-  
 }
-/* body{
-  
-    overflow-x:hidden
-} */

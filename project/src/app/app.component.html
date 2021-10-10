@@ -1,16 +1,15 @@
 <!-- <app-login></app-login> -->
 <!-- <app-signup></app-signup> -->
-<!-- <app-dashboard></app-dashboard> -->
 
-        <!-- <app-routine-details></app-routine-details> -->
 
-<app-navbar></app-navbar>
-<div class="horizontal body">
+<app-navbar *ngIf="isElegible()"></app-navbar>
+<div class=" template" >
     <div class="mainCont">
         <router-outlet></router-outlet>
     </div>
     <div class="sideCont">
-        <app-sidebar></app-sidebar>
+        <app-sidebar *ngIf="isElegible()"></app-sidebar>
     </div>
 </div>
+
 
