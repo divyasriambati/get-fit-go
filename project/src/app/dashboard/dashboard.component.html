@@ -1,1 +1,34 @@
-<p>dashboard works!</p>
+<div class="mainCont">
+    <div class="heading">Subscribed Routines</div>
+
+    <div class="horizontal routineList">
+
+        <div class="cardSection horizontal secondaryLightBg">
+            <div *ngFor="let routine of routines;let j=index" class="card vertical primaryLightBg">
+                
+                <div ><img class="card-img" src="../../assets/img.jfif"></div>
+                <div class="routineName">{{routine.name}}</div>
+                <div class="horizontal displayProgress">
+                    <div class=" progress">
+                        <div [style.width.%]="routine.progress" class="progress-bar " role="progressbar"></div>
+                    </div>
+                    <div class="days">{{routine.progress}}</div>
+                </div>
+                <div class="card-desc inActive">{{routine.description}}</div>
+                <div class="subscribers inActive">{{routine.subscribers}} subscribers</div>
+                <div class="btns">
+                    <button routerLink="/routine-details" class="activeBtn primaryDarkBg primaryLight">More Details</button>
+                    <button class="activeBtn">Unsubscribe</button>
+                </div>
+            </div>
+        </div>
+
+        <img class="nextBtn" src="../../assets/arrow_btn.svg">
+
+    </div>
+
+   
+
+</div>
+
+

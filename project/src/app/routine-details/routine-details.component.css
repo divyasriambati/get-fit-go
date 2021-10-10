@@ -1,0 +1,77 @@
+.mainCont{
+    padding: 20px ;
+    border-radius: 20px;
+    margin: 10px 10px 20px 30px;
+}
+.routineDetails{
+    margin-left: 30px;
+    justify-content: space-between;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+.subscribers{
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 5px;
+  }
+  .activeBtn{
+    font-size: 13px;
+    font-weight: 500;
+    font-family: poppins;
+    text-align: center;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  .desc{
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 10px;
+  }
+  .section{
+      margin-top: 20px;
+  }
+  .chip{
+      margin: 20px 20px 20px 0px;
+      padding: 10px 30px;
+      font-size: 14px;
+      font-weight: 300;
+      border-radius: 20px;
+  }
+  .structureName{
+    font-size: 13px;
+    font-weight: 400;
+  }
+  .card{
+    padding: 15px;
+    border-radius: 20px;
+  }
+  .commentSection{
+    align-items: center;
+    width: 100%;
+  }
+  .commentSection input{
+    border: none;
+    font-family: poppins;
+    padding: 10px 20px;
+    
+  }
+  .commentSection div{
+    border-radius: 20px;
+    margin-left: 10px;
+   width: 95%;
+    align-items: center;
+  }
+  .profile{
+    height: 40px;
+    width: 40px;
+  }
+  .smile{
+    height: 20px;
+    width: 20px;
+    margin-right: 20px;
+  }
+  

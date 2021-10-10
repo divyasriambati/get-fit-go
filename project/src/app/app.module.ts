@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import {ReactiveFormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -9,6 +13,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RoutineDetailsComponent } from './routine-details/routine-details.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchPageComponent } from './search-page/search-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -18,13 +25,18 @@ import { SearchPageComponent } from './search-page/search-page.component';
     DashboardComponent,
     RoutineDetailsComponent,
     ProfileComponent,
-    SearchPageComponent
+    SearchPageComponent, 
+    NavbarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
+
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

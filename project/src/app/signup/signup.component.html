@@ -1,1 +1,64 @@
-<p>signup works!</p>
+<div class="horizontal">
+    <div class="partition primaryLightBg" >
+
+        <!-- BRAND NAME -->
+        <div class="horizontal brand">
+            <img class="logoSize" src="../../assets/logo.svg">
+            <div>
+                <span class="brandname_FirstLetter primaryDark">G</span><span class="brandname_LastLetter">et</span>
+                <span class="brandname_FirstLetter primaryDark">F</span><span class="brandname_LastLetter">it</span>
+                <span class="brandname_FirstLetter primaryDark">G</span><span class="brandname_LastLetter">o</span>
+            </div>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <div class="loginSection">
+
+            <div class="heading">Sign Up</div>
+        <div class="text inActive">See your growth and get support!</div>
+        <button class="horizontal btn primaryLightBg">
+            <img class="icon" src="../../assets/google_icon.svg">
+            <div class="sub-heading">Sign up with Google</div>
+        </button>
+
+        <div>
+            <!-- <div><img src="../../assets/Line.svg"></div> -->
+            <div class="margin-text inActive">or Sign up with Email</div>
+        </div>
+
+        <form [formGroup]="userForm" >
+            <div>
+                <div class="fieldnames">Username*</div>
+                <input formControlName="username" placeholder="Enter Username">
+            </div>
+            <div>
+                <div class="fieldnames">Email*</div>
+                <input formControlName="email" placeholder="Enter your Email">
+            </div>
+            <div>
+                <div class="fieldnames">Password*</div>
+                <input formControlName="password" placeholder="Enter your Password">
+            </div>
+
+            <button (click)="signup()" routerLink="/routine-details" class="loginBtn primaryDarkBg primaryLight">Signup</button>
+
+            <div *ngIf ="alreadyUser">Already You have Account Please Login!</div>
+        </form>
+        
+        
+       
+
+        <div class="signup"><span>Already have an Account?</span><span class="primaryDark createAccount">Sign in</span></div>
+
+        </div>
+        
+
+
+    </div>
+    <div class="partition primaryDarkBg" >
+        
+    </div>
+</div>
+
+
+

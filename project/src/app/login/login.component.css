@@ -1,0 +1,127 @@
+.partition{
+    height: 100vh;
+    width: 100%;
+}
+.brand{
+    margin: 20px;
+    align-items: center;
+}
+.logoSize{
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.brandname_FirstLetter{
+    font-size: 30px;
+    font-weight: 500;
+}
+.brandname_LastLetter{
+    font-size: 20px;
+    font-weight: 500;
+}
+.loginSection{
+    width: 65%;
+    margin-left: 15%;
+  margin-top: 5%;
+}
+.heading{
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom:10px;
+}
+.text{
+    font-size: 15px;
+    font-weight: 400;
+    padding-bottom:20px;
+}
+.btn{
+    cursor: pointer;
+    width: 100%;
+    text-decoration: none;
+    border: 1px solid lightgray;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+    font-family: poppins;
+    margin-bottom:10px;
+}
+.icon{
+    height: 35px;
+    width: 35px;
+    margin-right: 10px;
+}
+.sub-heading{
+    font-size: 13px;
+    font-weight: 500;
+}
+.margin-text{
+    font-size: 12px;
+    font-weight: 300;
+    font-family: poppins;
+    background-color: white;
+    text-align: center;
+    margin: 20px;
+    
+
+}
+.fieldnames{
+    font-size: 15px;
+    font-weight: 500;
+    font-family: poppins;
+    padding-bottom:10px;
+
+}
+input{
+    width: 100%;
+    padding: 15px 0px 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 1px solid lightgray;
+    margin-bottom: 10px;
+
+}
+.forgotPassword{
+    font-size: 13px;
+    font-weight: 400;
+    float: right;
+    padding-bottom:10px;
+    cursor: pointer;
+
+}
+button{
+    text-decoration: none;
+    border: none;
+    
+
+}
+.loginBtn{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: poppins;
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-bottom:10px;
+
+}
+.signup{
+    font-size: 15px;
+    font-weight: 400;
+   
+}
+.createAccount{
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+
+
+/* RIGHTSIDE PART CSS  */
+

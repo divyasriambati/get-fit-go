@@ -1,1 +1,57 @@
-<p>login works!</p>
+<div class="horizontal">
+    <div class="partition primaryLightBg" >
+
+        <!-- BRAND NAME -->
+        <div class="horizontal brand">
+            <img class="logoSize" src="../../assets/logo.svg">
+            <div>
+                <span class="brandname_FirstLetter primaryDark">G</span><span class="brandname_LastLetter">et</span>
+                <span class="brandname_FirstLetter primaryDark">F</span><span class="brandname_LastLetter">it</span>
+                <span class="brandname_FirstLetter primaryDark">G</span><span class="brandname_LastLetter">o</span>
+            </div>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <div class="loginSection">
+
+            <div class="heading">Login</div>
+        <div class="text inActive">See your growth and get support!</div>
+        <button class="horizontal btn primaryLightBg">
+            <img class="icon" src="../../assets/google_icon.svg">
+            <div class="sub-heading">Sign in with Google</div>
+        </button>
+
+        <div>
+            <!-- <div><img src="../../assets/Line.svg"></div> -->
+            <div class="margin-text inActive">or Sign in with Email</div>
+        </div>
+
+        <form [formGroup]="userForm">
+            <div>
+                <div class="fieldnames">Email*</div>
+                <input formControlName="email" placeholder="Enter your Email">
+            </div>
+            <div>
+                <div class="fieldnames">Password*</div>
+                <input formControlName="password" placeholder="Enter your Password">
+            </div>
+            <div class="forgotPassword primaryDark">Forgot Password?</div>
+
+            <button (click)="login()"  class="loginBtn primaryDarkBg primaryLight">Login</button>
+            <div *ngIf = "alreadyUser">Please Create your Account</div>
+    
+        </form>
+        
+        <div class="signup"><span>Not Registered yet?</span><span class="primaryDark createAccount">Create an Account</span></div>
+
+        </div>
+        
+
+
+    </div>
+    <div class="partition primaryDarkBg" >
+        
+    </div>
+</div>
+
+

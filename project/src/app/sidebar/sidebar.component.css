@@ -1,0 +1,61 @@
+.sideNav{
+    margin: 10px 30px 10px 10px;
+    border-radius: 20px;
+    height: 97%;
+    padding: 20px;
+}
+
+.addBtn{
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 20px;
+    align-items: center;
+    cursor: pointer;
+}
+.addIcon{
+    background-color: white;
+    border-radius: 30px;
+    padding: 7px 7px 0px 7px;
+    margin-right: 20px;
+}
+.addIcon img{
+    height: 20px;
+    width: 20px;
+}
+
+.heading{
+  
+    margin: 20px 0px;
+}
+
+.card{
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+.image{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+.routineName{
+    font-size: 16px;
+    font-weight: 500;
+}
+.duration{
+    font-size: 13px;
+    font-weight: 300;
+    margin: 5px 0px 10px 0px;
+}
+.moreBtn{
+ font-size: 13px;
+ font-weight: 500;
+ text-align: center;
+ text-decoration: none;
+ border: none;
+ padding: 8px 15px;
+ border-radius: 10px;
+ cursor: pointer;
+}
