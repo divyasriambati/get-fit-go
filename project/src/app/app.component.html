@@ -1,16 +1,17 @@
 <!-- <app-login></app-login> -->
 <!-- <app-signup></app-signup> -->
+<router-outlet></router-outlet>
 
-<div class="navbar">
+<!-- <div class="navbar">
     <app-navbar *ngIf="isElegible()"></app-navbar>
 </div>
 <div class=" template" >
-    <div class="mainCont">
+    <div [style.width.vw]= "!isElegible() ? 100 : 75" class="mainCont">
         <router-outlet></router-outlet>
     </div>
     <div class="sideCont">
         <app-sidebar *ngIf="isElegible()"></app-sidebar>
     </div>
-</div>
+</div> -->
 
 
