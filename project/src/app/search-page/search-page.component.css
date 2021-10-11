@@ -2,6 +2,7 @@
     padding: 20px 30px;
     border-radius: 20px;
     margin: 10px 10px 20px 30px;
+
 }
 .searchType{
     align-items: center;
@@ -42,18 +43,21 @@ input{
 .friendsList{
     align-items: center;
     margin-left: 30px;
+    
 }
 .cardSection{
     padding: 20px;
     border-radius: 20px;
-    width: 97%;
+    width: 75vw;
     margin: 20px 0px;
+    overflow-x: scroll;
 }
 .nextBtn{
     height: 50px;
     width: 50px;
     margin-left: -25px;
     cursor: pointer;
+    z-index: 2;
 }
 .card{
     padding: 15px;

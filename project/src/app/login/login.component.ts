@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   
 
   constructor( public _userdata : UserService , public router : Router) { }
+  
   public userForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
@@ -35,7 +36,13 @@ export class LoginComponent implements OnInit {
         this.userForm.value.password == this._userdata.users[index]['password'])
         {
           result = true
+          this._userdata.currentUser = this._userdata.users[index];
           this._userdata.currentuser = this._userdata.users[index]['firstname'] +' '+this._userdata.users[index]['lastname'];
+          // this._userdata.userEmail = this._userdata.users[index]['email']; 
+          // this._userdata.userPhoneno = this._userdata.users[index]['phoneno']; 
+          // this._userdata.userGender = this._userdata.users[index]['gender']; 
+          // this._userdata.userDob = this._userdata.users[index]['dob']; 
+          this._userdata.coverPic = this._userdata.users[index]['pic']; 
         }
     }
     

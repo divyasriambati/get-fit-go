@@ -14,7 +14,7 @@ export class RoutineDetailsComponent implements OnInit {
   public routineId: any
 
 
-
+ 
 
 
   constructor(public _dataService: DataService ,public route : ActivatedRoute) { }
@@ -22,13 +22,19 @@ export class RoutineDetailsComponent implements OnInit {
   ngOnInit(): void {
 
     this.routineList  = this._dataService.userData
+    
     this. routineId = this.route.snapshot.paramMap.get('id');
 
     this.routineId = this.routineId-1
+  }
 
-    // console.log(routineId);
-    
-  //  let id = parseInt(routineId)
+  
+
+ 
+  
+
+  Subscribe(){
+
   }
 
 }

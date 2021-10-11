@@ -42,9 +42,11 @@
     
 }
 .profile{
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     margin-left: 0px;
+    border-radius: 50%;
+    
 }
 .username{
     font-size: 14px;

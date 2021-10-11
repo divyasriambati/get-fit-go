@@ -16,7 +16,7 @@
 
     <div class="horizontal searchType primaryLightBg">
         <img class="icon" src="../../assets/search-solid.svg">
-        <input placeholder="Search by Routine">
+        <input type="text" placeholder="Search by Routine" >
         <img class="dropdown inActive" src="../../assets/dropdown.svg">
     </div>
 
@@ -27,61 +27,12 @@
     </div>
 
     <div>
-    <button class="searchBtn primaryDarkBg primaryLight">Search</button>
+    <button class="searchBtn primaryDarkBg primaryLight" >Search</button>
     </div>
  
 </div>
 
-    <!-- SEARCH BY FRIENDS  -->
-
-
-
-    <div class="vertical">
-
-        <div class="heading section friendsList">Friends</div>
-
-        <div class="horizontal friendsList">
-
-            <div class="cardSection horizontal secondaryLightBg">
-                <div *ngFor="let friend of friendsData" class="card vertical primaryLightBg">
-                    <div ><img class="card-img" src="../../assets/profile.svg"></div>
-                    <div class="routineName">{{friend.friendName}}</div>
-                        <button (click) = "friendDetails(friend.id)" class="activeBtn primaryDarkBg primaryLight">More Details</button>
-                    </div>
-                </div>
-    
-            <img class="nextBtn" src="../../assets/arrow_btn.svg">
-        </div>
-
-        <div *ngIf = "isTrue" class=" friendsList ">
-            <div class="cardSection vertical secondaryLightBg">
-                <div class="horizontal primaryLightBg cardBody ">
-                    <div class="profile"><img  src="../../assets/profile.svg"> </div>
-                    <div class="card-text">
-                        <div class="heading" >{{this._dataService.friendsDetails[friendId].friendName}}</div>
-                        <div class="desc inActive section">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit
-                            facilisis tellus commodo em ipsum dolor sit amet, consectetur adipiscing
-                           elit. Nunc blandit facilisis  tellus, at commodo Lorem </div>
-                    </div>
-                </div> 
-                
-                <div class="heading section">Subscribed Routines</div>
-                <div class="horizontal">
-                <div *ngFor="let card of this._dataService.friendsDetails[friendId].subscribedRoutines" class="cardCont vertical primaryLightBg section">
-                    <div ><img class="cardImg" src="../../assets/img.jfif"></div>
-                    <div class="routineName">{{card.name}}</div>
-                    
-                    <div class="card-desc inActive">{{card.description}}</div>
-                    <div class="subscribers inActive">{{card.subscribers}} subscribers</div>
-                    <button class="activeBtn primaryDarkBg primaryLight section">More Details</button>
-                </div>
-                </div>
-    
-          </div>
-        </div>
-
-    </div>
-
+   
 
     <!-- SEARCH BY ROUTINE  -->
 
@@ -91,12 +42,18 @@
         <div class="horizontal friendsList">
             <div class="cardSection horizontal secondaryLightBg">
                 <div class="horizontal">
-                    <div *ngFor = "let routine of routines" class="cardCont vertical primaryLightBg section cardBody">
+                    <div *ngFor = "let routine of routines  ">
+
+                    <div *ngIf = "routine.subscribed == 'False'" class="cardCont vertical primaryLightBg section cardBody">
+                    
+                        
                         <div ><img class="cardImg" src="../../assets/img.jfif"></div>
                         <div class="routineName">{{routine.name}}</div>
                         <div class="card-desc inActive">{{routine.duration}}</div>
-                        <button (click) = "isRoutine = !isRoutine" class="activeBtn primaryDarkBg primaryLight section">More Details</button>
-                    </div>
+                        <button (click) = onSelect(routine) class="activeBtn primaryDarkBg primaryLight section">More Details</button>
+                    
+                </div>
+            </div>
                     </div>
             </div>
             <img class="nextBtn" src="../../assets/arrow_btn.svg">
@@ -138,6 +95,56 @@
             </div>
         </div>
             
+          </div>
+        </div>
+
+    </div>
+
+     <!-- SEARCH BY FRIENDS  -->
+
+
+
+     <div class="vertical">
+
+        <div class="heading section friendsList">Friends</div>
+
+        <div class="horizontal friendsList">
+
+            <div class="cardSection horizontal secondaryLightBg">
+                <div *ngFor="let friend of friendsData" class="card vertical primaryLightBg">
+                    <div ><img class="card-img" src="../../assets/profile.svg"></div>
+                    <div class="routineName">{{friend.friendName}}</div>
+                        <button (click) = "friendDetails(friend.id)" class="activeBtn primaryDarkBg primaryLight">More Details</button>
+                    </div>
+                </div>
+    
+            <img class="nextBtn" src="../../assets/arrow_btn.svg">
+        </div>
+
+        <div *ngIf = "isTrue" class=" friendsList ">
+            <div class="cardSection vertical secondaryLightBg">
+                <div class="horizontal primaryLightBg cardBody ">
+                    <div class="profile"><img  src="../../assets/profile.svg"> </div>
+                    <div class="card-text">
+                        <div class="heading" >{{this._dataService.friendsDetails[friendId].friendName}}</div>
+                        <div class="desc inActive section">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit
+                            facilisis tellus commodo em ipsum dolor sit amet, consectetur adipiscing
+                           elit. Nunc blandit facilisis  tellus, at commodo Lorem </div>
+                    </div>
+                </div> 
+                
+                <div class="heading section">Subscribed Routines</div>
+                <div class="horizontal">
+                <div *ngFor="let card of this._dataService.friendsDetails[friendId].subscribedRoutines" class="cardCont vertical primaryLightBg section">
+                    <div ><img class="cardImg" src="../../assets/img.jfif"></div>
+                    <div class="routineName">{{card.name}}</div>
+                    
+                    <div class="card-desc inActive">{{card.description}}</div>
+                    <div class="subscribers inActive">{{card.subscribers}} subscribers</div>
+                    <button class="activeBtn primaryDarkBg primaryLight section">More Details</button>
+                </div>
+                </div>
+    
           </div>
         </div>
 

@@ -1,12 +1,15 @@
 <app-navbar></app-navbar>
 
+
 <div class=" horizontal">
 
 <div class="profileContainer">
     <div class="profileHeadContainer">
       <div class="profileHeadBackgoundBox"></div>
       <div class="profileHeadContentContainer">
-        <img src="../../assets/profile.svg" alt="profileImage" class="profileIcon" />
+        <img *ngIf="this._userdata.coverPic == ''" src="../../assets/default_img.png" alt="profileImage" class="profileIcon" />
+        <img *ngIf="this._userdata.coverPic != ''" src="{{coverPic}}" alt="profileImage" class="profileIcon">
+
         <div class="profileHeadContent">
           <div class="profileHeadContentHeader">
             <div class="profileName">{{name}}</div>
@@ -27,20 +30,22 @@
     </div>
     <div class="profileDetailsContainer ">
       <div class="sideHeading">Details</div>
+      
+      <form [formGroup]="profileForm" (onSubmit) = "onSubmit()" > 
       <div class="profielDetailsForm">
         <div  style="display: flex;flex-direction: row;width: 100%;justify-content: space-around;">
           <div style="width:45%" >
             <div class="inputContainer">
               <p class="inputTitle">Email*</p>
-              <input
+              <input formControlName="email"
                 type="email"
-                value="example@gmail.com"
+                value="email"
                 class="ProfileDetatilsInputBox"
               />
             </div>
             <div class="inputContainer">
               <p class="inputTitle">Date of Birth*</p>
-              <input
+              <input formControlName="dob"
                 type="email"
                 value="01-05-1987"
                 class="ProfileDetatilsInputBox"
@@ -50,7 +55,7 @@
           <div style="width:45%">
             <div class="inputContainer">
               <p class="inputTitle">Phone Number*</p>
-              <input
+              <input formControlName="phoneno"
                 type="email"
                 value="8598658956"
                 class="ProfileDetatilsInputBox"
@@ -59,7 +64,7 @@
 
             <div class="inputContainer">
               <p class="inputTitle">Gender*</p>
-              <input
+              <input formControlName="gender"
                 type="email"
                 value="Female"
                 class="ProfileDetatilsInputBox"
@@ -68,11 +73,11 @@
           </div>
         </div>
         <div class="sideHeadingWithOutCircle">Full Address</div>
-        <div style="display: flex;flex-direction: row;width: 100%;justify-content: space-around;">
+        <div  style="display: flex;flex-direction: row;width: 100%;justify-content: space-around;">
           <div style="width:45%">
             <div class="inputContainer">
               <p class="inputTitle">street*</p>
-              <input
+              <input formControlName="street"
                 type="email"
                 value="example@gmail.com"
                 class="ProfileDetatilsInputBox"
@@ -80,7 +85,7 @@
             </div>
             <div class="inputContainer">
               <p class="inputTitle">zip code*</p>
-              <input
+              <input formControlName="zip"
                 type="email"
                 value="01-05-1987"
                 class="ProfileDetatilsInputBox"
@@ -90,7 +95,7 @@
           <div style="width:45%">
             <div class="inputContainer">
               <p class="inputTitle">City*</p>
-              <input
+              <input formControlName="city"
                 type="email"
                 value="8598658956"
                 class="ProfileDetatilsInputBox"
@@ -99,7 +104,7 @@
 
             <div class="inputContainer">
               <p class="inputTitle">State*</p>
-              <input
+              <input formControlName="state"
                 type="email"
                 value="Female"
                 class="ProfileDetatilsInputBox"
@@ -107,7 +112,13 @@
             </div>
           </div>
         </div>
+        <button type="submit" (click)="onSubmit()"  class="saveBtn primaryLight"> Save</button>
       </div>
+   {{profileForm.value | json}}
+      
+
+    </form>
+
     </div>
     <div class="profileAditionalDetailsContainer">
       <div class="sideHeading">

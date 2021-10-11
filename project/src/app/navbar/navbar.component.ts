@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   constructor( public _userdata : UserService , public router : Router) { }
 
   name = this._userdata.currentuser;
+  coverPic = this._userdata.coverPic;
   ngOnInit(): void {
   }
 

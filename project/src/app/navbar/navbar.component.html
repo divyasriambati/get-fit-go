@@ -10,7 +10,9 @@
 
         <img class="iconSize" src="../../assets/notifications.svg">
         <div routerLink="/profile" class="profileBtn horizontal secondaryLightBg">
-            <img class="profile" src="../../assets/profile.svg">
+            <img *ngIf="this._userdata.coverPic == ''" class="profile" src="../../assets/default_img.png">
+            <img *ngIf="this._userdata.coverPic != ''" class="profile" src="{{coverPic}}">
+
             <div class="username">{{name}}</div>
             <img class="dropdown" src="../../assets/dropdown.svg">
         </div>

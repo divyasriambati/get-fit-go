@@ -7,6 +7,7 @@ export class DataService {
 
   constructor() { }
 
+
   
   public userData =[
         
@@ -14,6 +15,7 @@ export class DataService {
         "id": 1,
       "name":"Full Body Workout",
       "duration" : "30",
+      "subscribed" : "True",
       "routineDesigner" : " Sudarshan" ,
       "routineStructure" : 
         [
@@ -36,6 +38,7 @@ export class DataService {
         "id": 2,
       "name":"Sudarshan kriya Practice",
       "duration" : " regular",
+      "subscribed" : "False",
       "routineDesigner" : " Divyasri" ,
       "routineStructure" : 
         [
@@ -58,13 +61,13 @@ export class DataService {
 
       {
         "id": 3,
-      "name":"Guided-Meditatiom",
+      "name":"Guided-Meditation",
       "duration" : " regular",
+      "subscribed" : "True",
       "routineDesigner" : " Sudarshan badireddi" ,
       "routineStructure" : 
         [
           {"activity" : "warmup" , "time" : 5},
-          {"activity" : "suryanamaskara" , "time" : 20},
           {"activity" : "padmasadana" , "time" : 40},
           {"activity" : "meditation" , "time" : 15},
         ],
@@ -77,8 +80,56 @@ export class DataService {
        "subscribers" : 200 ,
        "coverPic" : "https://elevatechristiannetwork.com/wp-content/uploads/2019/02/prayer-meditation-1-hour-peaceful-meditation-music-gods-promises-sleep-relaxation-music-youtube-thumbnail.jpg"
       },
-  
+      {
+        "id": 4,
+      "name":"meditation",
+      "duration" : " regular",
+      "subscribed" : "False",
+      "routineDesigner" : " Divyasri" ,
+      "routineStructure" : 
+        [
+          {"activity" : "warmup" , "time" : 5},
+          {"activity" : "suryanamaskara" , "time" : 20},
+          {"activity" : "padmasadana" , "time" : 40},
+          {"activity" : "meditation" , "time" : 15},
+        ],
+        "youtubeVideos" : [
+          {"linkName": "suryanamskara", "link": "https://www.youtube.com/watch?v=IKzkc3FWx7g"},
+          {"linkName": "padmasadana", "link": "https://www.youtube.com/watch?v=4EBswVUU3po"},
+           ],
+      "progress":90,
+      "description" : "Routine description ",
+       "subscribers" : 500 ,
+       "coverPic" : "data:image/jpeg;base64,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"
+      },
+      {
+        "id": 5,
+      "name":"Sudarshan kriya",
+      "duration" : " regular",
+      "subscribed" : "False",
+      "routineDesigner" : " Divyasri" ,
+      "routineStructure" : 
+        [
+          {"activity" : "warmup" , "time" : 5},
+          {"activity" : "3-stage pranayama" , "time" : 10},
+          {"activity" : "bastrika panayam" , "time" : 10},
+          {"activity" : "meditation" , "time" : 15},
+        ],
+        "youtubeVideos" : [
+          {"linkName": "suryanamskara", "link": "https://www.youtube.com/watch?v=IKzkc3FWx7g"},
+          {"linkName": "padmasadana", "link": "https://www.youtube.com/watch?v=4EBswVUU3po"},
+           ],
+      "progress":90,
+      "description" : "Routine description ",
+       "subscribers" : 500 ,
+       "coverPic" : "data:image/jpeg;base64,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"
+      },
+
     ];
+
+    
+
+    
 
     friendsDetails=[
       {

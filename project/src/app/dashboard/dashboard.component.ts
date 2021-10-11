@@ -14,6 +14,9 @@ public routineList : any[] | undefined
 
   constructor(private _dataService: DataService , public router :Router) { }
 
+  // public isSubscribed = this._dataService.userData.
+  
+
   onSelect(routine: { id: any; }){
     this.router.navigate(['/dashboard' , routine.id])
   }

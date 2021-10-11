@@ -18,7 +18,17 @@ export class SearchPageComponent implements OnInit {
   public isTrue = false;
   public isRoutine = false;
   public friendId: any
-  public routineId: any
+ 
+
+ 
+  
+  
+
+    onSelect(routine: { id: any; }){
+      this.router.navigate(['/search-page' , routine.id])
+    }
+    
+
 
   friendDetails(friend: any){
     this.isTrue = true
@@ -26,7 +36,8 @@ export class SearchPageComponent implements OnInit {
     // this.router.navigate(['/friendData' , friend])
     window.location.replace(`http://localhost:4200/friendData/${friend}`)
   }
-  
+
+ 
   ngOnInit(): void {
 
     this.routines  = this._dataService.userData
@@ -40,8 +51,7 @@ export class SearchPageComponent implements OnInit {
     this.isTrue=true
     }
 
-    
-
+   
     console.log(this.friendId);
     
     

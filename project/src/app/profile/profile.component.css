@@ -47,12 +47,24 @@
   .profileIcon {
     height: 200px;
     width: 200px;
-    border-radius: 50%;
+    border-radius:50%;
   }
   .profileHeadContent {
     /* background-color: yellow; */
     margin-top: 15px;
     padding: 10px 25px ;
+  }
+  .saveBtn{
+    background-color: #362de4;
+    height: auto;
+    width: 120px;
+    border-radius: 20px;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 13px;
+    min-width: 80px;
+    margin: 10px 30px;
   }
   .profileHeadContentHeader {
     display: flex;
@@ -110,6 +122,7 @@
     border-radius: 20px;
     margin-top: 20px;
     padding: 30px;
+    height: auto;
   }
   
   .inputContainer {

@@ -34,7 +34,8 @@
     <div class="horizontal routineList">
 
         <div class="cardSection horizontal secondaryLightBg">
-            <div *ngFor="let routine of routineList" class="card vertical primaryLightBg">
+            <div *ngFor="let routine of routineList">
+            <div *ngIf = "routine.subscribed == 'True'" class="card vertical primaryLightBg">
                 
                 <div ><img class="card-img" src="../../assets/img.jfif"></div>
                 <div class="routineName">{{routine.name}}</div>
@@ -50,6 +51,7 @@
                     <button (click) = onSelect(routine) routerLink="/routine-details" class="activeBtn primaryDarkBg primaryLight">More Details</button>
                     <button class="activeBtn">Unsubscribe</button>
                 </div>
+            </div>
             </div>
         </div>
 
