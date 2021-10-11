@@ -80,16 +80,16 @@
     <!-- SEARCH BY ROUTINE  -->
 
     <div  class="vertical">
-        <div class="heading section friendsList">Routine Name : Meditation</div>
+        <div class="heading section friendsList">Routines </div>
 
         <div class="horizontal friendsList">
             <div class="cardSection horizontal secondaryLightBg">
                 <div class="horizontal">
-                    <div class="cardCont vertical primaryLightBg section cardBody">
+                    <div *ngFor = "let routine of routines" class="cardCont vertical primaryLightBg section cardBody">
                         <div ><img class="cardImg" src="../../assets/img.jfif"></div>
-                        <div class="routineName">Routine Name</div>
-                        <div class="card-desc inActive">duration</div>
-                        <button (click) = "isRoutine = !isRoutine" class="activeBtn primaryDarkBg primaryLight section">More Details</button>
+                        <div class="routineName">{{routine.name}}</div>
+                        <div class="card-desc inActive">{{routine.duration}}</div>
+                        <button  class="activeBtn primaryDarkBg primaryLight section">More Details</button>
                     </div>
                     </div>
             </div>
