@@ -16,20 +16,11 @@ body {
     background: #FFFFFF;
     width: 100vw;
 }
-.template {
-    display: flex;
-    flex-direction: row;
-    height: 92vh;
-    width: 100vw;
-    /* position: fixed;
-    top: auto;
-    left: auto; */
-    padding-right: 6px;
- 
-}
+
 .main{
     width: 75vw;
     height: auto;
+    
 
 }
 .sideCont{
