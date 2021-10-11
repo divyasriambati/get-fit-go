@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
     
     let result = false
     for(let index=0; index< this._userdata.users.length;index++){
-        if(this.userForm.value.username == this._userdata.users[index]['username'] &&
+        if(this.userForm.value.username == this._userdata.users[index]['firstname'] &&
         this.userForm.value.email == this._userdata.users[index]['email'] && 
         this.userForm.value.password == this._userdata.users[index]['password'])
         {

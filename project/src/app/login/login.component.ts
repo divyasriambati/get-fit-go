@@ -35,8 +35,10 @@ export class LoginComponent implements OnInit {
         this.userForm.value.password == this._userdata.users[index]['password'])
         {
           result = true
+          this._userdata.currentuser = this._userdata.users[index]['firstname'] +' '+this._userdata.users[index]['lastname'];
         }
     }
+    
 
   if(!result ){
     this.alreadyUser =true
