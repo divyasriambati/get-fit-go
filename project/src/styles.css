@@ -92,4 +92,9 @@ body {
     height: 200px;
     width: 300px;
 }
+.errorMsg{
+    color: red;
+    font-size: 14px;
+    font-weight: 300;
+}
 

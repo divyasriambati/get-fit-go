@@ -38,11 +38,11 @@
             <div class="forgotPassword primaryDark">Forgot Password?</div>
 
             <button (click)="login()"  class="loginBtn primaryDarkBg primaryLight">Login</button>
-            <div *ngIf = "alreadyUser">Please Create your Account</div>
+            <p *ngIf = "alreadyUser" class="errorMsg">Please Create your Account</p>
     
         </form>
         
-        <div class="signup"><span>Not Registered yet?</span><span class="primaryDark createAccount">Create an Account</span></div>
+        <div class="signup"><span>Not Registered yet?</span><span routerLink="/signup" class="primaryDark createAccount">Create an Account</span></div>
 
         </div>
         

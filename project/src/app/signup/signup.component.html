@@ -42,13 +42,13 @@
 
             <button (click)="signup()" routerLink="/routine-details" class="loginBtn primaryDarkBg primaryLight">Signup</button>
 
-            <div *ngIf ="alreadyUser">Already You have Account Please Login!</div>
+            <div class="errorMsg" *ngIf ="alreadyUser">Already You have Account Please Login!</div>
         </form>
         
         
        
 
-        <div class="signup"><span>Already have an Account?</span><span class="primaryDark createAccount">Sign in</span></div>
+        <div class="signup"><span>Already have an Account?</span><span routerLink="/login" class="primaryDark createAccount">Sign in</span></div>
 
         </div>
         
