@@ -18,11 +18,8 @@ export class SearchPageComponent implements OnInit {
   public isTrue = false;
   public isRoutine = false;
   public friendId: any
- 
 
  
-  
-  
 
     onSelect(routine: { id: any; }){
       this.router.navigate(['/search-page' , routine.id])

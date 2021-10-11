@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
 
 public routineList : any[] | undefined
 
+
   constructor(private _dataService: DataService , public router :Router) { }
 
   // public isSubscribed = this._dataService.userData.

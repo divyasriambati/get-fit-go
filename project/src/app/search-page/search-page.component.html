@@ -10,13 +10,14 @@
 
     <div class="horizontal searchType primaryLightBg">
         <img class="icon" src="../../assets/user.svg">
-        <input placeholder="Search by Friends">
+        <input placeholder="Search by Friends" >
         <img class="dropdown inActive" src="../../assets/dropdown.svg">
     </div>
 
     <div class="horizontal searchType primaryLightBg">
-        <img class="icon" src="../../assets/search-solid.svg">
-        <input type="text" placeholder="Search by Routine" >
+        <img class="icon" src="../../assets/search-solid.svg" >
+        <input type="text" placeholder="Search by Routine">
+        
         <img class="dropdown inActive" src="../../assets/dropdown.svg">
     </div>
 
@@ -42,7 +43,8 @@
         <div class="horizontal friendsList">
             <div class="cardSection horizontal secondaryLightBg">
                 <div class="horizontal">
-                    <div *ngFor = "let routine of routines  ">
+                    
+                    <div *ngFor = "let routine of routines">
 
                     <div *ngIf = "routine.subscribed == 'False'" class="cardCont vertical primaryLightBg section cardBody">
                     

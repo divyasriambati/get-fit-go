@@ -28,7 +28,7 @@ import { DataService } from './data.service';
     ProfileComponent,
     SearchPageComponent, 
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
