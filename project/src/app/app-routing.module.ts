@@ -13,7 +13,7 @@ const routes: Routes = [
   {path : 'signup' , component: SignupComponent},
   {path : 'dashboard' , component: DashboardComponent},
   {path : 'dashboard/:id' , component: RoutineDetailsComponent},
-  {path : 'search-page/:id' , component: RoutineDetailsComponent},
+  {path : 'routine-details/:id' , component: RoutineDetailsComponent},
   {path : 'search-page' , component: SearchPageComponent},
   {path : 'friendData/:id' , component: SearchPageComponent},
   {path : 'profile' , component: ProfileComponent},

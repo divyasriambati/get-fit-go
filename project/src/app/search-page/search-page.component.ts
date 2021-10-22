@@ -22,7 +22,7 @@ export class SearchPageComponent implements OnInit {
  
 
     onSelect(routine: { id: any; }){
-      this.router.navigate(['/search-page' , routine.id])
+      this.router.navigate(['/routine-details' , routine.id])
     }
     
 
