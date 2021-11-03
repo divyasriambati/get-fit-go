@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +26,7 @@ import { DataService } from './data.service';
     DashboardComponent,
     RoutineDetailsComponent,
     ProfileComponent,
-    SearchPageComponent, 
+    SearchPageComponent,
     NavbarComponent,
     SidebarComponent,
   ],
@@ -35,7 +35,8 @@ import { DataService } from './data.service';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    HttpClientModule
 
   ],
   providers: [DataService],

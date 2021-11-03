@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { FormBuilder } from '@angular/forms';
+import { AuthService } from '../services/auth/signup.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,8 +14,9 @@ export class SignupComponent implements OnInit {
   constructor(
     private _userdata: UserService,
     public router: Router,
-    private fb: FormBuilder
-  ) {}
+    private fb: FormBuilder,
+    private authService: AuthService
+  ) { }
 
   userForm = this.fb.group({
     firstName: [''],
@@ -38,7 +40,7 @@ export class SignupComponent implements OnInit {
     for (let index = 0; index < this._userdata.users.length; index++) {
       if (
         this.userForm.value.username ==
-          this._userdata.users[index]['firstname'] &&
+        this._userdata.users[index]['firstname'] &&
         this.userForm.value.email == this._userdata.users[index]['email'] &&
         this.userForm.value.password == this._userdata.users[index]['password']
       ) {
@@ -62,5 +64,25 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+
+  //balaji function 
+  signUp() {
+    var postObj = {
+      "name": '',//pass name,
+      "emailid": '',//pass email id
+      "password": ' ' //pass password
+    }
+    this.authService.signup(postObj).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+
+
 }
