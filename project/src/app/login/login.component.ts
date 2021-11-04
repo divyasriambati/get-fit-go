@@ -65,9 +65,9 @@ export class LoginComponent implements OnInit {
   //balaji function
   userLogin() {
     var postObj = {
-      "name": '',//pass name,
-      "emailid": '',//pass email id
-      "password": ' ' //pass password
+      "name": this.userForm.value.username,//pass name,
+      "emailid": this.userForm.value.email,//pass email id
+      "password": this.userForm.value.password //pass password
     }
     this.loginService.login(postObj).subscribe(
       (data) => {

@@ -70,10 +70,14 @@ export class SignupComponent implements OnInit {
   //balaji function 
   signUp() {
     var postObj = {
-      "name": '',//pass name,
-      "emailid": '',//pass email id
-      "password": ' ' //pass password
+      "name":  this.userForm.value.username,//pass name,
+      "emailid": this.userForm.value.email,//pass email id
+      "password": this.userForm.value.password //pass password
+
+        
+      
     }
+    console.log(postObj);
     this.authService.signup(postObj).subscribe(
       (data) => {
         console.log(data);

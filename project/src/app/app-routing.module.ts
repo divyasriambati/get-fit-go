@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddRoutineComponent } from './add-routine/add-routine.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path : 'search-page' , component: SearchPageComponent},
   {path : 'friendData/:id' , component: SearchPageComponent},
   {path : 'profile' , component: ProfileComponent},
+  {path : 'add-routine' , component:AddRoutineComponent},
  
 ];
 

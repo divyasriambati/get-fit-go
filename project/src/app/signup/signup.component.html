@@ -40,7 +40,7 @@
                 <input formControlName="password" type="password" placeholder="Enter your Password">
             </div>
 
-            <button (click)="signup()" routerLink="/routine-details" class="loginBtn primaryDarkBg primaryLight">Signup</button>
+            <button type="button" (click)="signup()" routerLink="/routine-details" class="loginBtn primaryDarkBg primaryLight">Signup</button>
 
             <div class="errorMsg" *ngIf ="alreadyUser">Already You have Account Please Login!</div>
         </form>

@@ -17,6 +17,7 @@ import { SearchPageComponent } from './search-page/search-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DataService } from './data.service';
+import { AddRoutineComponent } from './add-routine/add-routine.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DataService } from './data.service';
     SearchPageComponent,
     NavbarComponent,
     SidebarComponent,
+    AddRoutineComponent,
   ],
   imports: [
     BrowserModule,
