@@ -69,6 +69,7 @@ export class LoginComponent implements OnInit {
       "emailid": this.userForm.value.email,//pass email id
       "password": this.userForm.value.password //pass password
     }
+    console.log(postObj)
     this.loginService.login(postObj).subscribe(
       (data) => {
         console.log(data);
