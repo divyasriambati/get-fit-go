@@ -29,7 +29,7 @@
         <form [formGroup]="userForm" >
             <div>
                 <div class="fieldnames">Username*</div>
-                <input formControlName="username" type="text" placeholder="Enter Username">
+                <input formControlName="firstName" type="text" placeholder="Enter Username">
             </div>
             <div>
                 <div class="fieldnames">Email*</div>
@@ -40,7 +40,7 @@
                 <input formControlName="password" type="password" placeholder="Enter your Password">
             </div>
 
-            <button type="button" (click)="signup()" routerLink="/routine-details" class="loginBtn primaryDarkBg primaryLight">Signup</button>
+            <button type="button" (click)="signUp()" routerLink="/routine-details" class="loginBtn primaryDarkBg primaryLight">Signup</button>
 
             <div class="errorMsg" *ngIf ="alreadyUser">Already You have Account Please Login!</div>
         </form>

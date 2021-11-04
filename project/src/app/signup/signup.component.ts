@@ -20,8 +20,8 @@ export class SignupComponent implements OnInit {
 
   userForm = this.fb.group({
     firstName: [''],
-    lastName: [''],
     email: [''],
+    password:[''],
     phoneno: [''],
     dob: [''],
     gender: [''],
@@ -70,12 +70,9 @@ export class SignupComponent implements OnInit {
   //balaji function 
   signUp() {
     var postObj = {
-      "name":  this.userForm.value.username,//pass name,
+      "name":  this.userForm.value.firstName,//pass name,
       "emailid": this.userForm.value.email,//pass email id
       "password": this.userForm.value.password //pass password
-
-        
-      
     }
     console.log(postObj);
     this.authService.signup(postObj).subscribe(
