@@ -75,8 +75,10 @@ export class SignupComponent implements OnInit {
       "password": this.userForm.value.password //pass password
     }
     console.log(postObj);
+
     this.authService.signup(postObj).subscribe(
       (data) => {
+        this.router.navigate(['/dashboard']);
         console.log(data);
       },
       (err) => {

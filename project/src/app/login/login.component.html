@@ -34,11 +34,13 @@
             <div>
                 <div class="fieldnames">Password*</div>
                 <input formControlName="password" type="password" placeholder="Enter your Password">
+                <p *ngIf="errData.message == 'password incorrect'" class="errorMsg">Incorrect Password</p>
+
             </div>
             <div class="forgotPassword primaryDark">Forgot Password?</div>
 
             <button (click)="userLogin()"  class="loginBtn primaryDarkBg primaryLight">Login</button>
-            <p *ngIf = "alreadyUser" class="errorMsg">Please Create your Account</p>
+            <p *ngIf = "!alreadyUser" class="errorMsg">Please Create your Account</p>
     
         </form>
         

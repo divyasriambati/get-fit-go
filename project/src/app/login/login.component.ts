@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   });
 
 
-  public alreadyUser = false
+  public alreadyUser = true
 
   login() {
 
@@ -59,26 +59,37 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+  public errData:any
 
 
   //balaji function
   userLogin() {
     var postObj = {
-      "name": this.userForm.value.username,//pass name,
+      // "name": this.userForm.value.username,//pass name,
       "emailid": this.userForm.value.email,//pass email id
       "password": this.userForm.value.password //pass password
     }
     console.log(postObj)
     this.loginService.login(postObj).subscribe(
-      (data) => {
+      (data:any) => {
+
+       
         console.log(data);
+        this.errData = data;
+       
+         if(this.errData.message == 'user doesnot have account'){
+          this.alreadyUser = false
+        }
+        else if(this.errData.message == 'ok'){
+          this.alreadyUser = true
+          this.router.navigate(['/dashboard']);
+        }
       },
       (err) => {
         console.log(err);
       }
     )
+    
   }
-
 
 }
