@@ -66,6 +66,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  public errData:any
 
   //balaji function 
   signUp() {
@@ -78,8 +79,16 @@ export class SignupComponent implements OnInit {
 
     this.authService.signup(postObj).subscribe(
       (data) => {
-        this.router.navigate(['/dashboard']);
+        
         console.log(data);
+        this.errData = data;
+
+        if(this.errData.message == 'account exists'){
+          this.alreadyUser = true
+        }
+        else{
+          this.router.navigate(['/dashboard']);
+        }
       },
       (err) => {
         console.log(err);
