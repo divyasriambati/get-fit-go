@@ -79,7 +79,8 @@ export class LoginComponent implements OnInit {
         }
         else if (this.errData.message == 'ok') {
           this.alreadyUser = true;
-          localStorage.setItem('userid', JSON.parse(data.userid))
+          console.log(data.userid)
+          localStorage.setItem('userid', JSON.stringify(data.userid))
           this.router.navigate(['/dashboard']);
         }
       },

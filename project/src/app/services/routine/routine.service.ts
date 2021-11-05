@@ -9,10 +9,10 @@ export class RoutineService {
 
   constructor(private http: HttpClient) { }
   public getUserRoutine() {
-    return this.http.get<any>(get_user_routines + '/' + JSON.stringify(localStorage.getItem('userid')));
+    return this.http.post<any>(get_user_routines , {userid:localStorage.getItem('userid')});
   }
   public getRoutineSuggestions() {
-    return this.http.get<any>(get_routine_suggestions + '/' + JSON.stringify(localStorage.getItem('userid')));
+    return this.http.get<any>(get_routine_suggestions + '/' + localStorage.getItem('userid'));
   }
   public subscribeRoutine(userData: any) {
     return this.http.post<any>(subscribe_routine, userData);
