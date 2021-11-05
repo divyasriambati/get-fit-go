@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
   userForm = this.fb.group({
     firstName: [''],
     email: [''],
-    password:[''],
+    password: [''],
     phoneno: [''],
     dob: [''],
     gender: [''],
@@ -66,12 +66,12 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  public errData:any
+  public errData: any
 
   //balaji function 
   signUp() {
     var postObj = {
-      "name":  this.userForm.value.firstName,//pass name,
+      "name": this.userForm.value.firstName,//pass name,
       "emailid": this.userForm.value.email,//pass email id
       "password": this.userForm.value.password //pass password
     }
@@ -79,14 +79,15 @@ export class SignupComponent implements OnInit {
 
     this.authService.signup(postObj).subscribe(
       (data) => {
-        
+
         console.log(data);
         this.errData = data;
 
-        if(this.errData.message == 'account exists'){
+        if (this.errData.message == 'account exists') {
           this.alreadyUser = true
         }
-        else{
+        else {
+          localStorage.setItem('userid', JSON.stringify(data.userid))
           this.router.navigate(['/dashboard']);
         }
       },
