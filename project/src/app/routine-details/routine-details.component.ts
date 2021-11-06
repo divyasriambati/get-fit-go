@@ -13,7 +13,7 @@ export class RoutineDetailsComponent implements OnInit {
 
   public routineId: any
 
-
+  public routineDetailsList :any[] | undefined
  
 
 
@@ -25,7 +25,12 @@ export class RoutineDetailsComponent implements OnInit {
     
     this. routineId = this.route.snapshot.paramMap.get('id');
 
-    this.routineId = this.routineId-1
+    // this.routineId = this.routineId-1
+
+
+    this.routineDetailsList = this._dataService.routineDetails
+    console.log(this.routineDetailsList);
+    
   }
 
   

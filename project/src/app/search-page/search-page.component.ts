@@ -20,10 +20,12 @@ export class SearchPageComponent implements OnInit {
   public isRoutine = false;
   public friendId: any
 
+  public allRoutines : any[] | undefined
 
 
-  onSelect(routine: { id: any; }) {
-    this.router.navigate(['/routine-details', routine.id])
+
+  onSelect(id:any) {
+    this.router.navigate(['/routine-details', id])
   }
 
 
@@ -37,6 +39,8 @@ export class SearchPageComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+
 
     this.routines = this._dataService.userData
     this.friendsData = this._dataService.friendsDetails
@@ -53,6 +57,13 @@ export class SearchPageComponent implements OnInit {
     this.routineService.getRoutineSuggestions().subscribe(
       (data) => {
         console.log(data);
+        this.allRoutines = data.response
+        console.log(this.allRoutines);
+        this._dataService.routineDetails = this.allRoutines
+        this._dataService.recommendations = this.allRoutines
+        // console.log(this._dataService.recommendations);
+        
+        
       }
       , (err) => {
         console.log(err);

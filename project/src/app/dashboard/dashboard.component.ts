@@ -16,10 +16,10 @@ export class DashboardComponent implements OnInit {
   constructor(private _dataService: DataService, public router: Router, public routineService: RoutineService) { }
 
   // public isSubscribed = this._dataService.userData.
+ public routines:any
 
-
-  onSelect(routine: { id: any; }) {
-    this.router.navigate(['/dashboard', routine.id])
+  onSelect(id:any) {
+    this.router.navigate(['/dashboard', id])
   }
 
   ngOnInit(): void {
@@ -31,12 +31,17 @@ export class DashboardComponent implements OnInit {
     this.routineService.getUserRoutine().subscribe(
       (data) => {
         console.log(data);
+        this.routines = data.response;
+        console.log(this.routines);
+        this._dataService.routineDetails = this.routines;
+
       }
       , (err) => {
         console.log(err);
       }
     )
   }
+  
 
 
 }

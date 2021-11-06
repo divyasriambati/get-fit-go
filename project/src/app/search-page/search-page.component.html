@@ -36,7 +36,6 @@
    
 
     <!-- SEARCH BY ROUTINE  -->
-
     <div  class="vertical">
         <div class="heading section friendsList">Routines </div>
 
@@ -44,15 +43,15 @@
             <div class="cardSection horizontal secondaryLightBg">
                 <div class="horizontal">
                     
-                    <div *ngFor = "let routine of routines">
+                    <div *ngFor = "let routine of allRoutines">
 
-                    <div *ngIf = "routine.subscribed == 'False'" class="cardCont vertical primaryLightBg section cardBody">
+                    <div  class="cardCont vertical primaryLightBg section cardBody">
                     
                         
                         <div ><img class="cardImg" src="../../assets/img.jfif"></div>
-                        <div class="routineName">{{routine.name}}</div>
+                        <div class="routineName">{{routine.title}}</div>
                         <div class="card-desc inActive">{{routine.duration}}</div>
-                        <button (click) = onSelect(routine) class="activeBtn primaryDarkBg primaryLight section">More Details</button>
+                        <button (click) = onSelect(routine.routineid) class="activeBtn primaryDarkBg primaryLight section">More Details</button>
                     
                 </div>
             </div>
