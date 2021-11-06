@@ -16,18 +16,10 @@ export class ProfileComponent implements OnInit {
     public router: Router,
     private fb: FormBuilder,
     private userservice: UserService1
-  ) { }
+  ) {
+  }
   public name = this._userdata.currentuser;
   public coverPic = this._userdata.coverPic;
-
-
-
-
-
-
-
-
-
   profileForm = this.fb.group({
     firstName: [''],
     lastName: [''],
@@ -48,6 +40,18 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userservice.getUserDetails().subscribe(
+      (data) => {
+        console.log("current user data", data.response);
+        this.loadFormData();
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+
+  loadFormData() {
     this.profileForm.patchValue({
       firstName: this._userdata.currentUser.firstName,
       lastName: this._userdata.currentUser.lastName,
