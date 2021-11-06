@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  public suggestions :any[] | undefined
+
+  constructor(public _dataService: DataService ) { }
+
+
 
   ngOnInit(): void {
+
+    this.suggestions = this._dataService.recommendations
+    console.log(this._dataService.recommendations);
+
   }
 
 }
