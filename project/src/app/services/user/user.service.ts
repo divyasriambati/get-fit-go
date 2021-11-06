@@ -8,7 +8,7 @@ export class UserService1 {
 
   constructor(private http: HttpClient) { }
   updateUserDetails(data: any) {
-    return this.http.post<any>(update_user_details, data);
+    return this.http.put<any>(update_user_details, data);
   }
   public getUserDetails() {
     return this.http.get<any>(get_user_details + '/' + localStorage.getItem('userid'));

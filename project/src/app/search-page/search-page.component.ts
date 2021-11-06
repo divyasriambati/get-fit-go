@@ -57,13 +57,6 @@ export class SearchPageComponent implements OnInit {
     this.routineService.getRoutineSuggestions().subscribe(
       (data) => {
         console.log(data);
-        this.allRoutines = data.response
-        console.log(this.allRoutines);
-        this._dataService.routineDetails = this.allRoutines
-        this._dataService.recommendations = this.allRoutines
-        // console.log(this._dataService.recommendations);
-        
-        
       }
       , (err) => {
         console.log(err);

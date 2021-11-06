@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { RoutineService } from '../services/routine/routine.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,17 +9,21 @@ import { DataService } from '../data.service';
 })
 export class SidebarComponent implements OnInit {
 
-  public suggestions :any[] | undefined
+  public suggestions: any[] | undefined
 
-  constructor(public _dataService: DataService ) { }
+  constructor(public _dataService: DataService, private routineService: RoutineService) { }
 
 
 
   ngOnInit(): void {
-
-    this.suggestions = this._dataService.recommendations
-    console.log(this._dataService.recommendations);
-
+    this.routineService.getRoutineSuggestions().subscribe(
+      (data) => {
+        console.log("user suggestions", data.response);
+      }
+      , (err) => {
+        console.log(err);
+      }
+    )
   }
 
 }
