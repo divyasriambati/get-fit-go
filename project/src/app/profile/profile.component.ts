@@ -40,10 +40,11 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.profileForm.controls['email'].disable();
     this.userservice.getUserDetails().subscribe(
       (data) => {
         console.log("current user data", data.response);
-        this.loadFormData();
+        this.loadFormData(data.response);
       },
       (err) => {
         console.log(err);
@@ -51,31 +52,29 @@ export class ProfileComponent implements OnInit {
     )
   }
 
-  loadFormData() {
+  loadFormData(data: any) {
     this.profileForm.patchValue({
-      firstName: this._userdata.currentUser.firstName,
-      lastName: this._userdata.currentUser.lastName,
-      email: this._userdata.currentUser.email,
-      phoneno: this._userdata.currentUser.phoneno,
-      gender: this._userdata.currentUser.gender,
-      dob: this._userdata.currentUser.dob,
-      street: this._userdata.currentUser.street,
-      city: this._userdata.currentUser.city,
-      state: this._userdata.currentUser.state,
-      zip: this._userdata.currentUser.zip,
+      email: data.emailid,
+      phoneno: data.phonenumber,
+      gender: data.gender,
+      dob: data.dateofbirth,
+      street: data.street,
+      city: data.city,
+      state: data.state,
+      zip: data.zipcode,
     });
   }
 
   updateProfile() {
     var postObj = {
-      userid: '',//pass emailid
-      phonenumber: '',//pass phone number
-      dateofbirth: '',//pass dob
-      gender: '',//pass gender
-      street: '',//pass street
-      zipcode: '',//pass zipcode
-      city: '',//pass city
-      state: ''//pass state
+      userid: this.profileForm.value.email,//pass emailid
+      phonenumber: this.profileForm.value.phoneno,//pass phone number
+      dateofbirth: this.profileForm.value.dob,//pass dob
+      gender: this.profileForm.value.gender,//pass gender
+      street: this.profileForm.value.street,//pass street
+      zipcode: this.profileForm.value.zip,//pass zipcode
+      city: this.profileForm.value.city,//pass city
+      state: this.profileForm.value.state//pass state
     }
     this.userservice.updateUserDetails(postObj).subscribe(
       (data) => {
@@ -86,7 +85,16 @@ export class ProfileComponent implements OnInit {
       }
     )
   }
-
+  deleteAccount() {
+    this.userservice.deleteAccount().subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
 
 
 }

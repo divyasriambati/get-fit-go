@@ -13,17 +13,13 @@
         <div class="profileHeadContent">
           <div class="profileHeadContentHeader">
             <div class="profileName">{{name}}</div>
-            <div class="editPrfoileBtn">
+            <!-- <div class="editPrfoileBtn">
               <img src="../../assets/edit.svg" alt="edit icon" class="editIcon" />
               <p class="editProfileText">Edit Profile</p>
-            </div>
+            </div> -->
           </div>
           <div class="profileDescription inActive">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            blandit facilisis tellus ipsum dolor sit amet, consectetur
-            adipiscing elit. Nunc blandit facilisis telluslorem15 Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Dignissimos,
-            deserunt.
+            
           </div>
         </div>
       </div>
@@ -39,15 +35,13 @@
               <p class="inputTitle">Email*</p>
               <input formControlName="email"
                 type="email"
-                value="email"
                 class="ProfileDetatilsInputBox"
+               
               />
             </div>
             <div class="inputContainer">
               <p class="inputTitle">Date of Birth*</p>
               <input formControlName="dob"
-                type="email"
-                value="01-05-1987"
                 class="ProfileDetatilsInputBox"
               />
             </div>
@@ -56,8 +50,7 @@
             <div class="inputContainer">
               <p class="inputTitle">Phone Number*</p>
               <input formControlName="phoneno"
-                type="email"
-                value="8598658956"
+                type="number"
                 class="ProfileDetatilsInputBox"
               />
             </div>
@@ -65,8 +58,6 @@
             <div class="inputContainer">
               <p class="inputTitle">Gender*</p>
               <input formControlName="gender"
-                type="email"
-                value="Female"
                 class="ProfileDetatilsInputBox"
               />
             </div>
@@ -78,16 +69,12 @@
             <div class="inputContainer">
               <p class="inputTitle">street*</p>
               <input formControlName="street"
-                type="email"
-                value="example@gmail.com"
                 class="ProfileDetatilsInputBox"
               />
             </div>
             <div class="inputContainer">
               <p class="inputTitle">zip code*</p>
               <input formControlName="zip"
-                type="email"
-                value="01-05-1987"
                 class="ProfileDetatilsInputBox"
               />
             </div>
@@ -96,8 +83,6 @@
             <div class="inputContainer">
               <p class="inputTitle">City*</p>
               <input formControlName="city"
-                type="email"
-                value="8598658956"
                 class="ProfileDetatilsInputBox"
               />
             </div>
@@ -105,14 +90,12 @@
             <div class="inputContainer">
               <p class="inputTitle">State*</p>
               <input formControlName="state"
-                type="email"
-                value="Female"
                 class="ProfileDetatilsInputBox"
               />
             </div>
           </div>
         </div>
-        <button type="submit" (click)="onSubmit()"  class="saveBtn primaryLight"> Save</button>
+        <button type="submit" (click)="updateProfile()"  class="saveBtn primaryLight"> Save</button>
       </div>
 
       

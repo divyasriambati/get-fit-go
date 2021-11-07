@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { RoutineService } from '../services/routine/routine.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -11,6 +13,7 @@ export class DashboardComponent implements OnInit {
 
 
   public routineList: any[] | undefined
+  public filterTerm: any;
 
 
   constructor(private _dataService: DataService, public router: Router, public routineService: RoutineService) { }
@@ -30,9 +33,8 @@ export class DashboardComponent implements OnInit {
   getRoutines() {
     this.routineService.getUserRoutine().subscribe(
       (data) => {
-        console.log(data);
         this.routines = data.response;
-        console.log(this.routines);
+        console.log("data", data);
         this._dataService.routineDetails = this.routines;
 
       }
@@ -42,9 +44,9 @@ export class DashboardComponent implements OnInit {
     )
   }
 
-  unsubscribeRoutine() {
+  unsubscribeRoutine(routineid: any) {
     var postObj = {
-      "routineid": '',//pass routine id
+      "routineid": routineid,//pass routine id
       "userid": localStorage.getItem('userid')
     }
     this.routineService.unsubscribeRoutine(postObj['userid'], postObj['routineid']).subscribe(

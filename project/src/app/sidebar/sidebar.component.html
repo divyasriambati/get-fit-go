@@ -10,32 +10,16 @@
 
     <div class="heading">Recommendations</div>
 
-    <div class="card primaryLightBg horizontal">
+    <div class="card primaryLightBg horizontal" *ngFor="let suggestion of suggestions">
         <div ><img class="image" src="../../assets/img.jfif"></div>
         <div>
-            <div class="routineName">Routine Name</div>
-            <div class="duration inActive">Duration</div>
+            <div class="routineName">{{suggestion.title}}</div>
+            <div class="duration inActive">{{suggestion.duration}}</div>
             <button class="moreBtn primaryDarkBg primaryLight">More Details</button>
         </div>
     </div>
 
-    <div class="card primaryLightBg horizontal">
-        <div ><img class="image" src="../../assets/img.jfif"></div>
-        <div>
-            <div class="routineName">Routine Name</div>
-            <div class="duration inActive">Duration</div>
-            <button class="moreBtn primaryDarkBg primaryLight">More Details</button>
-        </div>
-    </div>
-
-    <div class="card primaryLightBg horizontal">
-        <div ><img class="image" src="../../assets/img.jfif"></div>
-        <div>
-            <div class="routineName">Routine Name</div>
-            <div class="duration inActive">Duration</div>
-            <button class="moreBtn primaryDarkBg primaryLight">More Details</button>
-        </div>
-    </div>
-
+    
+   
 
 </div>

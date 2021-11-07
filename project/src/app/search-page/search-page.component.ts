@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { RoutineService } from '../services/routine/routine.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @Component({
   selector: 'app-search-page',
@@ -12,7 +13,7 @@ export class SearchPageComponent implements OnInit {
 
   public routines: any[] | undefined
   public friendsData: any[] | undefined
-
+  public filterTerm: any;
 
   constructor(public _dataService: DataService, public router: Router, public route: ActivatedRoute, public routineService: RoutineService) { }
 
@@ -20,11 +21,11 @@ export class SearchPageComponent implements OnInit {
   public isRoutine = false;
   public friendId: any
 
-  public allRoutines : any[] | undefined
+  public allRoutines: any[] | undefined
 
 
 
-  onSelect(id:any) {
+  onSelect(id: any) {
     this.router.navigate(['/routine-details', id])
   }
 

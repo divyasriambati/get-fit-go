@@ -7,3 +7,4 @@ export const subscribe_routine = serverUrl + '/routine/register-user-routine';
 export const unsubscribe_routine = serverUrl + '/routine/unsubscribe';
 export const update_user_details = serverUrl + '/user/edit-user-details';
 export const get_user_details = serverUrl + '/user/get-user-details';
+export const delete_account = serverUrl + '/user/delete-account';

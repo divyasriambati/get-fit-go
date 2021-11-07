@@ -8,24 +8,24 @@
 
 <div class="searchBar horizontal secondaryLightBg">
 
-    <div class="horizontal searchType primaryLightBg">
+    <!-- <div class="horizontal searchType primaryLightBg">
         <img class="icon" src="../../assets/user.svg">
         <input placeholder="Search by Friends" >
         <img class="dropdown inActive" src="../../assets/dropdown.svg">
-    </div>
+    </div> -->
 
     <div class="horizontal searchType primaryLightBg">
         <img class="icon" src="../../assets/search-solid.svg" >
-        <input type="text" placeholder="Search by Routine">
+        <input type="text" placeholder="Search by Routine" [(ngModel)]="filterTerm">
         
         <img class="dropdown inActive" src="../../assets/dropdown.svg">
     </div>
 
-    <div class="horizontal searchType primaryLightBg">
+    <!-- <div class="horizontal searchType primaryLightBg">
         <img class="icon" src="../../assets/location.svg">
         <input placeholder="Search by Location">
         <img class="dropdown inActive" src="../../assets/dropdown.svg">
-    </div>
+    </div> -->
 
     <div>
     <button class="searchBtn primaryDarkBg primaryLight" >Search</button>
@@ -43,7 +43,7 @@
             <div class="cardSection horizontal secondaryLightBg">
                 <div class="horizontal">
                     
-                    <div *ngFor = "let routine of allRoutines">
+                    <div *ngFor = "let routine of allRoutines | filter:filterTerm">
 
                     <div  class="cardCont vertical primaryLightBg section cardBody">
                     

@@ -18,7 +18,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     this.routineService.getRoutineSuggestions().subscribe(
       (data) => {
-        console.log("user suggestions", data.response);
+        this.suggestions = data.response;
       }
       , (err) => {
         console.log(err);
