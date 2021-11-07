@@ -94,6 +94,9 @@ export class ProfileComponent implements OnInit {
     this.userservice.deleteAccount().subscribe(
       (data) => {
         console.log(data);
+        localStorage.clear();
+        window.location.replace(`http://localhost:4200/login`)
+
       },
       (err) => {
         console.log(err);

@@ -58,10 +58,14 @@ export class SearchPageComponent implements OnInit {
     )
   }
 
-  subscribeRoutine() {
+  checkEligibility(routineObj: any) {
+    return routineObj['userids'].indexOf(JSON.stringify(localStorage.get('userid')));
+  }
+
+  subscribeRoutine(id:any) {
     var postObj = {
-      'userid': JSON.stringify(localStorage.get('userid')),
-      'routineid': ''//pass routine id
+      'userid': localStorage.getItem('userid'),
+      'routineid': id//pass routine id
     }
     this.routineService.subscribeRoutine(postObj).subscribe(
       (data) => {
@@ -87,8 +91,10 @@ export class SearchPageComponent implements OnInit {
     )
   }
 
-  public friendData: any[] | undefined
-
+  public friendRoutines: any[] | undefined
+  public friendName: any
+  public friendDescription: any
+  public friendData: any
   generateRoutineDetailsOfUser(userObj: any) {
     var arr = []
     console.log(userObj)
@@ -99,6 +105,10 @@ export class SearchPageComponent implements OnInit {
       this.friendData = resp
       console.log(this.friendData);
 
+      this.friendRoutines = resp
+      this.friendName = userObj.firstname
+      this.friendDescription = userObj.description
+      this.isTrue = true
 
     }).catch((err) => {
       console.log(err)

@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
 
   // public isSubscribed = this._dataService.userData.
   public routines: any
-
+  public isDataLoaded = false;
   onSelect(id: any) {
     this.router.navigate(['/dashboard', id]);
   }
@@ -35,6 +35,7 @@ export class DashboardComponent implements OnInit {
       (data) => {
         this.routines = data.response;
         console.log("data", data);
+        this.isDataLoaded = true;
         this._dataService.routineDetails = this.routines;
 
       }
@@ -44,11 +45,12 @@ export class DashboardComponent implements OnInit {
     )
   }
 
-  unsubscribeRoutine(routineid: any) {
+  unsubscribeRoutine(routineid: any, index: any) {
     var postObj = {
       "routineid": routineid,//pass routine id
       "userid": localStorage.getItem('userid')
     }
+    this.routines.splice(index, 1);
     this.routineService.unsubscribeRoutine(postObj['userid'], postObj['routineid']).subscribe(
       (data) => {
         console.log(data);

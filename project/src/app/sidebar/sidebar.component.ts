@@ -15,7 +15,7 @@ export class SidebarComponent implements OnInit {
   constructor(public router: Router,public _dataService: DataService, private routineService: RoutineService) { }
 
 onSelect(id:any){
-  this.router.navigate(['/routine-details', id])
+  window.location.replace(`http://localhost:4200/routine-details/${id}`)
 }
 
   ngOnInit(): void {

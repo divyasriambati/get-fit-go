@@ -183,6 +183,7 @@
     padding: 13px;
     min-width: 80px;
     margin-left: 15px;
+    cursor: pointer;
   }
   .checkbox{
     height:18px;

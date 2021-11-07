@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<div class=" horizontal">
+<div class=" horizontal" *ngIf="isDataLoaded">
 
     <div class="mainCont secondaryLightBg">
 
@@ -17,8 +17,11 @@
                 </div>
 
                 <div class="desc inActive">{{routineDetailsList.description}}</div>
-                <div><button  class="activeBtn "
-                        style="background-color: lightgray;">unsubscribe</button></div>
+                <div><button class="activeBtn " style="background-color: lightgray;" *ngIf="!checkeligibility()"
+                        (click)="unsubscribeRoutine(routineDetailsList.routineid)">unsubscribe</button>
+                    <button class="activeBtn " style="background-color: lightgray;" *ngIf="checkeligibility()"
+                        (click)="subscribeRoutine(routineDetailsList.routineid)">subscribe</button>
+                </div>
             </div>
         </div>
 
@@ -45,8 +48,8 @@
 
         <div class="horizontal section">
             <div *ngFor="let link of routineDetailsList.references ; let i=index" class="card primaryLightBg">
-                <div><img src="../../assets/img.jfif"></div>
                 <a target="_blank" href="{{link.link}}" class="heading section links">
+                <div><img src="../../assets/img.jfif"></div>
                     <div>{{link.title}}</div>
                 </a>
                 <div class="subscribers inActive">100k Views</div>

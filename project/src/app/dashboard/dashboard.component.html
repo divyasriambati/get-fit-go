@@ -31,10 +31,11 @@
 
         <div class="heading">Subscribed Routines</div>
 
-        <div class="horizontal routineList">
+        <div class="horizontal routineList" *ngIf="isDataLoaded">
 
             <div class="cardSection horizontal secondaryLightBg">
-                <div *ngFor="let routine of routines | filter:filterTerm">
+                <p *ngIf=!routines.length>doesn't subscribed for any routine please for subscribe for routine</p>
+                <div *ngFor="let routine of routines;let i as index | filter:filterTerm">
                     <!-- {{routine.description}} -->
                     <div class="card vertical primaryLightBg">
 
@@ -51,7 +52,8 @@
                         <div class="btns">
                             <button (click)=onSelect(routine.routineid) routerLink="/routine-details"
                                 class="activeBtn primaryDarkBg primaryLight">More Details</button>
-                            <button class="activeBtn" (click)= unsubscribeRoutine(routine.routineid)>Unsubscribe</button>
+                            <button class="activeBtn"
+                                (click)=unsubscribeRoutine(routine.routineid,i)>Unsubscribe</button>
                         </div>
                     </div>
                 </div>
