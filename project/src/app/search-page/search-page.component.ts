@@ -87,17 +87,19 @@ export class SearchPageComponent implements OnInit {
     )
   }
 
-  public friendData: any[] | undefined
-
+  public friendRoutines: any[] | undefined
+  public friendName:any
+  public friendDescription :any
   generateRoutineDetailsOfUser(userObj: any) {
     var arr = []
     for (let id of userObj['routineids'])
       arr.push(this.getRoutineDetails(id));
     Promise.all(arr).then((resp) => {
       console.log("current user routines", resp);
-      this.friendData = resp
-      console.log(this.friendData);
-      
+      this.friendRoutines = resp
+      this.friendName = userObj.firstname
+      this.friendDescription = userObj.description
+      this.isTrue = true
 
     }).catch((err) => {
       console.log(err)
