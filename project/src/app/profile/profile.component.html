@@ -1,11 +1,15 @@
 <app-navbar></app-navbar>
 
+<div *ngFor="let detail of userDetails">
+  {{detail.firstname}}
+  654
+</div>
 
 <div class=" horizontal">
 
 <div class="profileContainer">
-    <div class="profileHeadContainer">
-      <div class="profileHeadBackgoundBox"></div>
+    <div  class="profileHeadContainer">
+      <!-- <div class="profileHeadBackgoundBox"></div> -->
       <div class="profileHeadContentContainer">
         <img *ngIf="this._userdata.coverPic == ''" src="../../assets/default_img.png" alt="profileImage" class="profileIcon" />
         <img *ngIf="this._userdata.coverPic != ''" src="{{coverPic}}" alt="profileImage" class="profileIcon">

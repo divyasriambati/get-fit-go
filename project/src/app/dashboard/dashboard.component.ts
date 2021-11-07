@@ -42,9 +42,10 @@ export class DashboardComponent implements OnInit {
     )
   }
 
-  unsubscribeRoutine() {
+  unsubscribeRoutine(routineId:any) {
+    
     var postObj = {
-      "routineid": '',//pass routine id
+      "routineid": routineId,//pass routine id
       "userid": localStorage.getItem('userid')
     }
     this.routineService.unsubscribeRoutine(postObj['userid'], postObj['routineid']).subscribe(

@@ -16,8 +16,11 @@ export class ProfileComponent implements OnInit {
     public router: Router,
     private fb: FormBuilder,
     private userservice: UserService1
-  ) {
-  }
+  ) {}
+
+public userDetails :any [] | undefined
+
+
   public name = this._userdata.currentuser;
   public coverPic = this._userdata.coverPic;
   profileForm = this.fb.group({
@@ -43,6 +46,7 @@ export class ProfileComponent implements OnInit {
     this.userservice.getUserDetails().subscribe(
       (data) => {
         console.log("current user data", data.response);
+        this.userDetails = data.response;
         this.loadFormData();
       },
       (err) => {
@@ -50,6 +54,7 @@ export class ProfileComponent implements OnInit {
       }
     )
   }
+
 
   loadFormData() {
     this.profileForm.patchValue({
@@ -69,13 +74,13 @@ export class ProfileComponent implements OnInit {
   updateProfile() {
     var postObj = {
       userid: '',//pass emailid
-      phonenumber: '',//pass phone number
-      dateofbirth: '',//pass dob
-      gender: '',//pass gender
-      street: '',//pass street
-      zipcode: '',//pass zipcode
-      city: '',//pass city
-      state: ''//pass state
+      phonenumber: this.profileForm.value.phoneno,//pass phone number
+      dateofbirth: this.profileForm.value.dob,//pass dob
+      gender: this.profileForm.value.gender,//pass gender
+      street: this.profileForm.value.street,//pass street
+      zipcode: this.profileForm.value.zip,//pass zipcode
+      city: this.profileForm.value.city,//pass city
+      state: this.profileForm.value.state//pass state
     }
     this.userservice.updateUserDetails(postObj).subscribe(
       (data) => {

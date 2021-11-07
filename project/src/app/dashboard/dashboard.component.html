@@ -50,7 +50,7 @@
                 <!-- <div class="subscribers inActive">{{routine.subscribers}} subscribers</div> -->
                 <div class="btns">
                     <button (click) = onSelect(routine.routineid) routerLink="/routine-details" class="activeBtn primaryDarkBg primaryLight">More Details</button>
-                    <button class="activeBtn">Unsubscribe</button>
+                    <button (click)="unsubscribeRoutine(routine.routineid)" class="activeBtn">Unsubscribe</button>
                 </div>
             </div>
             </div>
