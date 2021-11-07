@@ -10,3 +10,5 @@ export const get_user_details = serverUrl + '/user/get-user-details';
 export const delete_account = serverUrl + '/user/delete-account';
 export const get_routine_details = serverUrl + '/routine/get-details';
 export const get_user_suggestion = serverUrl + '/user/get-users';
+export const create_routine = serverUrl + '/routine/create-routine';
+export const update_routine = serverUrl + '/routine/update-routine';

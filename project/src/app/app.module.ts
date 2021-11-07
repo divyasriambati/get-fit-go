@@ -18,6 +18,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DataService } from './data.service';
 import { AddRoutineComponent } from './add-routine/add-routine.component';
+import { CreateRoutineComponent } from './create-routine/create-routine.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AddRoutineComponent } from './add-routine/add-routine.component';
     NavbarComponent,
     SidebarComponent,
     AddRoutineComponent,
+    CreateRoutineComponent,
   ],
   imports: [
     BrowserModule,
