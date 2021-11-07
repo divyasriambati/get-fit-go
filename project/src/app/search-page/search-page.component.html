@@ -115,7 +115,7 @@
                 <div *ngFor="let friend of allFriends" class="card vertical primaryLightBg">
                     <div ><img class="card-img" src="../../assets/profile.svg"></div>
                     <div class="routineName">{{friend.firstname}}</div>
-                        <button (click) = "generateRoutineDetailsOfUser(allFriends)" class="activeBtn primaryDarkBg primaryLight">More Details</button>
+                        <button (click) = "generateRoutineDetailsOfUser(friend)" class="activeBtn primaryDarkBg primaryLight">More Details</button>
                     </div>
                 </div>
     

@@ -17,7 +17,7 @@ export class SearchPageComponent implements OnInit {
   public friendsData: any[] | undefined
   public filterTerm: any;
 
-  constructor(private userService: UserService1,public _dataService: DataService, public router: Router, public route: ActivatedRoute, public routineService: RoutineService) { }
+  constructor(private userService: UserService1, public _dataService: DataService, public router: Router, public route: ActivatedRoute, public routineService: RoutineService) { }
 
   public isTrue = false;
   public isRoutine = false;
@@ -91,13 +91,14 @@ export class SearchPageComponent implements OnInit {
 
   generateRoutineDetailsOfUser(userObj: any) {
     var arr = []
+    console.log(userObj)
     for (let id of userObj['routineids'])
       arr.push(this.getRoutineDetails(id));
     Promise.all(arr).then((resp) => {
       console.log("current user routines", resp);
       this.friendData = resp
       console.log(this.friendData);
-      
+
 
     }).catch((err) => {
       console.log(err)
