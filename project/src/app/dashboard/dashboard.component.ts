@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   public routines: any
 
   onSelect(id: any) {
-    this.router.navigate(['/dashboard', id])
+    this.router.navigate(['/dashboard', id]);
   }
 
   ngOnInit(): void {

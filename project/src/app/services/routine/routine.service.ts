@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { get_user_routines, get_routine_suggestions, subscribe_routine, unsubscribe_routine } from '../../config/serverurls';
+import { get_user_routines, get_routine_suggestions, subscribe_routine, get_routine_details, unsubscribe_routine } from '../../config/serverurls';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -19,5 +19,8 @@ export class RoutineService {
   }
   public unsubscribeRoutine(userid: any, routineid: any) {
     return this.http.delete<any>(unsubscribe_routine + '/' + userid + '/' + routineid);
+  }
+  public getRoutineDetails(routineId: any) {
+    return this.http.get<any>(get_routine_details + '/' + routineId);
   }
 }

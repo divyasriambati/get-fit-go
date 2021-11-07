@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { RoutineService } from '../services/routine/routine.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,9 +12,11 @@ export class SidebarComponent implements OnInit {
 
   public suggestions: any[] | undefined
 
-  constructor(public _dataService: DataService, private routineService: RoutineService) { }
+  constructor(public router: Router,public _dataService: DataService, private routineService: RoutineService) { }
 
-
+onSelect(id:any){
+  this.router.navigate(['/routine-details', id])
+}
 
   ngOnInit(): void {
     this.routineService.getRoutineSuggestions().subscribe(

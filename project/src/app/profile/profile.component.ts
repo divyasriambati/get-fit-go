@@ -16,8 +16,11 @@ export class ProfileComponent implements OnInit {
     public router: Router,
     private fb: FormBuilder,
     private userservice: UserService1
-  ) {
-  }
+  ) { }
+
+  public userDetails: any[] | undefined
+
+
   public name = this._userdata.currentuser;
   public coverPic = this._userdata.coverPic;
   profileForm = this.fb.group({
@@ -34,6 +37,7 @@ export class ProfileComponent implements OnInit {
   });
 
   userData = [];
+  userObj: any;
 
   onSubmit() {
     this._userdata.currentUser = this.profileForm.value;
@@ -44,6 +48,7 @@ export class ProfileComponent implements OnInit {
     this.userservice.getUserDetails().subscribe(
       (data) => {
         console.log("current user data", data.response);
+        this.userObj = data.response;
         this.loadFormData(data.response);
       },
       (err) => {

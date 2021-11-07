@@ -1,25 +1,28 @@
 <app-navbar></app-navbar>
 
+<div *ngFor="let detail of userDetails">
+  {{detail.firstname}}
+</div>
 
 <div class=" horizontal">
 
 <div class="profileContainer">
-    <div class="profileHeadContainer">
-      <div class="profileHeadBackgoundBox"></div>
+    <div  class="profileHeadContainer">
+      <!-- <div class="profileHeadBackgoundBox"></div> -->
       <div class="profileHeadContentContainer">
         <img *ngIf="this._userdata.coverPic == ''" src="../../assets/default_img.png" alt="profileImage" class="profileIcon" />
         <img *ngIf="this._userdata.coverPic != ''" src="{{coverPic}}" alt="profileImage" class="profileIcon">
 
         <div class="profileHeadContent">
           <div class="profileHeadContentHeader">
-            <div class="profileName">{{name}}</div>
+            <div class="profileName">{{userObj['firstname']}}</div>
             <!-- <div class="editPrfoileBtn">
               <img src="../../assets/edit.svg" alt="edit icon" class="editIcon" />
               <p class="editProfileText">Edit Profile</p>
             </div> -->
           </div>
           <div class="profileDescription inActive">
-            
+            {{userObj['description']}}
           </div>
         </div>
       </div>
