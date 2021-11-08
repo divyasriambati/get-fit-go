@@ -20,5 +20,7 @@
     
     
     <br><br>
-    <button type="submit" (click)="submit()">submit</button>
+    <button type="submit" (click)="submit()" *ngIf=!isEdit>submit</button>
+    <button type="submit" (click)="updateRoutine()" *ngIf=isEdit>update</button>
+
 </form>
