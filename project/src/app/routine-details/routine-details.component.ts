@@ -17,9 +17,12 @@ export class RoutineDetailsComponent implements OnInit {
 
   public routineDetailsList: any
   public isDataLoaded = false;
+  public userId: any;
   constructor(public _dataService: DataService, public route: ActivatedRoute, private routineService: RoutineService, public router: Router) { }
 
   ngOnInit(): void {
+    this.userId = localStorage.getItem('userid');
+    this.userId = this.userId.substring(1, this.userId.length - 1)
     this.routineId = this.route.snapshot.paramMap.get('id');
     this.routineService.getRoutineDetails(this.routineId).subscribe(
       (data) => {
@@ -34,7 +37,6 @@ export class RoutineDetailsComponent implements OnInit {
   checkeligibility() {
     let userid: any = localStorage.getItem('userid');
     userid = userid.substring(1, userid.length - 1);
-    console.log(userid, this.routineDetailsList['userids'])
     return (this.routineDetailsList['userids'].indexOf(userid) == -1 ? true : false);
   }
   subscribeRoutine(id: any) {
@@ -66,6 +68,9 @@ export class RoutineDetailsComponent implements OnInit {
         console.log(err);
       }
     )
+  }
+  editRoutine(routineid: any) {
+    this.router.navigate(['/routine/edit', routineid])
   }
 
 }

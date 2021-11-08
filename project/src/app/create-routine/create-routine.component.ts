@@ -145,6 +145,8 @@ export class CreateRoutineComponent implements OnInit {
     this.routineService.createRoutine(postObj).subscribe(
       (data) => {
         console.log(data);
+        this.router.navigate(['/dashboard']);
+
       },
       (err) => {
         console.log(err);
@@ -190,6 +192,7 @@ export class CreateRoutineComponent implements OnInit {
     this.routineService.updateRoutine(postObj).subscribe(
       (data) => {
         console.log(data);
+        this.router.navigate(['/dashboard']);
       },
       (err) => {
         console.log(err);

@@ -15,12 +15,15 @@
                         <div class="desc">{{routineDetailsList.duration}}</div>
                     </div>
                     <div>
-                        <button class="activeBtn primaryDarkBg primaryLight">Edit</button>
+                        <button class="activeBtn primaryDarkBg primaryLight"
+                            *ngIf="routineDetailsList['creatorid']==userId"
+                            (click)="editRoutine(routineDetailsList['routineid'])">Edit</button>
                     </div>
                 </div>
 
                 <div class="desc inActive">{{routineDetailsList.description}}</div>
-                <div><button class="activeBtn " style="background-color: lightgray;" *ngIf="!checkeligibility()"
+                <div *ngIf="!(routineDetailsList['creatorid']==userId)">
+                    <button class="activeBtn " style="background-color: lightgray;" *ngIf="!checkeligibility()"
                         (click)="unsubscribeRoutine(routineDetailsList.routineid)">unsubscribe</button>
                     <button class="activeBtn " style="background-color: lightgray;" *ngIf="checkeligibility()"
                         (click)="subscribeRoutine(routineDetailsList.routineid)">subscribe</button>
@@ -52,12 +55,12 @@
         <div class="horizontal section">
             <div *ngFor="let link of routineDetailsList.references ; let i=index" class="card primaryLightBg">
                 <a target="_blank" href="{{link.link}}" class="heading section links">
-                <div><img src="../../assets/img.jfif"></div>
+                    <div><img src="../../assets/img.jfif"></div>
                     <div>{{link.title}}</div>
                 </a>
                 <div class="subscribers inActive">100k Views</div>
             </div>
-        </div>  
+        </div>
 
         <!--     
     <div class="heading section">Add your Comment</div>

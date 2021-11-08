@@ -34,7 +34,7 @@
         <div class="horizontal routineList" *ngIf="isDataLoaded">
 
             <div class="cardSection horizontal secondaryLightBg">
-                <p *ngIf=!routines.length>doesn't subscribed for any routine please for subscribe for routine</p>
+                <p *ngIf=!routines.length>doesn't subscribed for any routine please for <a routerLink='/search-page'>subscribe  </a>for routine</p>
                 <div *ngFor="let routine of routines;let i as index | filter:filterTerm">
                     <!-- {{routine.description}} -->
                     <div class="card vertical primaryLightBg">

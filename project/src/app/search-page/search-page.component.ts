@@ -70,6 +70,7 @@ export class SearchPageComponent implements OnInit {
     this.routineService.subscribeRoutine(postObj).subscribe(
       (data) => {
         console.log(data);
+        this.router.navigate(['/dashboard']);
       }
       , (err) => {
         console.log(err);
