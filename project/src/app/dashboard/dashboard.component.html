@@ -56,7 +56,7 @@
                                 (click)=unsubscribeRoutine(routine.routineid,i)>Unsubscribe</button>
                             <button class="activeBtn"
                             *ngIf="routine.creatorid==getUserid()"
-                                (click)=deleteRoutine(routine.routineid)>delete</button>
+                                (click)=deleteRoutine(routine.routineid,i)>delete</button>
                         </div>
                     </div>
                 </div>
