@@ -18,8 +18,8 @@
 
         <!-- <img class="iconSize" src="../../assets/notifications.svg"> -->
         <div class="horizontal align">
-            <div><button class="searchBtn primaryDarkBg primaryLight">Dashboard</button></div>
-            <div><button class="searchBtn primaryDarkBg primaryLight">Search Routine</button></div>
+            <div><button class="searchBtn primaryDarkBg primaryLight" routerLink="/dashboard">Dashboard</button></div>
+            <div><button class="searchBtn primaryDarkBg primaryLight" routerLink="/search-page">Search Routine</button></div>
         
         <div routerLink="/profile" class="profileBtn horizontal secondaryLightBg">
             <img *ngIf="this._userdata.coverPic == ''" class="profile" src="../../assets/default_img.png">
