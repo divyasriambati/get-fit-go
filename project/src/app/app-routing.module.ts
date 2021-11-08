@@ -20,7 +20,9 @@ const routes: Routes = [
   { path: 'friendData/:id', component: SearchPageComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'add-routine', component: AddRoutineComponent },
-  { path: 'create-routine', component: CreateRoutineComponent }
+  { path: 'create-routine', component: CreateRoutineComponent },
+  { path: 'routine/edit/:id', component: CreateRoutineComponent }
+
 
 ];
 

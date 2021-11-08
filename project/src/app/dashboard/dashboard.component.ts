@@ -50,7 +50,7 @@ export class DashboardComponent implements OnInit {
       "routineid": routineid,//pass routine id
       "userid": localStorage.getItem('userid')
     }
-    this.routines.splice(index, 1);
+    this.routines.splice(this.routines.indexOf(index), 1);
     this.routineService.unsubscribeRoutine(postObj['userid'], postObj['routineid']).subscribe(
       (data) => {
         console.log(data);
@@ -60,6 +60,20 @@ export class DashboardComponent implements OnInit {
       }
     )
   }
-
+  getUserid() {
+    let userid: any = localStorage.getItem('userid');
+    return (userid.substring(1, userid.length - 1))
+  }
+  deleteRoutine(id: any, index: any) {
+    this.routines.splice(this.routines.indexOf(index), 1);
+    this.routineService.deleteRoutine(id).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
 
 }
