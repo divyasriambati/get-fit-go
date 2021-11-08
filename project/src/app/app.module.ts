@@ -34,8 +34,7 @@ import { DataService } from './data.service';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule,
-    Ng2SearchPipeModule
+    FormsModule,Ng2SearchPipeModule
 
   ],
   providers: [DataService],
