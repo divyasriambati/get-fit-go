@@ -16,7 +16,8 @@ export class DashboardComponent implements OnInit {
   public filterTerm: any;
 
 
-  constructor(private _dataService: DataService, public router: Router, public routineService: RoutineService) { }
+  constructor(private _dataService: DataService, public router: Router, public routineService: RoutineService) {
+   }
 
   // public isSubscribed = this._dataService.userData.
   public routines: any

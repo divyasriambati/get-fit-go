@@ -83,7 +83,8 @@ export class ProfileComponent implements OnInit {
     }
     this.userservice.updateUserDetails(postObj).subscribe(
       (data) => {
-        console.log(data)
+        console.log(data);
+        this.router.navigate(['/dashboard']);
       },
       (err) => {
         console.log(err)

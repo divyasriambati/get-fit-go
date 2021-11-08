@@ -108,9 +108,12 @@
     align-items: center;
     padding: 15px 25px;
     border-radius: 15px;
-    margin-right: 20px;
+    margin-right: 10px;
+    margin-left: 190px;
     min-width: 25%;
     width: 28%;
+    display: flex;
+    justify-content: center;
 }
 input{
     border: none;
