@@ -71,7 +71,7 @@ export class CreateRoutineComponent implements OnInit {
         },   
         { 
           "title": this.routineForm['value']['sbt2'],
-          "duration": this.routineForm['value']['sbd2']
+          "duration": this.routineForm['value']['sbd2'] 
         }
       ],
       references: [
