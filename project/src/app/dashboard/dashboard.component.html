@@ -54,6 +54,9 @@
                                 class="activeBtn primaryDarkBg primaryLight">More Details</button>
                             <button class="activeBtn"
                                 (click)=unsubscribeRoutine(routine.routineid,i)>Unsubscribe</button>
+                            <button class="activeBtn"
+                            *ngIf="routine.creatorid==getUserid()"
+                                (click)=deleteRoutine(routine.routineid)>delete</button>
                         </div>
                     </div>
                 </div>

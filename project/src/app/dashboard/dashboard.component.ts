@@ -60,6 +60,12 @@ export class DashboardComponent implements OnInit {
       }
     )
   }
-
+  getUserid() {
+    let userid: any = localStorage.getItem('userid');
+    return (userid.substring(1, userid.length - 1))
+  }
+  deleteRoutine(id:any){
+    console.log(id)
+  }
 
 }
