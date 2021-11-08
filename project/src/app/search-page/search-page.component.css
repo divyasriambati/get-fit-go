@@ -103,6 +103,7 @@ input{
       border-radius: 20px;
       width: 250px;
       height: 180px;
+      cursor: pointer;
   }
   .desc{
     font-size: 13px;
