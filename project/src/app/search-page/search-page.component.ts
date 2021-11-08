@@ -27,6 +27,7 @@ export class SearchPageComponent implements OnInit {
   onSelect(id: any) {
     this.router.navigate(['/routine-details', id])
   }
+  
   friendDetails(friend: any) {
     this.isTrue = true
     console.log(friend);
