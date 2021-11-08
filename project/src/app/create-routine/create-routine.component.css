@@ -1,0 +1,27 @@
+.mainCont{
+    padding: 20px ;
+    border-radius: 20px;
+    margin: 10px 10px 20px 30px;
+    width: 75vw;
+}
+.from-container{
+    margin-top: 30px;
+    /* width: 70%; */
+    margin-left: 5%;
+}
+.fieldnames{
+    font-size: 13px;
+    font-weight: 400;
+    font-family: poppins;
+    padding-bottom:10px;
+
+}
+input{
+    width: 100%;
+    padding: 15px 0px 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 1px solid lightgray;
+    margin-bottom: 10px;
+
+}

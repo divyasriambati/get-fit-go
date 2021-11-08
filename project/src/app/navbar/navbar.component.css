@@ -5,6 +5,9 @@
     align-items: center;
     padding-left:30px ;
     padding-right: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
      /* position: fixed;
      top: auto;
      left: auto; */
@@ -36,7 +39,7 @@
     padding: 8px;
     border: 1px solid lightgray;
     border-radius: 7px;
-    margin-left: 10px;
+    margin-left: 20px;
     align-items: center;
     cursor: pointer;
     
@@ -56,4 +59,39 @@
 }
 .dropdown{
     float: right;
+}
+.searchbar{
+    margin-left: 30px;
+    border-radius: 15px;
+
+}
+.searchType{
+    align-items: center;
+    padding: 15px 25px;
+    border-radius: 15px;
+    width: auto;
+}
+input{
+    border: none;
+    font-family: poppins;
+  
+    
+}
+.icon{
+    height: 15px;
+    width: 15px;
+    margin-right: 10px;
+}
+
+
+.searchBtn{
+    font-size: 14px;
+    font-weight: 500;
+    font-family: poppins;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 7px;
+    margin-left: 20px;
+    align-items: center;
+    cursor: pointer;
 }
