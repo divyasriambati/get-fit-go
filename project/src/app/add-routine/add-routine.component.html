@@ -1,0 +1,25 @@
+<!-- <p>add-routine works!</p> -->
+
+<div>
+    <form [formGroup]="routineForm" >
+        <div>
+            <div class="fieldnames">Routine Designer</div>
+            <input formControlName="routineDesigner" type="text" >
+        </div>
+        <div>
+            <div class="fieldnames">Routine Name</div>
+            <input formControlName="routineName" type="text" >
+        </div>
+        <div>
+            <div class="fieldnames">Duration</div>
+            <input formControlName="duration" type="text" >
+        </div>
+        <div>
+            <div class="fieldnames">Description</div>
+            <input formControlName="description" type="text" >
+        </div>
+
+        <button>Save</button>
+       
+    </form>
+</div>

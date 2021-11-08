@@ -16,20 +16,19 @@
 
             <div class="heading">Sign Up</div>
         <div class="text inActive">See your growth and get support!</div>
-        <button class="horizontal btn primaryLightBg">
+        <!-- <button class="horizontal btn primaryLightBg">
             <img class="icon" src="../../assets/google_icon.svg">
             <div class="sub-heading">Sign up with Google</div>
-        </button>
+        </button> -->
 
-        <div>
-            <!-- <div><img src="../../assets/Line.svg"></div> -->
+        <!-- <div>
             <div class="margin-text inActive">or Sign up with Email</div>
-        </div>
+        </div> -->
 
         <form [formGroup]="userForm" >
             <div>
                 <div class="fieldnames">Username*</div>
-                <input formControlName="username" type="text" placeholder="Enter Username">
+                <input formControlName="firstName" type="text" placeholder="Enter Username">
             </div>
             <div>
                 <div class="fieldnames">Email*</div>
@@ -40,7 +39,7 @@
                 <input formControlName="password" type="password" placeholder="Enter your Password">
             </div>
 
-            <button (click)="signup()" routerLink="/routine-details" class="loginBtn primaryDarkBg primaryLight">Signup</button>
+            <button type="button" (click)="signUp()"  class="loginBtn primaryDarkBg primaryLight">Signup</button>
 
             <div class="errorMsg" *ngIf ="alreadyUser">Already You have Account Please Login!</div>
         </form>

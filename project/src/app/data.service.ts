@@ -7,6 +7,10 @@ export class DataService {
 
   constructor() { }
 
+  public routineDetails:any[] | undefined
+  public recommendations:any[] | undefined
+  
+  
 
   
   public userData =[

@@ -1,8 +1,9 @@
 .sideNav{
     margin: 10px 30px 10px 10px;
     border-radius: 20px;
-    height: 97%;
+    height: 84vh;
     padding: 20px;
+    overflow: scroll;
 }
 
 .addBtn{

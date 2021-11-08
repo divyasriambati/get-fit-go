@@ -1,0 +1,123 @@
+
+
+<app-navbar></app-navbar>
+<div class="horizontal">
+    <div class="mainCont secondaryLightBg">
+
+        <div class="heading">Add Routine</div>
+
+        <form class="from-container" [formGroup]="routineForm">
+            <div>
+                <div class="fieldnames">Routine Name</div>
+                <input type="text" formControlName="title" placeholder="Enter routine name">
+            </div>
+            <div>
+                <div class="fieldnames">Routine Description</div>
+                <input type="text" formControlName="description" placeholder="Enter routine description">
+            </div>
+            <div>
+                <div class="fieldnames">Duration</div>
+                <input type="text" formControlName="duration" placeholder="Enter duration">
+            </div>
+
+            <div class="horizontal field-container">
+                <div>
+                    <div class="fieldnames">Subtask1 Name</div>
+                    <input type="text" formControlName="sbt1" placeholder="Enter subtask name">
+                </div>
+                <div>
+                    <div class="fieldnames">Subtask1 Duration</div>
+                    <input type="text" formControlName="sbd1" placeholder="Enter subtask duration">
+                </div>
+            </div>
+
+            <div class="horizontal field-container">
+                <div>
+                    <div class="fieldnames">Subtask2 Name</div>
+                    <input type="text" formControlName="sbt2" placeholder="Enter subtask name">
+                </div>
+                <div>
+                    <div class="fieldnames">Subtask2 Duration</div>
+                    <input type="text" formControlName="sbd2" placeholder="Enter subtask duration">
+                </div> 
+            </div>
+
+            <div class="horizontal field-container">
+                <div>
+                    <div class="fieldnames">Subtask3 Name</div>
+                    <input type="text" formControlName="sbt3" placeholder="Enter subtask name">
+                </div>
+                <div>
+                    <div class="fieldnames">Subtask3 Duration</div>
+                    <input type="text" formControlName="sbd3" placeholder="Enter subtask duration">
+                </div>
+            </div>
+
+            <div class="horizontal field-container">
+                <div>
+                    <div class="fieldnames">Reference1 Link</div>
+                    <input type="text" formControlName="rft1" placeholder="Enter reference link">
+                </div>
+                <div>
+                    <div class="fieldnames">Reference1 time</div>
+                    <input type="text" formControlName="rfl1" placeholder="Enter reference time">
+                </div>
+            </div>
+
+            <div class="horizontal field-container">
+                <div>
+                    <div class="fieldnames">Reference2 Link</div>
+                    <input type="text" formControlName="rft2" placeholder="Enter reference link">
+                </div>
+                <div>
+                    <div class="fieldnames">Reference2 time</div>
+                    <input type="text" formControlName="rfl2" placeholder="Enter reference time">
+                </div>
+            </div>
+
+            <div class="horizontal field-container">
+                <div>
+                    <div class="fieldnames">Reference3 Link</div>
+                    <input type="text" formControlName="rft3" placeholder="Enter reference link">
+                </div>
+                <div>
+                    <div class="fieldnames">Reference3 time</div>
+                    <input type="text" formControlName="rfl3" placeholder="Enter reference time">
+                </div>
+            </div>
+                
+
+            <div>
+                <button class="savebtn primaryDarkBg primaryLight" type="submit" (click)="submit()"  *ngIf=!isEdit>create</button>
+                <button class="savebtn primaryDarkBg primaryLight"  type="submit" (click)="updateRoutine()" *ngIf=isEdit>update</button>
+            </div>
+
+
+            <!-- <input type="text" formControlName="title"><br>
+            <input type="text" formControlName="description"><br>
+            <input type="text" formControlName="duration"><br>
+            <input type="text" formControlName="sbt1"><br>
+            <input type="text" formControlName="sbd1"><br>
+            <input type="text" formControlName="sbt2"><br>
+            <input type="text" formControlName="sbd2"><br>
+            <input type="text" formControlName="sbt3"><br>
+            <input type="text" formControlName="sbd3"><br>
+            <input type="text" formControlName="rft1"><br>
+            <input type="text" formControlName="rfl1"><br>
+            <input type="text" formControlName="rft2"><br>
+            <input type="text" formControlName="rfl2"><br>
+            <input type="text" formControlName="rft3"><br>
+            <input type="text" formControlName="rfl3"><br>
+
+            
+            
+            
+            
+            <br><br>
+            <button type="submit" (click)="submit()">submit</button> -->
+        </form>
+    </div>
+<div class="sideCont">
+    <app-sidebar></app-sidebar>
+</div>
+</div>

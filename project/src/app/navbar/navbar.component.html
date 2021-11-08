@@ -1,14 +1,26 @@
 <div class="navbar primaryLightBg horizontal">
 
-  
+        <div class="horizontal">
         <img class="logoSize" src="../../assets/logo.svg">
         <div>
             <span class="brandname_FirstLetter primaryDark">G</span><span class="brandname_LastLetter">et</span>
             <span class="brandname_FirstLetter primaryDark">F</span><span class="brandname_LastLetter">it</span>
             <span class="brandname_FirstLetter primaryDark">G</span><span class="brandname_LastLetter">o</span>
         </div>
+        <div class=" searchbar secondaryLightBg">
+        <div class="horizontal searchType secondaryLightBg">
+            <img class="icon" src="../../assets/search-solid.svg">
+            <input class="secondaryLightBg" type="text" placeholder="Search by Routine" [(ngModel)]="filterTerm">
 
-        <img class="iconSize" src="../../assets/notifications.svg">
+            <!-- <img class="dropdown inActive" src="../../assets/dropdown.svg"> -->
+        </div></div>
+    </div>
+
+        <!-- <img class="iconSize" src="../../assets/notifications.svg"> -->
+        <div class="horizontal align">
+            <div><button class="searchBtn primaryDarkBg primaryLight" routerLink="/dashboard">Dashboard</button></div>
+            <div><button class="searchBtn primaryDarkBg primaryLight" routerLink="/search-page">Search Routine</button></div>
+        
         <div routerLink="/profile" class="profileBtn horizontal secondaryLightBg">
             <img *ngIf="this._userdata.coverPic == ''" class="profile" src="../../assets/default_img.png">
             <img *ngIf="this._userdata.coverPic != ''" class="profile" src="{{coverPic}}">
@@ -16,6 +28,6 @@
             <div class="username">{{name}}</div>
             <img class="dropdown" src="../../assets/dropdown.svg">
         </div>
-    
+    </div>
 
 </div>

@@ -1,66 +1,68 @@
 <app-navbar></app-navbar>
 
-<div class=" horizontal">
+<div class=" horizontal" *ngIf="isDataLoaded">
 
-<div class="mainCont secondaryLightBg">
+    <div class="mainCont secondaryLightBg">
 
-    <!-- ROUTINE DETAILS  -->
+        <!-- ROUTINE DETAILS  -->
 
-    <div   class="horizontal">
-
-        <div><img class="image" src="{{this._dataService.userData[routineId].coverPic}}"></div>
-        <div class="vertical routineDetails">
-            <div class="horizontal row " >
-                <div>
-                    <div class="heading">{{this._dataService.userData[routineId].name}}</div>
-                    <div class="desc">{{this._dataService.userData[routineId].duration}}</div>
+        <div class="horizontal">
+            <div><img class="image" src="../../assets/img.jfif"></div>
+            <div class="vertical routineDetails">
+                <div class="horizontal row ">
+                    <div>
+                        <div class="heading">{{routineDetailsList.title}}</div>
+                        <div class="desc">{{routineDetailsList.duration}}</div>
+                    </div>
+                    <div>
+                        <button class="activeBtn primaryDarkBg primaryLight"
+                            *ngIf="routineDetailsList['creatorid']==userId"
+                            (click)="editRoutine(routineDetailsList['routineid'])">Edit</button>
+                    </div>
                 </div>
-                <div class="activeBtn primaryDarkBg primaryLight">
-                    <div class="heading">{{this._dataService.userData[routineId].subscribers}}</div>
-                    <div class="subscribers">Subscribers</div>
+
+                <div class="desc inActive">{{routineDetailsList.description}}</div>
+                <div *ngIf="!(routineDetailsList['creatorid']==userId)">
+                    <button class="activeBtn " style="background-color: lightgray;" *ngIf="!checkeligibility()"
+                        (click)="unsubscribeRoutine(routineDetailsList.routineid)">unsubscribe</button>
+                    <button class="activeBtn " style="background-color: lightgray;" *ngIf="checkeligibility()"
+                        (click)="subscribeRoutine(routineDetailsList.routineid)">subscribe</button>
                 </div>
             </div>
-            
-            <div class="desc inActive">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit
-                facilisis tellus commodo em ipsum dolor sit amet, consectetur adipiscing
-               elit. Nunc blandit facilisis  tellus, at commodo Lorem 
+        </div>
+
+        <!-- ROUTINE STRUCTURE  -->
+
+        <!-- <div class="heading section">Routine Designer : {{this._dataService.userData[routineId].routineDesigner}}</div> -->
+        <div class="desc">Set-1</div>
+
+        <div class="horizontal scroll">
+            <div *ngFor="let chip of routineDetailsList.subtasks">
+
+
+                <div class="chip primaryLightBg">
+                    <div class="structureName">{{chip.title}}</div>
+                    <div class="subscribers inActive">{{chip.duration}} min</div>
+                </div>
             </div>
-            <div><button (click)="Subscribe()" class="activeBtn " style="background-color: lightgray;">unsubscribe</button></div>
-         </div>
-    </div>
-
-    <!-- ROUTINE STRUCTURE  -->
-
-    <div class="heading section">Routine Designer : {{this._dataService.userData[routineId].routineDesigner}}</div>
-    <div class="desc">Set-1</div>
-
-    <div  class="horizontal scroll">
-    <div *ngFor = "let chip of this._dataService.userData[routineId].routineStructure," >
-    
-
-        <div class="chip primaryLightBg">
-            <div class="structureName">{{chip.activity}}</div>
-            <div class="subscribers inActive">{{chip.time}} min</div>
         </div>
-       </div>
-    </div>
 
-    <!-- YOUTUBE VIDEOS -->
+        <!-- YOUTUBE VIDEOS -->
 
-    
-    <div class="heading section">Youtube Videos</div>
 
-    <div class="horizontal section" >
-        <div *ngFor= "let link of this._dataService.userData[routineId].youtubeVideos" class="card primaryLightBg">
-            <div><img src="../../assets/img.jfif"></div>
-            <a target="_blank" href="{{link.link}}" class="heading section links">
-                <div>{{link.linkName}}</div>
-            </a>
-            <div class="subscribers inActive">100k Views</div>
+        <div class="heading section">Youtube Videos</div>
+
+        <div class="horizontal section">
+            <div *ngFor="let link of routineDetailsList.references ; let i=index" class="card primaryLightBg">
+                <a target="_blank" href="{{link.link}}" class="heading section links">
+                    <div><img src="../../assets/img.jfif"></div>
+                    <div>{{link.title}}</div>
+                </a>
+                <div class="subscribers inActive">100k Views</div>
+            </div>
         </div>
-    </div>
 
-    
+        <!--     
     <div class="heading section">Add your Comment</div>
 
     <div class="horizontal section commentSection ">
@@ -70,15 +72,13 @@
             <img class="smile" src="../../assets/smile.svg">
         </div>
         
+    </div> -->
+
+        <!-- COMMENT SECTION -->
+
+    </div>
+    <div class="sideCont">
+        <app-sidebar></app-sidebar>
     </div>
 
-    <!-- COMMENT SECTION -->
-
 </div>
-
-<div class="sideCont">
-    <app-sidebar ></app-sidebar>
-</div>
-
-</div>
-
