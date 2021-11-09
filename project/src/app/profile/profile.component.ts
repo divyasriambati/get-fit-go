@@ -84,7 +84,8 @@ export class ProfileComponent implements OnInit {
     this.userservice.updateUserDetails(postObj).subscribe(
       (data) => {
         console.log(data);
-        this.router.navigate(['/dashboard']);
+        //this.router.navigate(['/dashboard']);
+        location.reload();
       },
       (err) => {
         console.log(err)

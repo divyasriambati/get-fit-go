@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<p  class="no-routines" *ngIf=!routines.length>Doesn't subscribed for any routine please for  &nbsp; <a routerLink='/search-page'>subscribe  </a>&nbsp; for routine</p>
+<p  class="no-routines" *ngIf=!routines.length>No Subscriptions found. Click  &nbsp; <a routerLink='/search-page'>search  </a>&nbsp; to look for subscriptions</p>
 
 <div class=" horizontal" *ngIf=routines.length>
     <div class="mainCont">
@@ -65,13 +65,17 @@
             <!-- <img class="nextBtn" src="../../assets/arrow_btn.svg"> -->
 
         </div>
-
+        <div class="heading" style="width:600px; ">Calendar
+    
+            <ejs-calendar style="margin-left: 200px; " id=calendar [value]='value' [min]='minDate' [max]='maxDate'></ejs-calendar>
+        </div>
 
 
     </div>
-
+    <!--  -->
     <div class="sideCont">
         <app-sidebar></app-sidebar>
     </div>
+
 
 </div>
