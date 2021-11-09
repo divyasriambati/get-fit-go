@@ -12,6 +12,11 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 export class DashboardComponent implements OnInit {
 
 
+  public minDate: Date = new Date ("10/31/2021");
+    public maxDate: Date = new Date ("12/04/2021");
+    public value: Date = new Date ("11/08/2021");
+    
+    
   public routineList: any[] | undefined
   public filterTerm: any;
 

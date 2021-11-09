@@ -19,6 +19,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { DataService } from './data.service';
 import { AddRoutineComponent } from './add-routine/add-routine.component';
 import { CreateRoutineComponent } from './create-routine/create-routine.component';
+import {CalendarModule} from '@syncfusion/ej2-angular-calendars';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { CreateRoutineComponent } from './create-routine/create-routine.componen
     ReactiveFormsModule,
     FormsModule,
     Ng2SearchPipeModule,
-    HttpClientModule
+    HttpClientModule,CalendarModule
 
   ],
   providers: [DataService],
