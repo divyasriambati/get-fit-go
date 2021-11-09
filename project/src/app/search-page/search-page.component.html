@@ -16,7 +16,7 @@
 
             <div class="horizontal searchType primaryLightBg">
                 <img class="icon" src="../../assets/search-solid.svg">
-                <input type="text" placeholder="Search by Routine" [(ngModel)]="filterTerm">
+                <input type="text" placeholder="Search  Routine" [(ngModel)]="filterTerm">
 
                 <!-- <img class="dropdown inActive" src="../../assets/dropdown.svg"> -->
             </div>
@@ -112,7 +112,7 @@
 
         <div class="vertical">
 
-            <div class="heading section friendsList">Friends</div>
+            <div class="heading section friendsList">People</div>
             <div>
 
                 <div class="horizontal friendsList">
@@ -141,7 +141,7 @@
 
                         <div class="heading section">Subscribed Routines</div>
                         <div class="horizontal">
-                            <p *ngIf= "friendRoutines===undefined||!friendRoutines.length">doesnot subscribed for any routine</p>
+                            <p *ngIf= "friendRoutines===undefined||!friendRoutines.length">No subscribed routines</p>
                             <div *ngFor="let routine of friendRoutines"
                                 class="cardCont vertical primaryLightBg section">
                                 <div><img class="cardImg" src="../../assets/img.jfif"></div>
