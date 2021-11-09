@@ -14,10 +14,13 @@
                         <div class="heading">{{routineDetailsList.title}}</div>
                         <div class="desc">{{routineDetailsList.duration}}</div>
                     </div>
-                    <div>
+                    <div style="display: flex;flex-direction: row;">
                         <button class="activeBtn primaryDarkBg primaryLight"
                             *ngIf="routineDetailsList['creatorid']==userId"
                             (click)="editRoutine(routineDetailsList['routineid'])">Edit</button>
+                        <button class="activeBtn1 primaryDarkBg primaryLight"
+                            *ngIf="routineDetailsList['creatorid']==userId"
+                            (click)="deleteRoutine(routineDetailsList['routineid'])">delete</button>
                     </div>
                 </div>
 

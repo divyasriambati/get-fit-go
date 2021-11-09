@@ -26,7 +26,18 @@
     padding: 10px 20px;
     border-radius: 20px;
     cursor: pointer;
-    margin-left: 500px;
+    margin-left: 400px;
+  }
+  .activeBtn1{
+    font-size: 13px;
+    font-weight: 500;
+    font-family: poppins;
+    text-align: center;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
   }
   .desc{
     font-size: 13px;
