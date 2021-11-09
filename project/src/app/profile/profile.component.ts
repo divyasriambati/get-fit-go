@@ -72,7 +72,7 @@ export class ProfileComponent implements OnInit {
 
   updateProfile() {
     var postObj = {
-      userid: this.profileForm.value.email,//pass emailid
+      userid: localStorage.getItem('userid'),//pass emailid
       phonenumber: this.profileForm.value.phoneno,//pass phone number
       dateofbirth: this.profileForm.value.dob,//pass dob
       gender: this.profileForm.value.gender,//pass gender
