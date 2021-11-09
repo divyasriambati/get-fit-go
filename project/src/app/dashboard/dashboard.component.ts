@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { RoutineService } from '../services/routine/routine.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,14 +20,20 @@ export class DashboardComponent implements OnInit {
     
   public routineList: any[] | undefined
   public filterTerm: any;
+  public user:String='';
+
+  
 
 
-  constructor(private _dataService: DataService, public router: Router, public routineService: RoutineService) {
+  constructor(private _userService: UserService,private _dataService: DataService, public router: Router, public routineService: RoutineService) {
    }
 
   // public isSubscribed = this._dataService.userData.
   public routines: any
   public isDataLoaded = false;
+
+
+  
   onSelect(id: any) {
     this.router.navigate(['/dashboard', id]);
   }
