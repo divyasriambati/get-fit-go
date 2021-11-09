@@ -21,13 +21,13 @@ export class SearchPageComponent implements OnInit {
 
   public isTrue = false;
   public isRoutine = false;
-  public friendId: any
-
+  public friendId: any;
+  public friendFilter: any;
   public allRoutines: any[] | undefined
   onSelect(id: any) {
     this.router.navigate(['/routine-details', id])
   }
-  
+
   friendDetails(friend: any) {
     this.isTrue = true
     console.log(friend);
@@ -63,7 +63,7 @@ export class SearchPageComponent implements OnInit {
     return routineObj['userids'].indexOf(JSON.stringify(localStorage.get('userid')));
   }
 
-  subscribeRoutine(id:any) {
+  subscribeRoutine(id: any) {
     var postObj = {
       'userid': localStorage.getItem('userid'),
       'routineid': id//pass routine id
