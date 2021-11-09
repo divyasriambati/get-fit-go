@@ -72,5 +72,16 @@ export class RoutineDetailsComponent implements OnInit {
   editRoutine(routineid: any) {
     this.router.navigate(['/routine/edit', routineid])
   }
+  deleteRoutine(id: any) {
+    this.routineService.deleteRoutine(id).subscribe(
+      (data) => {
+        console.log(data);
+        this.router.navigate(['/dashboard']);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
 
 }
