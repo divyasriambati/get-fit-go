@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
+<p  class="no-routines" *ngIf=!routines.length>Doesn't subscribed for any routine please for  &nbsp; <a routerLink='/search-page'>subscribe  </a>&nbsp; for routine</p>
 
-<div class=" horizontal">
+<div class=" horizontal" *ngIf=routines.length>
     <div class="mainCont">
 
         <!-- <div class="searchBar horizontal section secondaryLightBg"> -->
@@ -29,12 +30,11 @@
 
         <!-- </div> -->
 
-        <div class="heading">Subscribed Routines</div>
+        <div class="heading"  >Subscribed Routines</div>
 
         <div class="horizontal routineList" *ngIf="isDataLoaded">
 
             <div class="cardSection horizontal secondaryLightBg">
-                <p *ngIf=!routines.length>doesn't subscribed for any routine please for <a routerLink='/search-page'>subscribe  </a>for routine</p>
                 <div *ngFor="let routine of routines;let i as index | filter:filterTerm">
                     <!-- {{routine.description}} -->
                     <div class="card vertical primaryLightBg">
