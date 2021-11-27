@@ -4,6 +4,7 @@ import { DataService } from '../data.service';
 import { RoutineService } from '../services/routine/routine.service';
 import { UserService1 } from '../services/user/user.service';
 import { Router } from '@angular/router';
+import { CommentsService } from '../services/comments/comments.service';
 
 @Component({
   selector: 'app-routine-details',
@@ -18,7 +19,7 @@ export class RoutineDetailsComponent implements OnInit {
   public routineDetailsList: any
   public isDataLoaded = false;
   public userId: any;
-  constructor(public _dataService: DataService, public route: ActivatedRoute, private routineService: RoutineService, public router: Router) { }
+  constructor(public _dataService: DataService, public route: ActivatedRoute, private routineService: RoutineService, public router: Router, public commentService: CommentsService) { }
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('userid');
@@ -28,6 +29,7 @@ export class RoutineDetailsComponent implements OnInit {
       (data) => {
         this.routineDetailsList = data.response;
         this.isDataLoaded = true;
+        this.loadComments(data.response);
       },
       (err) => {
         console.log(err);
@@ -83,5 +85,63 @@ export class RoutineDetailsComponent implements OnInit {
       }
     )
   }
+  public allComments: any = [];
+  async loadComments(routineObj: any) {
+    for (let id of routineObj['commentids']) {
+      this.allComments.push(await this.getComment(id));
+      console.log("*****comments****", this.allComments);
+    }
+  }
+  updatecomment(commentid: any, description: any) {
+    var postObj = {
+      "commentid": commentid,
+      "description": description
+    }
+    this.commentService.updateComment(postObj).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+  createComment() {
+    var postObj = {
+      "userid": localStorage.getItem('userid'),
+      "routineid": this.routineId,
+      "description": '',//pass the comment
+    }
+    this.commentService.createComment(postObj).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
 
+  deleteComment(commnetId: any) {
+    this.commentService.deleteComment(this.routineId, commnetId).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+  getComment(commentid: any) {
+    return new Promise((resolve, reject) => {
+      this.commentService.getComment(commentid).subscribe(
+        (data) => {
+          resolve(data.response);
+        },
+        (err) => {
+          reject(err);
+        }
+      )
+    })
+  }
 }

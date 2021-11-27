@@ -11,7 +11,7 @@
       <!-- <div class="profileHeadBackgoundBox"></div> -->
         <img *ngIf="this._userdata.coverPic == ''" src="../../assets/default_img.png" alt="profileImage" class="profileIcon" />
         <img *ngIf="this._userdata.coverPic != ''" src="{{coverPic}}" alt="profileImage" class="profileIcon">
-
+        <input type="file" (change)="selectimage($event)">
         <div class="profileHeadContent">
           <div class="profileHeadContentHeader">
             <div class="profileName">{{userObj['firstname']}}</div>

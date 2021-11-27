@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { UserService1 } from '../services/user/user.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class ProfileComponent implements OnInit {
     public _userdata: UserService,
     public router: Router,
     private fb: FormBuilder,
-    private userservice: UserService1
+    private userservice: UserService1,
+    private http: HttpClient
   ) { }
 
   public userDetails: any[] | undefined
@@ -106,6 +108,24 @@ export class ProfileComponent implements OnInit {
     )
   }
 
+  selectimage(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0]
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
+      }
+      reader.readAsDataURL(file);
+      const formdata = new FormData()
+      formdata.append('file', file);
+      formdata.append('userid',JSON.stringify(localStorage.getItem('userid')));
+      this.http.post<any>("http://localhost:3000/user/image-upload", formdata).subscribe(
+        (data) => {
+          console.log(data)
+        },
+        error => console.log(error)
+      )
+    }
+  }
 
 }
 
