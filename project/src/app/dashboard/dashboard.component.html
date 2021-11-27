@@ -1,9 +1,70 @@
 <app-navbar></app-navbar>
 <p  class="no-routines" *ngIf=!routines.length>No Subscriptions found. Click  &nbsp; <a routerLink='/search-page'>search  </a>&nbsp; to look for subscriptions</p>
 
+<button class="searchBtn primaryDarkBg primaryLight" (click)="openDialog()">open</button>
+
 <div class=" horizontal" *ngIf=routines.length>
     <div class="mainCont">
 
+
+
+        <carousel >
+            <div class="carousel-cell">
+                <div><img src="../../assets/img.jfif"></div>
+                <div>heading</div>
+                <div>content</div>
+                <button>click</button>
+            </div>
+            <div class="carousel-cell">
+               <div> <img src="../../assets/img.jfif"></div>
+                <div>heading</div>
+                <div>content</div>
+                <button>click</button>
+                </div>
+                <div class="carousel-cell">
+                    <div><img src="../../assets/img.jfif"></div>
+                    <div>heading</div>
+                    <div>content</div>
+                    <button>click</button>
+                </div>
+                <div class="carousel-cell">
+                   <div> <img src="../../assets/img.jfif"></div>
+                    <div>heading</div>
+                    <div>content</div>
+                    <button>click</button>
+                    </div>
+                    <div class="carousel-cell">
+                        <div><img src="../../assets/img.jfif"></div>
+                        <div>heading</div>
+                        <div>content</div>
+                        <button>click</button>
+                    </div>
+                    <div class="carousel-cell">
+                       <div> <img src="../../assets/img.jfif"></div>
+                        <div>heading</div>
+                        <div>content</div>
+                        <button>click</button>
+                        </div>
+                        <div class="carousel-cell">
+                            <div><img src="../../assets/img.jfif"></div>
+                            <div>heading</div>
+                            <div>content</div>
+                            <button>click</button>
+                        </div>
+                        <div class="carousel-cell">
+                           <div> <img src="../../assets/img.jfif"></div>
+                            <div>heading</div>
+                            <div>content</div>
+                            <button>click</button>
+                            </div>
+        </carousel>
+        
+
+        
+        <ng-image-slider [images]="imageObject" #nav>
+        </ng-image-slider>
+        
+       
         <!-- <div class="searchBar horizontal section secondaryLightBg"> -->
 
             <!-- <div class="horizontal searchType primaryLightBg">

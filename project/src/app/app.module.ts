@@ -21,6 +21,13 @@ import { AddRoutineComponent } from './add-routine/add-routine.component';
 import { CreateRoutineComponent } from './create-routine/create-routine.component';
 import {CalendarModule} from '@syncfusion/ej2-angular-calendars';
 
+import { NgImageSliderModule } from 'ng-image-slider';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatDialogModule} from '@angular/material/dialog';
+import { PopUpComponent } from './pop-up/pop-up.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,14 +41,23 @@ import {CalendarModule} from '@syncfusion/ej2-angular-calendars';
     SidebarComponent,
     AddRoutineComponent,
     CreateRoutineComponent,
+    PopUpComponent,
   ],
+  entryComponents:[PopUpComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     Ng2SearchPipeModule,
-    HttpClientModule,CalendarModule
+    HttpClientModule,CalendarModule,
+
+    NgImageSliderModule,
+    IvyCarouselModule,
+    
+    BrowserAnimationsModule,
+    MatDialogModule,
+    
 
   ],
   providers: [DataService],

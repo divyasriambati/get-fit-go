@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { RoutineService } from '../services/routine/routine.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UserService } from '../user.service';
+import { NgImageSliderComponent } from 'ng-image-slider';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { PopUpComponent } from '../pop-up/pop-up.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,10 +25,77 @@ export class DashboardComponent implements OnInit {
   public filterTerm: any;
   public user:String='';
 
-  
+  @ViewChild('nav') slider: NgImageSliderComponent | any;
+  imageObject: Array<object> = [{
+    image: '../../assets/img.jfif',
+    thumbImage: '../../assets/img.jfif',
+    alt: 'alt of image',
+    title: 'title of image'
+}, {
+    image: '../../assets/img.jfif', // Support base64 image
+    thumbImage: '../../assets/img.jfif', // Support base64 image
+    title: 'Image title', //Optional: You can use this key if want to show image with title
+    alt: 'Image alt', //Optional: You can use this key if want to show image with alt
+    order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
+}, {
+  image: '../../assets/img.jfif', // Support base64 image
+  thumbImage: '../../assets/img.jfif', // Support base64 image
+  title: 'Image title', //Optional: You can use this key if want to show image with title
+  alt: 'Image alt', //Optional: You can use this key if want to show image with alt
+  order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
+}, {
+  image: '../../assets/img.jfif', // Support base64 image
+  thumbImage: '../../assets/img.jfif', // Support base64 image
+  title: 'Image title', //Optional: You can use this key if want to show image with title
+  alt: 'Image alt', //Optional: You can use this key if want to show image with alt
+  order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
+}, {
+  image: '../../assets/img.jfif', // Support base64 image
+  thumbImage: '../../assets/img.jfif', // Support base64 image
+  title: 'Image title', //Optional: You can use this key if want to show image with title
+  alt: 'Image alt', //Optional: You can use this key if want to show image with alt
+  order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
+}, {
+  image: '../../assets/img.jfif', // Support base64 image
+  thumbImage: '../../assets/img.jfif', // Support base64 image
+  title: 'Image title', //Optional: You can use this key if want to show image with title
+  alt: 'Image alt', //Optional: You can use this key if want to show image with alt
+  order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
+}, {
+  image: '../../assets/img.jfif', // Support base64 image
+  thumbImage: '../../assets/img.jfif', // Support base64 image
+  title: 'Image title', //Optional: You can use this key if want to show image with title
+  alt: 'Image alt', //Optional: You can use this key if want to show image with alt
+  order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
+}, {
+  image: '../../assets/img.jfif', // Support base64 image
+  thumbImage: '../../assets/img.jfif', // Support base64 image
+  title: 'Image title', //Optional: You can use this key if want to show image with title
+  alt: 'Image alt', //Optional: You can use this key if want to show image with alt
+  order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
+}, {
+  image: '../../assets/img.jfif', // Support base64 image
+  thumbImage: '../../assets/img.jfif', // Support base64 image
+  title: 'Image title', //Optional: You can use this key if want to show image with title
+  alt: 'Image alt', //Optional: You can use this key if want to show image with alt
+  order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
+}
+];
+prevImageClick() {
+  this.slider.prev();
+}
+
+nextImageClick() {
+  this.slider.next();
+}
 
 
-  constructor(private _userService: UserService,private _dataService: DataService, public router: Router, public routineService: RoutineService) {
+
+  constructor(private _userService: UserService,private _dataService: DataService, public router: Router, public routineService: RoutineService,public dialog: MatDialog) {
+   }
+
+   openDialog(){
+     this.dialog.open(PopUpComponent);
    }
 
   // public isSubscribed = this._dataService.userData.
