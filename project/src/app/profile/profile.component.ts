@@ -118,7 +118,7 @@ export class ProfileComponent implements OnInit {
       const formdata = new FormData()
       formdata.append('file', file);
       formdata.append('userid',JSON.stringify(localStorage.getItem('userid')));
-      this.http.post<any>("http://localhost:3000/profile-image", formdata).subscribe(
+      this.http.post<any>("http://localhost:3000/user/image-upload", formdata).subscribe(
         (data) => {
           console.log(data)
         },
