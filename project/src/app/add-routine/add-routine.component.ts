@@ -27,8 +27,19 @@ export class AddRoutineComponent implements OnInit {
     description: [''],
     routineStructure:this.fb.array([]),
     youtubeVideos: this.fb.array([]),
+    
   });
+  routineStructure = this.routineForm.get("routineStructure") as FormArray;
 
+  addSubTask(){
+    const group = new FormGroup({
+      subTask: new FormControl(''),
+      duration: new FormControl('')
+    });
+
+    this.routineStructure.push(group);
+  }
+ 
   ngOnInit(): void {
   }
 
