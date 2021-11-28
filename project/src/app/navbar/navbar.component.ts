@@ -10,10 +10,14 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor( public _userdata : UserService , public router : Router) { }
+  constructor(public _userdata: UserService, public router: Router) {
+    this.username = localStorage.getItem('username');
+     this.username =  this.username.substring(1, this.username.length - 1);
+     console.log("username",this.username)
+  }
 
   public filterTerm: any;
-
+  public username: any;
   name = this._userdata.currentuser;
   coverPic = this._userdata.coverPic;
   ngOnInit(): void {
