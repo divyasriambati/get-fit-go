@@ -87,6 +87,7 @@ export class RoutineDetailsComponent implements OnInit {
   }
   public allComments: any = [];
   async loadComments(routineObj: any) {
+    console.log(routineObj)
     for (let id of routineObj['commentids']) {
       this.allComments.push(await this.getComment(id));
       console.log("*****comments****", this.allComments);
