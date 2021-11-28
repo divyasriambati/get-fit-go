@@ -9,8 +9,8 @@
 <div class="profileContainer">
     <div  class="profileHeadContainer">
       <!-- <div class="profileHeadBackgoundBox"></div> -->
-        <img *ngIf="this._userdata.coverPic == ''" src="../../assets/default_img.png" alt="profileImage" class="profileIcon" />
-        <img *ngIf="this._userdata.coverPic != ''" src="{{coverPic}}" alt="profileImage" class="profileIcon">
+        <img *ngIf="this.userObj.profilepicture == ''" src="../../assets/default_img.png" alt="profileImage" class="profileIcon" />
+        <img *ngIf="this.userObj.profilepicture != ''" src="{{userObj['profilepicture']}}" alt="profileImage" class="profileIcon">
         <input type="file" (change)="selectimage($event)">
         <div class="profileHeadContent">
           <div class="profileHeadContentHeader">

@@ -106,12 +106,14 @@ export class RoutineDetailsComponent implements OnInit {
       }
     )
   }
+  public currComment: any
   createComment() {
     var postObj = {
       "userid": localStorage.getItem('userid'),
       "routineid": this.routineId,
-      "description": '',//pass the comment
+      "description": this.currComment,//pass the comment
     }
+    
     this.commentService.createComment(postObj).subscribe(
       (data) => {
         console.log(data);
