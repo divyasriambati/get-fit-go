@@ -1,68 +1,11 @@
 <app-navbar></app-navbar>
 <p  class="no-routines" *ngIf=!routines.length>No Subscriptions found. Click  &nbsp; <a routerLink='/search-page'>search  </a>&nbsp; to look for subscriptions</p>
 
-<button class="searchBtn primaryDarkBg primaryLight" (click)="openDialog()">open</button>
+<!-- <button class="searchBtn primaryDarkBg primaryLight" (click)="openDialog()">open</button> -->
 
 <div class=" horizontal" *ngIf=routines.length>
     <div class="mainCont">
 
-
-
-        <carousel >
-            <div class="carousel-cell">
-                <div><img src="../../assets/img.jfif"></div>
-                <div>heading</div>
-                <div>content</div>
-                <button>click</button>
-            </div>
-            <div class="carousel-cell">
-               <div> <img src="../../assets/img.jfif"></div>
-                <div>heading</div>
-                <div>content</div>
-                <button>click</button>
-                </div>
-                <div class="carousel-cell">
-                    <div><img src="../../assets/img.jfif"></div>
-                    <div>heading</div>
-                    <div>content</div>
-                    <button>click</button>
-                </div>
-                <div class="carousel-cell">
-                   <div> <img src="../../assets/img.jfif"></div>
-                    <div>heading</div>
-                    <div>content</div>
-                    <button>click</button>
-                    </div>
-                    <div class="carousel-cell">
-                        <div><img src="../../assets/img.jfif"></div>
-                        <div>heading</div>
-                        <div>content</div>
-                        <button>click</button>
-                    </div>
-                    <div class="carousel-cell">
-                       <div> <img src="../../assets/img.jfif"></div>
-                        <div>heading</div>
-                        <div>content</div>
-                        <button>click</button>
-                        </div>
-                        <div class="carousel-cell">
-                            <div><img src="../../assets/img.jfif"></div>
-                            <div>heading</div>
-                            <div>content</div>
-                            <button>click</button>
-                        </div>
-                        <div class="carousel-cell">
-                           <div> <img src="../../assets/img.jfif"></div>
-                            <div>heading</div>
-                            <div>content</div>
-                            <button>click</button>
-                            </div>
-        </carousel>
-        
-
-        
-        <ng-image-slider [images]="imageObject" #nav>
-        </ng-image-slider>
         
        
         <!-- <div class="searchBar horizontal section secondaryLightBg"> -->
@@ -90,26 +33,46 @@
             </div> -->
 
         <!-- </div> -->
-        <div>    Welcome {{user}}</div>
+        <!-- <div>    Welcome {{user}}</div> -->
         <div class="heading"  >Subscribed Routines</div>
 
         <div class="horizontal routineList" *ngIf="isDataLoaded">
 
             <div class="cardSection horizontal secondaryLightBg">
-                <div *ngFor="let routine of routines;let i as index | filter:filterTerm">
-                    <!-- {{routine.description}} -->
+
+                <carousel>
+                    
+                        <div *ngFor="let routine of routines;let i as index | filter:filterTerm" class="carousel-cell" >
+                            <div >
+                            <div><img class="card-img" (click)=onSelect(routine.routineid) src="../../assets/img.jfif"></div>
+                            <div class="routineName" (click)=onSelect(routine.routineid)>{{routine.title}}</div>
+                            <div class="card-desc inActive">{{routine.description}}</div>
+                            <div class="btns">
+                                <button (click)=onSelect(routine.routineid) 
+                                    class="activeBtn primaryDarkBg primaryLight">More Details</button>
+                                <button class="activeBtn"
+                                    (click)=unsubscribeRoutine(routine.routineid,i)>Unsubscribe</button>
+                                <button class="activeBtn"
+                                *ngIf="routine.creatorid==getUserid()"
+                                    (click)=deleteRoutine(routine.routineid,i)>delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </carousel>
+
+                <!-- <div *ngFor="let routine of routines;let i as index | filter:filterTerm">
                     <div class="card vertical primaryLightBg">
 
                         <div><img class="card-img" (click)=onSelect(routine.routineid) src="../../assets/img.jfif"></div>
-                        <div class="routineName" (click)=onSelect(routine.routineid)>{{routine.title}}</div>
+                        <div class="routineName" (click)=onSelect(routine.routineid)>{{routine.title}}</div> -->
                         <!-- <div class="horizontal displayProgress">
                     <div class=" progress">
                         <div [style.width.%]="routine.progress" class="progress-bar " role="progressbar"></div>
                     </div>
                     <div class="days">{{routine.progress}}</div>
                 </div> -->
-                        <div class="card-desc inActive">{{routine.description}}</div>
                         <!-- <div class="subscribers inActive">{{routine.subscribers}} subscribers</div> -->
+                        <!-- <div class="card-desc inActive">{{routine.description}}</div>
                         <div class="btns">
                             <button (click)=onSelect(routine.routineid) 
                                 class="activeBtn primaryDarkBg primaryLight">More Details</button>
@@ -120,7 +83,7 @@
                                 (click)=deleteRoutine(routine.routineid,i)>delete</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <!-- <img class="nextBtn" src="../../assets/arrow_btn.svg"> -->
@@ -131,6 +94,12 @@
             <ejs-calendar style="margin-left: 200px; " id=calendar [value]='value' [min]='minDate' [max]='maxDate'></ejs-calendar>
         </div>
 
+        
+    <div>
+        <div class="heading" style="margin: 15px 0px;">Recommendations</div>
+        <ng-image-slider [images]="imageObject" #nav>
+        </ng-image-slider>
+    </div>
 
     </div>
     <!--  -->

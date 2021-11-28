@@ -28,6 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatDialogModule} from '@angular/material/dialog';
 import { PopUpComponent } from './pop-up/pop-up.component';
+import { SearchByRoutineComponent } from './search-by-routine/search-by-routine.component';
+import { SearchByFriendsComponent } from './search-by-friends/search-by-friends.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +44,8 @@ import { PopUpComponent } from './pop-up/pop-up.component';
     AddRoutineComponent,
     CreateRoutineComponent,
     PopUpComponent,
+    SearchByRoutineComponent,
+    SearchByFriendsComponent,
   ],
   entryComponents:[PopUpComponent],
   imports: [

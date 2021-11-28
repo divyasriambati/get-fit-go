@@ -21,6 +21,9 @@
     cursor: pointer;
     z-index: 2;
 }
+.carousel-cell{
+    height: auto;
+}
 .card{
     padding: 15px;
     border-radius: 10px;

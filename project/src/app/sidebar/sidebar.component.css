@@ -9,10 +9,11 @@
 .addBtn{
     font-size: 16px;
     font-weight: 500;
-    padding: 10px;
+    padding: 15px;
     border-radius: 20px;
     align-items: center;
     cursor: pointer;
+    text-align: center;
 }
 .addIcon{
     background-color: white;
@@ -24,7 +25,9 @@
     height: 20px;
     width: 20px;
 }
-
+.addRoutine{
+    text-align: center;
+}
 .heading{
   
     margin: 20px 0px;

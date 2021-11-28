@@ -27,59 +27,14 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild('nav') slider: NgImageSliderComponent | any;
   imageObject: Array<object> = [{
-    image: '../../assets/img.jfif',
-    thumbImage: '../../assets/img.jfif',
-    alt: 'alt of image',
-    title: 'title of image'
-}, {
-    image: '../../assets/img.jfif', // Support base64 image
-    thumbImage: '../../assets/img.jfif', // Support base64 image
-    title: 'Image title', //Optional: You can use this key if want to show image with title
-    alt: 'Image alt', //Optional: You can use this key if want to show image with alt
-    order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
-}, {
-  image: '../../assets/img.jfif', // Support base64 image
-  thumbImage: '../../assets/img.jfif', // Support base64 image
-  title: 'Image title', //Optional: You can use this key if want to show image with title
-  alt: 'Image alt', //Optional: You can use this key if want to show image with alt
-  order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
-}, {
-  image: '../../assets/img.jfif', // Support base64 image
-  thumbImage: '../../assets/img.jfif', // Support base64 image
-  title: 'Image title', //Optional: You can use this key if want to show image with title
-  alt: 'Image alt', //Optional: You can use this key if want to show image with alt
-  order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
-}, {
-  image: '../../assets/img.jfif', // Support base64 image
-  thumbImage: '../../assets/img.jfif', // Support base64 image
-  title: 'Image title', //Optional: You can use this key if want to show image with title
-  alt: 'Image alt', //Optional: You can use this key if want to show image with alt
-  order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
-}, {
-  image: '../../assets/img.jfif', // Support base64 image
-  thumbImage: '../../assets/img.jfif', // Support base64 image
-  title: 'Image title', //Optional: You can use this key if want to show image with title
-  alt: 'Image alt', //Optional: You can use this key if want to show image with alt
-  order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
-}, {
-  image: '../../assets/img.jfif', // Support base64 image
-  thumbImage: '../../assets/img.jfif', // Support base64 image
-  title: 'Image title', //Optional: You can use this key if want to show image with title
-  alt: 'Image alt', //Optional: You can use this key if want to show image with alt
-  order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
-}, {
-  image: '../../assets/img.jfif', // Support base64 image
-  thumbImage: '../../assets/img.jfif', // Support base64 image
-  title: 'Image title', //Optional: You can use this key if want to show image with title
-  alt: 'Image alt', //Optional: You can use this key if want to show image with alt
-  order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
-}, {
-  image: '../../assets/img.jfif', // Support base64 image
-  thumbImage: '../../assets/img.jfif', // Support base64 image
-  title: 'Image title', //Optional: You can use this key if want to show image with title
-  alt: 'Image alt', //Optional: You can use this key if want to show image with alt
-  order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
-}
+    video: 'https://youtu.be/6pxRHBw-k8M', // Youtube url
+    title: 'Image title'
+},
+{
+  video: 'assets/video/movie.mp4', // MP4 Video url
+  title: 'Image title'
+},
+
 ];
 prevImageClick() {
   this.slider.prev();

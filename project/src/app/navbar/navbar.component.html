@@ -19,15 +19,15 @@
     <!-- <img class="iconSize" src="../../assets/notifications.svg"> -->
     <div class="horizontal align">
         <div><button class="searchBtn primaryDarkBg primaryLight" *ngIf="router.url!='/dashboard'" routerLink="/dashboard">Dashboard</button></div>
-        <div><button class="searchBtn primaryDarkBg primaryLight" routerLink="/search-page">Search Routine</button>
+        <div><button class="searchBtn primaryDarkBg primaryLight" routerLink="/search-page">Search</button>
         </div>
 
         <div routerLink="/profile" class="profileBtn horizontal secondaryLightBg">
             <img *ngIf="this._userdata.coverPic == ''" class="profile" src="../../assets/default_img.png">
             <img *ngIf="this._userdata.coverPic != ''" class="profile" src="{{coverPic}}">
 
-            <!-- <div class="username">{{name}}</div>
-            <img class="dropdown" src="../../assets/dropdown.svg"> -->
+            <div class="username">{{name}}</div>
+            <img class="dropdown" src="../../assets/dropdown.svg">
         </div>
     </div>
 
