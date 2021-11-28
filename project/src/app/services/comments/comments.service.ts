@@ -9,6 +9,7 @@ export class CommentsService {
 
   constructor(private http: HttpClient) { }
   public getComment(commentid: any) {
+  
     return this.http.get<any>(get_comment + '/' + commentid);
   }
   public updateComment(postObj: any) {
