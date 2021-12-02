@@ -5,9 +5,9 @@ import { RoutineService } from '../services/routine/routine.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UserService } from '../user.service';
 import { NgImageSliderComponent } from 'ng-image-slider';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
-
+import { UserService1 } from '../services/user/user.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -16,49 +16,49 @@ import { PopUpComponent } from '../pop-up/pop-up.component';
 export class DashboardComponent implements OnInit {
 
 
-  public minDate: Date = new Date ("10/31/2021");
-    public maxDate: Date = new Date ("12/04/2021");
-    public value: Date = new Date ("11/08/2021");
-    
-    
+  public minDate: Date = new Date("10/31/2021");
+  public maxDate: Date = new Date("12/04/2021");
+  public value: Date = new Date("11/08/2021");
+
+
   public routineList: any[] | undefined
   public filterTerm: any;
-  public user:String='';
+  public user: String = '';
 
   @ViewChild('nav') slider: NgImageSliderComponent | any;
   imageObject: Array<object> = [{
     video: 'https://youtu.be/6pxRHBw-k8M', // Youtube url
     title: 'Image title'
-},
-{
-  video: 'assets/video/movie.mp4', // MP4 Video url
-  title: 'Image title'
-},
+  },
+  {
+    video: 'assets/video/movie.mp4', // MP4 Video url
+    title: 'Image title'
+  },
 
-];
-prevImageClick() {
-  this.slider.prev();
-}
+  ];
+  prevImageClick() {
+    this.slider.prev();
+  }
 
-nextImageClick() {
-  this.slider.next();
-}
+  nextImageClick() {
+    this.slider.next();
+  }
 
 
 
-  constructor(private _userService: UserService,private _dataService: DataService, public router: Router, public routineService: RoutineService,public dialog: MatDialog) {
-   }
+  constructor(private _userService: UserService, private _dataService: DataService, public router: Router, public routineService: RoutineService, public dialog: MatDialog, private userService: UserService1) {
+  }
 
-   openDialog(){
-     this.dialog.open(PopUpComponent);
-   }
+  openDialog() {
+    this.dialog.open(PopUpComponent);
+  }
 
   // public isSubscribed = this._dataService.userData.
   public routines: any
   public isDataLoaded = false;
 
 
-  
+
   onSelect(id: any) {
     this.router.navigate(['/dashboard', id]);
   }
@@ -114,4 +114,19 @@ nextImageClick() {
     )
   }
 
+  createCalendarEvent() {
+    var postObj = {
+      "userid": localStorage.getItem('userid'),
+      "routineids": [],//pass selected routine ids array
+      "date": "" //pass today date
+    }
+    this.userService.addCalendarEvent(postObj).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
 }

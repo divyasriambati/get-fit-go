@@ -17,3 +17,4 @@ export const get_comment = serverUrl + '/comments/get-comment';
 export const create_comment = serverUrl + '/comments/add-comment';
 export const update_comment = serverUrl + '/commnets/edit-commnet';
 export const delete_comment = serverUrl + '/comments/delete-comment';
+export const add_calendar_event = serverUrl + '/user/calendar';
