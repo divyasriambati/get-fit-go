@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
-<p  class="no-routines" *ngIf=!routines.length>No Subscriptions found. Click  &nbsp; <a routerLink='/search-page'>search  </a>&nbsp; to look for subscriptions</p>
+<p class="no-routines" *ngIf=!routines.length>No Subscriptions found. Click &nbsp; <a routerLink='/search-page'>search
+    </a>&nbsp; to look for subscriptions</p>
 
 <!-- <button class="searchBtn primaryDarkBg primaryLight" (click)="openDialog()">open</button> -->
 
@@ -34,31 +35,31 @@
 
         <!-- <div class="searchBar horizontal section secondaryLightBg"> -->
 
-            <!-- <div class="horizontal searchType primaryLightBg">
+        <!-- <div class="horizontal searchType primaryLightBg">
                 <img class="icon" src="../../assets/user.svg">
                 <input placeholder="Search by Friends">
                 <img class="dropdown inActive" src="../../assets/dropdown.svg">
             </div> -->
-<!-- 
+        <!-- 
             <div class="horizontal searchType primaryLightBg">
                 <img class="icon" src="../../assets/search-solid.svg">
                 <input placeholder="Search by Routine" [(ngModel)]="filterTerm">
                 <img class="dropdown inActive" src="../../assets/dropdown.svg"> -->
-            <!-- </div> -->
+        <!-- </div> -->
 
-            <!-- <div class="horizontal searchType primaryLightBg">
+        <!-- <div class="horizontal searchType primaryLightBg">
                 <img class="icon" src="../../assets/location.svg">
                 <input placeholder="Search by Location">
                 <img class="dropdown inActive" src="../../assets/dropdown.svg">
             </div> -->
 
-            <!-- <div>
+        <!-- <div>
                 <button routerLink="/search-page" class="searchBtn primaryDarkBg primaryLight">Search</button>
             </div> -->
 
         <!-- </div> -->
         <!-- <div>    Welcome {{user}}</div> -->
-        <div class="heading"  >Subscribed Routines</div>
+        <div class="heading">Subscribed Routines</div>
 
         
 
@@ -75,12 +76,11 @@
                            
                             <div class="card-desc inActive">{{routine.description}}</div>
                             <div class="btns">
-                                <button (click)=onSelect(routine.routineid) 
+                                <button (click)=onSelect(routine.routineid)
                                     class="activeBtn primaryDarkBg primaryLight">More Details</button>
                                 <button class="activeBtn"
                                     (click)=unsubscribeRoutine(routine.routineid,i)>Unsubscribe</button>
-                                <button class="activeBtn"
-                                *ngIf="routine.creatorid==getUserid()"
+                                <button class="activeBtn" *ngIf="routine.creatorid==getUserid()"
                                     (click)=deleteRoutine(routine.routineid,i)>delete</button>
                             </div>
                         </div>
@@ -116,18 +116,23 @@
             <!-- <img class="nextBtn" src="../../assets/arrow_btn.svg"> -->
 
        
-        <div class="heading" style="width:600px; ">Calendar
-    
-            <ejs-calendar style="margin-left: 200px; " id=calendar [value]='value' [min]='minDate' [max]='maxDate'></ejs-calendar>
+        <div class="heading" >Calendar</div>
+            <div class="horizontal">
+            <div><ejs-calendar style="margin:20px 100px; width:500px; " id=calendar [value]='value' [min]='minDate' [max]='maxDate'></ejs-calendar></div>
+            <div>
+                <div *ngFor="let routine of routines;let i as index">
+                    <mat-checkbox name="" id="" [(ngModel)]="routine.isChecked" (change)="changeSelection()" >{{routine.title}}</mat-checkbox>
+                </div>
+            </div>
         </div>
 
         
         
-    <div>
+    <!-- <div>
         <div class="heading" style="margin: 15px 0px;">Recommendations</div>
         <ng-image-slider [images]="imageObject" #nav>
         </ng-image-slider>
-    </div>
+    </div> -->
 
     </div>
     <!--  -->

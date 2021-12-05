@@ -31,6 +31,7 @@ import { PopUpComponent } from './pop-up/pop-up.component';
 import { SearchByRoutineComponent } from './search-by-routine/search-by-routine.component';
 import { SearchByFriendsComponent } from './search-by-friends/search-by-friends.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +64,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     
     BrowserAnimationsModule,
     MatDialogModule,
+    MatCheckboxModule,
     
 
   ],

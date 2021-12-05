@@ -117,11 +117,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     transition: .3s all ease;
 }
 .carousel-container .owl-next{
-    right: -98px;
+    right: -110px;
     transform: translate(-50% ,-50%);
 }
 .carousel-container .owl-prev{
-    left: -42px;
+    left: -55px;
     transform: translate(-50% ,-50%);
 }
 .carousel-container .owl-next:hover , .carousel-container .owl-prev:hover{
