@@ -88,7 +88,8 @@
                      
                   </owl-carousel-o>
                 </div>
-                <!-- <div *ngFor="let routine of routines;let i as index | filter:filterTerm">
+                
+            <!-- <div *ngFor="let routine of routines;let i as index | filter:filterTerm">
                     <div class="card vertical primaryLightBg">
 
                         <div><img class="card-img" (click)=onSelect(routine.routineid) src="../../assets/img.jfif"></div>
@@ -118,11 +119,12 @@
        
         <div class="heading" >Calendar</div>
             <div class="horizontal">
-            <div><ejs-calendar style="margin:20px 100px; width:500px; " id=calendar [value]='value' [min]='minDate' [max]='maxDate'></ejs-calendar></div>
+            <div><ejs-calendar style="margin:20px 100px; width:500px; " id=calendar [value]='currentDate' [min]='minDate' [max]='maxDate'></ejs-calendar></div>
             <div>
                 <div *ngFor="let routine of routines;let i as index">
                     <mat-checkbox name="" id="" [(ngModel)]="routine.isChecked" (change)="changeSelection()" >{{routine.title}}</mat-checkbox>
                 </div>
+                <button class="activeBtn primaryDarkBg primaryLight" (click)="createCalendarEvent()"> Save</button>
             </div>
         </div>
 

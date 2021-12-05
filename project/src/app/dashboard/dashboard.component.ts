@@ -8,7 +8,6 @@ import { NgImageSliderComponent } from 'ng-image-slider';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-
 import { UserService1 } from '../services/user/user.service';
 @Component({
   selector: 'app-dashboard',
@@ -43,17 +42,17 @@ export class DashboardComponent implements OnInit {
   }
 
   public minDate: Date = new Date("10/31/2021");
-  public maxDate: Date = new Date("12/04/2021");
-  public value: Date = new Date("11/08/2021");
+  public maxDate: Date = new Date();
+  public currentDate: Date = new Date();
 
   public selectedItemsList :[] | undefined;
   public checkedIDs = [] as any;
   changeSelection() {
-    this.fetchCheckedIDs()
+    this.fetchCheckedIds()
   }
 
 
-  fetchCheckedIDs() {
+  fetchCheckedIds() {
     this.checkedIDs = []
     this.routines.forEach((value: { isChecked: any; routineid: any; }, index: any) => {
       if (value.isChecked) {
@@ -162,7 +161,7 @@ export class DashboardComponent implements OnInit {
     var postObj = {
       "userid": localStorage.getItem('userid'),
       "routineids":this.checkedIDs,//pass selected routine ids array
-      "date": "" //pass today date
+      "date": this.currentDate //pass today date
     }
     this.userService.addCalendarEvent(postObj).subscribe(
       (data) => {

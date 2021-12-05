@@ -4,8 +4,7 @@ import { DataService } from '../data.service';
 import { RoutineService } from '../services/routine/routine.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UserService1 } from '../services/user/user.service';
-
-
+import { SearchPageService } from '../services/search-page/search-page.service';
 @Component({
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
@@ -17,7 +16,10 @@ export class SearchPageComponent implements OnInit {
   public friendsData: any[] | undefined
   public filterTerm: any;
 
-  constructor(private userService: UserService1, public _dataService: DataService, public router: Router, public route: ActivatedRoute, public routineService: RoutineService) { }
+  constructor(private userService: UserService1, public _dataService: DataService, public router: Router, public route: ActivatedRoute,
+    public routineService: RoutineService, public searchService: SearchPageService) {
+    this.getLocations();
+  }
 
   public isTrue = false;
   public isRoutine = false;
@@ -132,5 +134,34 @@ export class SearchPageComponent implements OnInit {
       )
     })
   }
+
+
+  // search-by-location functions
+  getLocations() {
+    this.searchService.getLocations().subscribe(
+      (data) => {
+        console.log("locations data", data.response);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+
+  getRoutinesByLocation() {
+    var postObj = {
+      "userid": localStorage.getItem('userid'),
+      "location": ""//pass location
+    }
+    this.searchService.getRoutinesOfLocation(postObj).subscribe(
+      (data) => {
+        console.log("location wise routines", data);
+      },
+      (err) => {
+        console.log(err)
+      }
+    )
+  }
+
 
 }
