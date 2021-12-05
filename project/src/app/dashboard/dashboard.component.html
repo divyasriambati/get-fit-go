@@ -3,11 +3,35 @@
 
 <!-- <button class="searchBtn primaryDarkBg primaryLight" (click)="openDialog()">open</button> -->
 
+
+
+
 <div class=" horizontal" *ngIf=routines.length>
     <div class="mainCont">
 
         
-       
+        <!-- <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let routine of routines;let i as index | filter:filterTerm" class="carousel-cell " >
+                <div class="card vertical primaryLightBg">
+
+                    <div><img class="card-img" (click)=onSelect(routine.routineid) src="../../assets/img.jfif"></div>
+                    <div class="routineName" (click)=onSelect(routine.routineid)>{{routine.title}}</div>
+                   
+                    <div class="card-desc inActive">{{routine.description}}</div>
+                    <div class="btns">
+                        <button (click)=onSelect(routine.routineid) 
+                            class="activeBtn primaryDarkBg primaryLight">More Details</button>
+                        <button class="activeBtn"
+                            (click)=unsubscribeRoutine(routine.routineid,i)>Unsubscribe</button>
+                        <button class="activeBtn"
+                        *ngIf="routine.creatorid==getUserid()"
+                            (click)=deleteRoutine(routine.routineid,i)>delete</button>
+                    </div>
+                </div>
+            </ng-template>  
+             
+          </owl-carousel-o> -->
+
         <!-- <div class="searchBar horizontal section secondaryLightBg"> -->
 
             <!-- <div class="horizontal searchType primaryLightBg">
@@ -36,16 +60,19 @@
         <!-- <div>    Welcome {{user}}</div> -->
         <div class="heading"  >Subscribed Routines</div>
 
-        <div class="horizontal routineList" *ngIf="isDataLoaded">
+        
 
-            <div class="cardSection horizontal secondaryLightBg">
+           
 
-                <!-- <carousel>
-                    
-                        <div *ngFor="let routine of routines;let i as index | filter:filterTerm" class="carousel-cell" >
-                            <div >
+            
+            <div class="carousel-container">
+                <owl-carousel-o [options]="customOptions" class="horizontal routineList secondaryLightBg " *ngIf="isDataLoaded">
+                    <ng-template carouselSlide *ngFor="let routine of routines;let i as index | filter:filterTerm" class="carousel-cell " >
+                        <div class="card vertical primaryLightBg">
+        
                             <div><img class="card-img" (click)=onSelect(routine.routineid) src="../../assets/img.jfif"></div>
                             <div class="routineName" (click)=onSelect(routine.routineid)>{{routine.title}}</div>
+                           
                             <div class="card-desc inActive">{{routine.description}}</div>
                             <div class="btns">
                                 <button (click)=onSelect(routine.routineid) 
@@ -57,10 +84,11 @@
                                     (click)=deleteRoutine(routine.routineid,i)>delete</button>
                             </div>
                         </div>
-                    </div>
-                </carousel> -->
-
-                <div *ngFor="let routine of routines;let i as index | filter:filterTerm">
+                    </ng-template>  
+                     
+                  </owl-carousel-o>
+                </div>
+                <!-- <div *ngFor="let routine of routines;let i as index | filter:filterTerm">
                     <div class="card vertical primaryLightBg">
 
                         <div><img class="card-img" (click)=onSelect(routine.routineid) src="../../assets/img.jfif"></div>
@@ -71,7 +99,7 @@
                     </div>
                     <div class="days">{{routine.progress}}</div>
                 </div> -->
-                        <!-- <div class="subscribers inActive">{{routine.subscribers}} subscribers</div> -->
+                        <!-- <div class="subscribers inActive">{{routine.subscribers}} subscribers</div> 
                         <div class="card-desc inActive">{{routine.description}}</div>
                         <div class="btns">
                             <button (click)=onSelect(routine.routineid) 
@@ -83,17 +111,17 @@
                                 (click)=deleteRoutine(routine.routineid,i)>delete</button>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> -->
 
             <!-- <img class="nextBtn" src="../../assets/arrow_btn.svg"> -->
 
-        </div>
+       
         <div class="heading" style="width:600px; ">Calendar
     
             <ejs-calendar style="margin-left: 200px; " id=calendar [value]='value' [min]='minDate' [max]='maxDate'></ejs-calendar>
         </div>
 
+        
         
     <div>
         <div class="heading" style="margin: 15px 0px;">Recommendations</div>

@@ -7,6 +7,7 @@ import { UserService } from '../user.service';
 import { NgImageSliderComponent } from 'ng-image-slider';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,6 +16,30 @@ import { PopUpComponent } from '../pop-up/pop-up.component';
 })
 export class DashboardComponent implements OnInit {
 
+  customOptions: OwlOptions = {
+    loop: false,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    navSpeed: 700,
+    navText: ['<i class="fa fa-caret-left"></i>', '<i class="fa fa-caret-right" ></i>'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 2
+      },
+      940: {
+        items: 3
+      }
+    },
+    nav: true
+  }
 
   public minDate: Date = new Date ("10/31/2021");
     public maxDate: Date = new Date ("12/04/2021");

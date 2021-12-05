@@ -5,6 +5,7 @@
 }
 .routineList{
     align-items: center;
+    padding: 30px 40px;
 }
 .cardSection{
     padding: 20px;
@@ -152,6 +153,10 @@ text-align: center;
 margin-top: 15%;
 }
 
-
+.carousel{
+width: auto;
+background-color: white;
+margin-right: 15px;
+}
 
   

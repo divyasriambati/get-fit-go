@@ -5,6 +5,8 @@ import { RoutineService } from '../services/routine/routine.service';
 import { UserService1 } from '../services/user/user.service';
 import { Router } from '@angular/router';
 import { CommentsService } from '../services/comments/comments.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { PopUpComponent } from '../pop-up/pop-up.component';
 
 @Component({
   selector: 'app-routine-details',
@@ -19,7 +21,12 @@ export class RoutineDetailsComponent implements OnInit {
   public routineDetailsList: any
   public isDataLoaded = false;
   public userId: any;
-  constructor(public _dataService: DataService, public route: ActivatedRoute, private routineService: RoutineService, public router: Router, public commentService: CommentsService) { }
+  constructor(public _dataService: DataService, public route: ActivatedRoute, private routineService: RoutineService, public router: Router, public commentService: CommentsService,public dialog: MatDialog) { }
+
+  openDialog(currLink :any){
+    this.dialog.open(PopUpComponent , {data :{link : currLink}});
+  }
+
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('userid');
@@ -108,13 +115,15 @@ export class RoutineDetailsComponent implements OnInit {
     )
   }
   public currComment: any
+  public commentarr : any = [];
   createComment() {
+    console.log(this.commentarr, "array");
+    
     var postObj = {
       "userid": localStorage.getItem('userid'),
       "routineid": this.routineId,
       "description": this.currComment,//pass the comment
     }
-    
     this.commentService.createComment(postObj).subscribe(
       (data) => {
         console.log(data);
@@ -123,6 +132,7 @@ export class RoutineDetailsComponent implements OnInit {
         console.log(err);
       }
     )
+    window.location.reload();
   }
 
   deleteComment(commnetId: any) {
@@ -134,6 +144,7 @@ export class RoutineDetailsComponent implements OnInit {
         console.log(err);
       }
     )
+    window.location.reload();
   }
   getComment(commentid: any) {
     return new Promise((resolve, reject) => {
