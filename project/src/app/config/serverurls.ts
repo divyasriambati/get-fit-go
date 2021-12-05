@@ -19,3 +19,4 @@ export const update_comment = serverUrl + '/commnets/edit-commnet';
 export const delete_comment = serverUrl + '/comments/delete-comment';
 export const search_get_locations = serverUrl + '/search/get-locations';
 export const location_get_routines = serverUrl + '/search/get-routines';
+export const add_calendar_event = serverUrl + '/user/calendar';
