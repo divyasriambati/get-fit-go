@@ -4,6 +4,7 @@ import { DataService } from '../data.service';
 import { RoutineService } from '../services/routine/routine.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UserService1 } from '../services/user/user.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-search-by-friends',
@@ -11,7 +12,30 @@ import { UserService1 } from '../services/user/user.service';
   styleUrls: ['./search-by-friends.component.css']
 })
 export class SearchByFriendsComponent implements OnInit {
-
+  customOptions: OwlOptions = {
+    loop: false,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    navSpeed: 700,
+    navText: ['<i class="fa fa-caret-left"></i>', '<i class="fa fa-caret-right" ></i>'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 2
+      },
+      940: {
+        items: 3
+      }
+    },
+    nav: true
+  }
   public routines: any[] | undefined
   public friendsData: any[] | undefined
   public filterTerm: any;

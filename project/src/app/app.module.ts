@@ -32,6 +32,9 @@ import { SearchByRoutineComponent } from './search-by-routine/search-by-routine.
 import { SearchByFriendsComponent } from './search-by-friends/search-by-friends.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +68,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     BrowserAnimationsModule,
     MatDialogModule,
     MatCheckboxModule,
-    
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
 
   ],
   providers: [DataService],

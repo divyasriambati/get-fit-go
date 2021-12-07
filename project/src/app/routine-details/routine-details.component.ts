@@ -7,13 +7,37 @@ import { Router } from '@angular/router';
 import { CommentsService } from '../services/comments/comments.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
-
+import { OwlOptions } from 'ngx-owl-carousel-o';
 @Component({
   selector: 'app-routine-details',
   templateUrl: './routine-details.component.html',
   styleUrls: ['./routine-details.component.css']
 })
 export class RoutineDetailsComponent implements OnInit {
+  customOptions: OwlOptions = {
+    loop: false,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    navSpeed: 700,
+    navText: ['<i class="fa fa-caret-left"></i>', '<i class="fa fa-caret-right" ></i>'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 2
+      },
+      940: {
+        items: 3
+      }
+    },
+    nav: true
+  }
 
 
   public routineId: any

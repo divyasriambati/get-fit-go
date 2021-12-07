@@ -4,7 +4,6 @@
     <div>
 
         <div class="horizontal friendsList">
-
             <div class="cardSection horizontal secondaryLightBg">
                 <div *ngFor="let friend of allFriends | filter:friendFilter" class="card vertical primaryLightBg">
                     <div><img class="card-img" src="../../assets/profile.svg"></div>
@@ -30,6 +29,8 @@
                 <div class="heading section">Subscribed Routines</div>
                 <div class="horizontal">
                     <p *ngIf= "friendRoutines===undefined||!friendRoutines.length">No subscribed routines</p>
+
+                   
                     <div *ngFor="let routine of friendRoutines"
                         class="cardCont vertical primaryLightBg section">
                         <div><img class="cardImg" src="../../assets/img.jfif"></div>

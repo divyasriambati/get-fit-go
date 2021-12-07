@@ -55,7 +55,24 @@
 
         <div class="heading section">Youtube Videos</div>
 
-        <div class="horizontal section">
+        <div class="carousel-container">
+            <owl-carousel-o [options]="customOptions" class="horizontal routineList secondaryLightBg " >
+                <ng-template carouselSlide *ngFor="let link of routineDetailsList.references ; let i=index" class="carousel-cell " >
+                    <div class="card vertical primaryLightBg">
+    
+                         <a 
+                        class="heading section links">
+                           <div (click)="openDialog(link.link)"><img src="../../assets/img.jfif"></div>
+                           <div style="margin-top: 15px;" (click)="openDialog(link.link)">{{link.title}}</div>
+                       </a>
+                       <div class="subscribers inActive">100k Views</div>
+                    </div>
+                </ng-template>  
+                 
+              </owl-carousel-o>
+            </div>
+
+        <!-- <div class="horizontal section">
             <div *ngFor="let link of routineDetailsList.references ; let i=index" class="card primaryLightBg">
                 <a 
                  class="heading section links">
@@ -64,7 +81,7 @@
                 </a>
                 <div class="subscribers inActive">100k Views</div>
             </div>
-        </div>
+        </div> -->
 
         <!--     
     <div class="heading section">Add your Comment</div>

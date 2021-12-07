@@ -5,13 +5,24 @@ import { RoutineService } from '../services/routine/routine.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UserService1 } from '../services/user/user.service';
 import { SearchPageService } from '../services/search-page/search-page.service';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+
+export interface User {
+  name: string;
+}
+
 @Component({
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
   styleUrls: ['./search-page.component.css']
 })
+
 export class SearchPageComponent implements OnInit {
 
+  
+  
   public routines: any[] | undefined
   public friendsData: any[] | undefined
   public filterTerm: any;
@@ -38,7 +49,17 @@ export class SearchPageComponent implements OnInit {
   }
 
 
+
+  
+
+
   ngOnInit(): void {
+
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value)),
+    );
+
     this.routines = this._dataService.userData
     this.friendsData = this._dataService.friendsDetails
     if (this.router.url != "/search-page") {
@@ -50,6 +71,9 @@ export class SearchPageComponent implements OnInit {
     this.getFriends();
 
   }
+
+  
+
   getRoutines() {
     this.routineService.getRoutineSuggestions().subscribe(
       (data) => {
@@ -136,11 +160,24 @@ export class SearchPageComponent implements OnInit {
   }
 
 
+  myControl = new FormControl();
+  options: string[] = [];
+  filteredOptions: Observable<string[]> | undefined;
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+
   // search-by-location functions
+
   getLocations() {
     this.searchService.getLocations().subscribe(
       (data) => {
         console.log("locations data", data.response);
+        this.options = data.response
       },
       (err) => {
         console.log(err);
