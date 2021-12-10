@@ -2,61 +2,20 @@
 <div class="horizontal">
     <div class="main">
 
-        <div class="youtube-search searchBar secondaryLightBg ">
-            <div>
-            <div style="display: flex;justify-content: space-between;align-items: center;">
-                <div class="heading">Youtube Videos Search</div>
-                <div class="horizontal searchType primaryLightBg">
-
-                    <input type="text" placeholder="search videos" [(ngModel)]="searchValue">
-                    <button type="button" class="seachBtn"><img style="height: 20px;width: 20px;" (click)=" getYouTubeVideos(searchValue)" class="icon"
-                            src="../../assets/search-solid.svg"></button>
-                </div>
-            </div>
-
-             <div class="carousel-container">
-                    <owl-carousel-o [options]="customOptions" class="horizontal cardsList secondaryLightBg " >
-                        <ng-template carouselSlide *ngFor="let video of youtubeData" class="carousel-cell " >
-                            <div class="youtubeCard vertical primaryLightBg">
-                                <div><img class="youtubeCardImg " (click)="openDialog(video['id']['videoId'])" src="{{video['snippet']['thumbnails']['default']['url']}}" alt="image not found"></div>
-                                <div class="videoName" (click)="openDialog(video['id']['videoId'])">{{video['snippet']['title']}}</div>
-                               
-                            </div>
-                        </ng-template>  
-                         
-                      </owl-carousel-o>
-                    </div>
-
-                <!-- <div>
-                    <div *ngFor="let video of youtubeData">
-                        <!-- {{video['snippet']['thumbnails'][0]}}<br> --
-                        <h6>video id</h6>
-                        {{video['id']['videoId']}}<br>
-                        <h5>title</h5>
-                        {{video['snippet']['title']}}<br>
-                        <img src="{{video['snippet']['thumbnails']['default']['url']}}" alt="image not found">
-                    </div>
-                </div> -->
-
-            </div>
-
-        </div>
-
+       
         <!-- SEARCH FILTERS  -->
 
-        <div class="searchBar horizontal secondaryLightBg">
+        <!-- <div class="searchBar horizontal secondaryLightBg">
 
             <div class="horizontal searchType primaryLightBg">
                 <img class="icon" style="margin-left: 15px;" src="../../assets/user.svg">
                 <input type="text" placeholder="search people" [(ngModel)]="friendFilter">
-                <!-- <img class="dropdown inActive" src="../../assets/dropdown.svg"> -->
             </div>
 
             <div class="horizontal searchType primaryLightBg">
                 <img class="icon" style="margin-left: 15px;" src="../../assets/search-solid.svg">
                 <input type="text" placeholder="search routine" [(ngModel)]="filterTerm">
 
-                <!-- <img class="dropdown inActive" src="../../assets/dropdown.svg"> -->
             </div>
 
             <div>
@@ -74,7 +33,7 @@
                     </mat-form-field>
                 </form>
             </div>
-        </div>
+        </div> -->
 
         <!-- <div class="horizontal searchType primaryLightBg">
         <img class="icon" src="../../assets/location.svg">
@@ -95,9 +54,16 @@
 
         <!-- <app-search-by-routine></app-search-by-routine> -->
 
+        <div class="secondaryLightBg" style="margin: 30px 20px 0px 30px; border-radius: 20px;padding-top: 30px;">
+            <div style="display: flex;justify-content: space-between;align-items: center;margin-left: 50px;">
+                <div class="heading"> Search Routines</div>
+                <div class="horizontal searchType primaryLightBg" style="padding: 15px;margin-right: 30px;">
+                    <img class="icon" style="margin-left: 15px;" src="../../assets/search-solid.svg">
+                    <input type="text"  placeholder="search routine" [(ngModel)]="filterTerm">
+                </div>
+            </div>
+
         <div class="carousel-container">
-            
-            <div class="heading">Routines</div>
 
             <owl-carousel-o [options]="customOptions1" class="horizontal searchBar cardSection secondaryLightBg " >
                 <ng-template carouselSlide *ngFor="let routine of allRoutines;let i as index | filter:this.searchService.routineFilter" class="carousel-cell " >
@@ -119,6 +85,8 @@
                  
               </owl-carousel-o>
             </div>
+            </div>
+
 
         <!-- <div class="horizontal friendsList">
             <div class="cardSection horizontal secondaryLightBg">
@@ -155,7 +123,7 @@
                 <div class="horizontal searchType primaryLightBg">
 
                     <input type="text" placeholder="search people" [(ngModel)]="searchValue">
-                    <button type="button" class="seachBtn"><img style="height: 20px;width: 20px;" (click)=" getYouTubeVideos(searchValue)" class="icon"
+                    <button type="button" class="seachBtn"><img style="height: 20px;width: 20px;cursor: pointer;" (click)=" getYouTubeVideos(searchValue)" class="icon"
                             src="../../assets/search-solid.svg"></button>
                 </div>
             </div>
@@ -195,13 +163,23 @@
 
         <!-- <app-search-by-friends></app-search-by-friends> -->
 
+        
+
 
         <div class="vertical mainCont">
 
-            <div class="heading section friendsList">People</div>
+           
+
 
             <div>
-
+                <div class="secondaryLightBg" style="margin: 30px 20px 0px 30px; border-radius: 20px;padding-top: 30px;">
+                    <div style="display: flex;justify-content: space-between;align-items: center;margin-left: 50px;">
+                        <div class="heading"> Search People</div>
+                        <div class="horizontal searchType primaryLightBg" style="padding: 15px;margin-right: 30px;">
+                            <img class="icon" style="margin-left: 15px;" src="../../assets/user.svg">
+                            <input type="text"  placeholder="search prople" [(ngModel)]="friendFilter">
+                        </div>
+                    </div>
                 <div class="carousel-container">
                     <owl-carousel-o [options]="customOptions1" class="horizontal cardsList secondaryLightBg "  style="border-radius: 20px;margin: 0px 20px;">
                         <ng-template carouselSlide *ngFor="let friend of allFriends | filter:this.searchService.peopleFilter" class="carousel-cell " >
@@ -216,6 +194,8 @@
                          
                       </owl-carousel-o>
                     </div>
+                    </div>
+
 
                
                 <!-- <div class="horizontal friendsList">
@@ -239,6 +219,9 @@
                             <div class="card-text">
                                 <div class="heading">{{friendName}}</div>
                                 <div class="desc inActive section">{{friendDescription}} </div>
+                                <div class="desc inActive section">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit
+                                    facilisis tellus commodo em ipsum dolor sit amet, consectetur adipiscing
+                                   elit. Nunc blandit facilisis  tellus, at commodo Lorem </div>
                             </div>
                         </div>
 
@@ -315,11 +298,29 @@
               </owl-carousel-o>
             </div> -->
 
-        <div  class="vertical">
+        <div  class="vertical secondaryLightBg" style="margin: 30px;border-radius: 20px;padding: 20px;">
         
-        <div class="heading section friendsList">Location</div>
-        <div class="horizontal friendsList">
-            <div class="cardSection horizontal secondaryLightBg" *ngFor="let location of Locations">
+        <div class="heading section friendsList">Search Location</div>
+        <div style="display: flex;align-items: baseline;">
+             <button class="activeBtn primaryDarkBg primaryLight " style="width: 400px;margin-top: 20px;" (click)="getRoutinesByLocationAlternate()">Search near fitness centers</button>
+             <div style="margin-left: 30px;">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Location</mat-label>
+                        <input type="text" placeholder="Select Location" aria-label="Number" matInput
+                            [formControl]="myControl" [matAutocomplete]="auto">
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option"
+                                (click)=getRoutinesByLocation(option)>
+                                {{option}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+        <div *ngFor="let location of Locations" class="horizontal friendsList">
+            <div class="cardSection horizontal secondaryLightBg" >
                 {{location.title}}
                     <div class="cardCont horizontal   cardBody">
                         <div ><img class="image" src="../../assets/img.jfif"></div>
