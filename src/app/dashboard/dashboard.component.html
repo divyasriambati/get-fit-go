@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<p class="no-routines" *ngIf=!routines.length>No Subscriptions found. Click &nbsp; <a routerLink='/search-page'>search
+<p class="no-routines" *ngIf= "isDataLoaded && !routines.length">No Subscriptions found. Click &nbsp; <a routerLink='/search-page'>search
     </a>&nbsp; to look for subscriptions</p>
 
 <!-- <button class="searchBtn primaryDarkBg primaryLight" (click)="openDialog()">open</button> -->
@@ -7,7 +7,7 @@
 
 
 
-<div class=" horizontal" *ngIf=routines.length>
+<div class=" horizontal" *ngIf="isDataLoaded && routines.length">
     <div class="mainCont">
 
         

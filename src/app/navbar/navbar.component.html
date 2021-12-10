@@ -2,7 +2,7 @@
 
     <div class="horizontal" routerLink='/dashboard' style="cursor: pointer;">
         <img class="logoSize" src="../../assets/logo.svg">
-        <div >
+        <div>
             <span class="brandname_FirstLetter primaryDark">G</span><span class="brandname_LastLetter">et</span>
             <span class="brandname_FirstLetter primaryDark">F</span><span class="brandname_LastLetter">it</span>
             <span class="brandname_FirstLetter primaryDark">G</span><span class="brandname_LastLetter">o</span>
@@ -18,14 +18,18 @@
 
     <!-- <img class="iconSize" src="../../assets/notifications.svg"> -->
     <div class="horizontal align">
-        <div><button class="searchBtn primaryDarkBg primaryLight" *ngIf="router.url!='/dashboard'" routerLink="/dashboard">Dashboard</button></div>
+        <div><button class="searchBtn primaryDarkBg primaryLight" *ngIf="router.url!='/dashboard'"
+                routerLink="/dashboard">Dashboard</button></div>
         <div><button class="searchBtn primaryDarkBg primaryLight" routerLink="/search-page">Search</button>
             <!-- <button routerLink="/add-routine">add</button> -->
         </div>
 
-        <div routerLink="/profile" class="profileBtn horizontal secondaryLightBg">
-            <img *ngIf="this._userdata.coverPic == ''" class="profile" src="../../assets/default_img.png">
-            <img *ngIf="this._userdata.coverPic != ''" class="profile" src="{{coverPic}}">
+        <div routerLink="/profile" class="profileBtn horizontal secondaryLightBg" *ngIf="isLoaded">
+            <img *ngIf="this.userObj.profilepicture == ''" src="../../assets/default_img.png" alt="profile"
+                class="profile" />
+            <img *ngIf="this.userObj.profilepicture != ''"
+                src="{{serverUrl}}/user/get-image?name={{userObj['profilepicture']}}" alt="profile"
+                class="profile">
 
             <div class="username">{{username | titlecase}}</div>
             <!-- <img class="dropdown" src="../../assets/dropdown.svg"> -->

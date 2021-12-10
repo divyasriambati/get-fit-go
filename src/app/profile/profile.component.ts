@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { UserService1 } from '../services/user/user.service';
 import { HttpClient } from '@angular/common/http';
-
-
+import { serverUrl } from '../config/serverurls';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -21,8 +20,8 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   public userDetails: any[] | undefined
-
-
+  public isLoaded = false;
+  public serverUrl = serverUrl;
   public name = this._userdata.currentuser;
   public coverPic = this._userdata.coverPic;
   profileForm = this.fb.group({
@@ -52,6 +51,7 @@ export class ProfileComponent implements OnInit {
         console.log("current user data", data.response);
         this.userObj = data.response;
         this.loadFormData(data.response);
+        this.isLoaded = true;
       },
       (err) => {
         console.log(err);
@@ -113,12 +113,12 @@ export class ProfileComponent implements OnInit {
       const file = event.target.files[0]
       var reader = new FileReader();
       reader.onload = (event: any) => {
-        this.userObj.profilepicture  = reader.result; 
+        this.userObj.profilepicture = reader.result;
       }
       reader.readAsDataURL(file);
       const formdata = new FormData()
       formdata.append('file', file);
-      formdata.append('userid',JSON.stringify(localStorage.getItem('userid')));
+      formdata.append('userid', JSON.stringify(localStorage.getItem('userid')));
       this.http.post<any>("http://localhost:3000/user/image-upload", formdata).subscribe(
         (data) => {
           console.log(data)

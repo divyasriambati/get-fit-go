@@ -2,7 +2,45 @@
 <div class="horizontal">
     <div class="main">
 
-        
+        <div class="youtube-search searchBar secondaryLightBg ">
+            <div>
+            <div style="display: flex;justify-content: space-between;align-items: center;">
+                <div class="heading">Youtube Videos Search</div>
+                <div class="horizontal searchType primaryLightBg">
+
+                    <input type="text" placeholder="search videos" [(ngModel)]="searchValue">
+                    <button type="button" class="seachBtn"><img style="height: 20px;width: 20px;" (click)=" getYouTubeVideos(searchValue)" class="icon"
+                            src="../../assets/search-solid.svg"></button>
+                </div>
+            </div>
+
+             <div class="carousel-container">
+                    <owl-carousel-o [options]="customOptions" class="horizontal cardsList secondaryLightBg " >
+                        <ng-template carouselSlide *ngFor="let video of youtubeData" class="carousel-cell " >
+                            <div class="youtubeCard vertical primaryLightBg">
+                                <div><img class="youtubeCardImg " (click)="openDialog(video['id']['videoId'])" src="{{video['snippet']['thumbnails']['default']['url']}}" alt="image not found"></div>
+                                <div class="videoName" (click)="openDialog(video['id']['videoId'])">{{video['snippet']['title']}}</div>
+                               
+                            </div>
+                        </ng-template>  
+                         
+                      </owl-carousel-o>
+                    </div>
+
+                <!-- <div>
+                    <div *ngFor="let video of youtubeData">
+                        <!-- {{video['snippet']['thumbnails'][0]}}<br> --
+                        <h6>video id</h6>
+                        {{video['id']['videoId']}}<br>
+                        <h5>title</h5>
+                        {{video['snippet']['title']}}<br>
+                        <img src="{{video['snippet']['thumbnails']['default']['url']}}" alt="image not found">
+                    </div>
+                </div> -->
+
+            </div>
+
+        </div>
 
         <!-- SEARCH FILTERS  -->
 
@@ -251,14 +289,42 @@
 
         <!-- SEARCH BY LOCATION -->
 
-        <!-- <div  class="vertical">
-        <div class="heading section friendsList">Location Name : Atlanta</div>
+        <!-- <div class="carousel-container">
+            
+            <div class="heading">Locations</div>
+
+            <owl-carousel-o [options]="customOptions" class="horizontal searchBar cardSection secondaryLightBg " >
+                <ng-template carouselSlide *ngFor="let location of Locations" class="carousel-cell " >
+
+                    <div class="card vertical primaryLightBg ">
+    
+                        <div><img class="card-img" src="../../assets/img.jfif"></div>
+                        <div class="routineName">{{location.title}}</div>
+                       
+                        <div class="card-desc inActive">{{location.description}}</div>
+                        <div class="btns">
+                            <button 
+                                class="activeBtn  ">More Details</button>
+                            <button 
+                                class="activeBtn primaryDarkBg primaryLight ">subscribe</button>
+    
+                        </div>
+                    </div>
+                </ng-template>  
+                 
+              </owl-carousel-o>
+            </div> -->
+
+        <div  class="vertical">
+        
+        <div class="heading section friendsList">Location</div>
         <div class="horizontal friendsList">
-            <div class="cardSection horizontal secondaryLightBg">
+            <div class="cardSection horizontal secondaryLightBg" *ngFor="let location of Locations">
+                {{location.title}}
                     <div class="cardCont horizontal   cardBody">
                         <div ><img class="image" src="../../assets/img.jfif"></div>
                         <div class="vertical routineDetails">
-                            <div class="routineName">Location Name</div>
+                            <div class="routineName">{{location.title}}</div>
                             <div class="desc inActive">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit
                                 facilisis tellus commodo em ipsum dolor sit amet, consectetur adipiscing
                                elit. Nunc blandit facilisis  tellus, at commodo Lorem 
@@ -270,7 +336,7 @@
             </div>
         </div>
 
-        </div> -->
+        </div>
 
     </div>
     <div class="sideCont">
