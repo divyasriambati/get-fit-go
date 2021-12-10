@@ -34,6 +34,9 @@ export class SearchPageComponent implements OnInit {
   constructor(private userService: UserService1, public _dataService: DataService, public router: Router, public route: ActivatedRoute,
     public routineService: RoutineService, public searchService: SearchPageService, private http: HttpClient) {
     this.getLocations();
+    this.getPosition().then((resp) => {
+      
+    })
   }
 
   public isTrue = false;
@@ -219,7 +222,21 @@ export class SearchPageComponent implements OnInit {
       },
         (err) => {
           console.log(err)
-        })
+        });
+  }
+
+  getPosition(): Promise<any> {
+    return new Promise((resolve, reject) => {
+
+      navigator.geolocation.getCurrentPosition(resp => {
+
+        resolve({ lng: resp.coords.longitude, lat: resp.coords.latitude });
+      },
+        err => {
+          reject(err);
+        });
+    });
+
   }
 
 }
