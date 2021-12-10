@@ -2,22 +2,42 @@
 <div class="horizontal">
     <div class="main">
 
+        <div class="youtube-search">
+            <div class="horizontal">
+                <div>Youtube Videos Search</div>
+                <div class="horizontal searchType primaryLightBg">
+                    
+                    <input type="text" placeholder="search people" [(ngModel)]="searchValue">
+                    <button type="button"><img (click)=" getYouTubeVideos(searchValue)" class="icon" src="../../assets/search-solid.svg"></button>
+                </div>
 
 
+                <div>
+                    <div *ngFor = "let video of youtubeData">
+                        
+                        <!-- <div *ngFor="let name of video.snippet">
+
+                        </div> -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        
         <!-- SEARCH FILTERS  -->
 
         <div class="searchBar horizontal secondaryLightBg">
 
             <div class="horizontal searchType primaryLightBg">
-                <img class="icon" src="../../assets/user.svg">
-                <input type="text" placeholder="search people" (keyup)="peopleFilter()" [(ngModel)]="friendFilter">
-                <!-- <img class="dropdown inActive" src="../../assets/dropdown.svg"> -->
-            </div>
+        <img class="icon" src="../../assets/user.svg">
+        <input type="text" placeholder="search people" [(ngModel)]="friendFilter">
+        <!-- <img class="dropdown inActive" src="../../assets/dropdown.svg"> -->
+    </div>
 
             <div class="horizontal searchType primaryLightBg">
                 <img class="icon" src="../../assets/search-solid.svg">
-                <input type="text" placeholder="search routine" (keyup)="routineFilter()"
-                    [(ngModel)]="filterTerm">
+                <input type="text" placeholder="search routine" [(ngModel)]="filterTerm">
 
                 <!-- <img class="dropdown inActive" src="../../assets/dropdown.svg"> -->
             </div>
@@ -25,26 +45,30 @@
             <div>
                 <form class="example-form">
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Number</mat-label>
-                        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
-                            [matAutocomplete]="auto">
-                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                                {{option}}
-                            </mat-option>
-                        </mat-autocomplete>
+                      <mat-label>Number</mat-label>
+                      <input type="text"
+                             placeholder="Pick one"
+                             aria-label="Number"
+                             matInput
+                             [formControl]="myControl"
+                             [matAutocomplete]="auto">
+                      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                          {{option}}
+                        </mat-option>
+                      </mat-autocomplete>
                     </mat-form-field>
-                </form>
+                  </form>
             </div>
-        </div>
+</div>
 
-        <!-- <div class="horizontal searchType primaryLightBg">
+            <!-- <div class="horizontal searchType primaryLightBg">
         <img class="icon" src="../../assets/location.svg">
         <input placeholder="Search by Location">
         <img class="dropdown inActive" src="../../assets/dropdown.svg">
     </div> -->
 
-        <!-- <div>
+            <!-- <div>
                 <button class="searchBtn primaryDarkBg primaryLight">Search</button>
             </div>
 
@@ -53,7 +77,7 @@
 
 
         <!-- SEARCH BY ROUTINE  -->
-
+        
 
         <!-- <app-search-by-routine></app-search-by-routine> -->
 
