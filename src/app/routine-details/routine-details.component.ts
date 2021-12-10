@@ -5,7 +5,7 @@ import { RoutineService } from '../services/routine/routine.service';
 import { UserService1 } from '../services/user/user.service';
 import { Router } from '@angular/router';
 import { CommentsService } from '../services/comments/comments.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 @Component({
@@ -45,11 +45,11 @@ export class RoutineDetailsComponent implements OnInit {
   public routineDetailsList: any
   public isDataLoaded = false;
   public userId: any;
-  constructor(public _dataService: DataService, public route: ActivatedRoute, private routineService: RoutineService, public router: Router, public commentService: CommentsService,public dialog: MatDialog) { }
+  constructor(public _dataService: DataService, public route: ActivatedRoute, private routineService: RoutineService, public router: Router, public commentService: CommentsService, public dialog: MatDialog) { }
 
-  openDialog(currLink :any){
-    currLink=currLink.split("/")
-    this.dialog.open(PopUpComponent , {data :{Id : currLink.pop()}});
+  openDialog(currLink: any) {
+    currLink = currLink.split("/")
+    this.dialog.open(PopUpComponent, { data: { Id: currLink.pop() } });
   }
 
 
@@ -118,6 +118,7 @@ export class RoutineDetailsComponent implements OnInit {
     )
   }
   public allComments: any = [];
+
   async loadComments(routineObj: any) {
     console.log(routineObj)
     for (let id of routineObj['commentids']) {
@@ -140,10 +141,8 @@ export class RoutineDetailsComponent implements OnInit {
     )
   }
   public currComment: any
-  public commentarr : any = [];
+  public commentarr: any = [];
   createComment() {
-    console.log(this.commentarr, "array");
-    
     var postObj = {
       "userid": localStorage.getItem('userid'),
       "routineid": this.routineId,
@@ -152,24 +151,26 @@ export class RoutineDetailsComponent implements OnInit {
     this.commentService.createComment(postObj).subscribe(
       (data) => {
         console.log(data);
+        this.allComments.push({description:postObj['description']})
       },
       (err) => {
         console.log(err);
       }
     )
-    window.location.reload();
+    
   }
 
-  deleteComment(commnetId: any) {
+  deleteComment(commnetId: any, index: any) {
+    console.log(this.routineId,"    ",commnetId)
     this.commentService.deleteComment(this.routineId, commnetId).subscribe(
       (data) => {
         console.log(data);
+        this.allComments.splice(index, 1);
       },
       (err) => {
         console.log(err);
       }
     )
-    window.location.reload();
   }
   getComment(commentid: any) {
     return new Promise((resolve, reject) => {
