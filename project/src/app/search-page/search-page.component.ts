@@ -30,6 +30,7 @@ export class SearchPageComponent implements OnInit {
   public filterTerm: any;
   public peopleSearchText: any;
   public routineSearchText: any;
+  public searchValue :any;
 
   constructor(private userService: UserService1, public _dataService: DataService, public router: Router, public route: ActivatedRoute,
     public routineService: RoutineService, public searchService: SearchPageService, private http: HttpClient) {
@@ -211,11 +212,16 @@ export class SearchPageComponent implements OnInit {
       }
     )
   }
+  public youtubeData :[] | undefined
   getYouTubeVideos(type: any) {
+    
     this.http.get<any>("https://www.googleapis.com/youtube/v3/search?key=" + "AIzaSyD8eppFMvF0mBZj2d6wXewiQ_05VMLox7A" +
       "&type=video&part=snippet&maxResults=" + 10 + "&q=" + type).subscribe((data) => {
         console.log("youtube api data")
         console.log(data);
+        this.youtubeData = data.items
+        console.log(this.youtubeData);
+        
       },
         (err) => {
           console.log(err)

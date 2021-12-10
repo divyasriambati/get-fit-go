@@ -19,7 +19,45 @@
             <input formControlName="description" type="text" >
         </div>
         
-          <button (click) = "addSubTask()">add</button>
+        <div formArrayName="aliases">
+            <h2>Aliases</h2>
+            <button (click)="addAlias()" type="button">+ Add another alias</button>
+          
+            <div *ngFor="let alias of aliases.controls; let i=index">
+              <!-- The repeated alias template -->
+              <label for="alias-{{ i }}">Alias:</label>
+              <input id="alias-{{ i }}" type="text" [formControlName]="i">
+            </div>
+          </div>
+
+          <!-- <div formArrayName="skills">
+            <h2>skills</h2>
+            <button (click)="addskills()" type="button">+ Add another skills</button>
+          
+            <div *ngFor="let skill of skills.controls; let i=index">
+              The repeated alias template
+             <div [formGroupName]="i">
+                <input  type="text" [formControlName]="name">
+                <input  type="text" [formControlName]="level">
+
+             </div> 
+            </div>
+          </div> -->
+
+          <div
+            formArrayName="items"
+            *ngFor="let item of userFormGroups.controls; let i = index;"
+        >
+            <div [formGroupName]="i">
+            <input formControlName="name" placeholder="Item name">
+            <input formControlName="description" placeholder="Item description">
+            <input formControlName="price" placeholder="Item price">
+            </div>
+        </div>
+        <button type="button" (click)="addItem()">Add Item</button>
+
+          
+
         <button>Save</button>
        
     </form>

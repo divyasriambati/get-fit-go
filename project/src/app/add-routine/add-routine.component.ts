@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-routine.component.css']
 })
 export class AddRoutineComponent implements OnInit {
+  
+  items: FormArray | undefined;
 
   constructor(
     public router: Router,
@@ -25,10 +27,54 @@ export class AddRoutineComponent implements OnInit {
     routineName: [''],
     duration: [''],
     description: [''],
-    routineStructure:this.fb.array([]),
-    youtubeVideos: this.fb.array([]),
+    aliases: this.fb.array([
+      this.fb.control('')
+    ]),
+    skills :this.fb.array([
+      this.fb.group({
+        name: this.fb.control(''),
+        level: this.fb.control('')
+      })
+    ]),
+    items: this.fb.array([ this.createItem() ])
+    // routineStructure:this.fb.array([]),
+    // youtubeVideos: this.fb.array([]),
     
   });
+
+  createItem(): FormGroup {
+    return this.fb.group({
+      name: '',
+      description: '',
+      price: ''
+    });
+  }
+
+  addItem(): void {
+    this.items = this.routineForm.get('items') as FormArray;
+    this.items.push(this.createItem());
+  }
+  
+  get userFormGroups () {
+    return this.routineForm.get('items') as FormArray
+  }
+
+  get aliases() {
+    return this.routineForm.get('aliases') as FormArray;
+  }
+
+  addAlias() {
+    this.aliases.push(this.fb.control(''));
+  }
+
+  get skills() {
+    return this.routineForm.get('skills') as FormArray;
+  }
+
+  addskills() {
+    this.aliases.push(this.fb.group([]));
+  }
+
   routineStructure = this.routineForm.get("routineStructure") as FormArray;
 
   addSubTask(){
