@@ -41,7 +41,7 @@ export class DashboardComponent implements OnInit {
     nav: true
   }
 
-  public minDate: Date = new Date("10/31/2021");
+  public minDate: Date = new Date();
   public maxDate: Date = new Date();
   public currentDate: Date = new Date();
 

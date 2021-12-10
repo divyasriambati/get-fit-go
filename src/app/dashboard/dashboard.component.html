@@ -122,6 +122,7 @@
             <div class="horizontal secondaryLightBg ">
             <div class="calender-container"><ejs-calendar class="calender" id=calendar [value]='currentDate' [min]='minDate' [max]='maxDate'></ejs-calendar></div>
             <div class="calender-routine-list">
+                <div class="heading">Routines</div>
                 <div *ngFor="let routine of routines;let i as index" class="calender-rotines">
                     <mat-checkbox name="" id="" [(ngModel)]="routine.isChecked" (change)="changeSelection()" primary class="routine-name">{{routine.title}}</mat-checkbox>
                 </div>

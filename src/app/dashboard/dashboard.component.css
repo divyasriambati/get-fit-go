@@ -174,7 +174,8 @@ margin-right: 15px;
 .calender-routine-list{
 flex: 1;
 padding: 20px 0px;
-height: 350px;
+height: 300px;
+overflow-y: scroll;
 }
 .calender-rotines{
     margin: 20px 0px;
