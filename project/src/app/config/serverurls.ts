@@ -1,4 +1,4 @@
-export const serverUrl = "http://localhost:3000";
+export const serverUrl = "https://get-fit-go-be.herokuapp.com";
 export const signup = serverUrl + '/auth/signup';
 export const login = serverUrl + '/auth/login';
 export const get_user_routines = serverUrl + '/routine/user-routines';
