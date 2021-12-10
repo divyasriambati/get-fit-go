@@ -27,15 +27,15 @@ export class AddRoutineComponent implements OnInit {
     routineName: [''],
     duration: [''],
     description: [''],
-    aliases: this.fb.array([
-      this.fb.control('')
-    ]),
-    skills :this.fb.array([
-      this.fb.group({
-        name: this.fb.control(''),
-        level: this.fb.control('')
-      })
-    ]),
+    // aliases: this.fb.array([
+    //   this.fb.control('')
+    // ]),
+    // skills :this.fb.array([
+    //   this.fb.group({
+    //     name: this.fb.control(''),
+    //     level: this.fb.control('')
+    //   })
+    // ]),
     items: this.fb.array([ this.createItem() ])
     // routineStructure:this.fb.array([]),
     // youtubeVideos: this.fb.array([]),

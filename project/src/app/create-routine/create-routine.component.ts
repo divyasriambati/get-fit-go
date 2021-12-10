@@ -152,50 +152,19 @@ export class CreateRoutineComponent implements OnInit {
     return form.controls.references.controls;
   }
   submit() {
-    var postObj = {
-      "title": this.routineForm['value']['title'],
-      "description": this.routineForm['value']['description'],
-      "duration": this.routineForm['value']['duration'],
-      "subtasks": [
-        {
-          "title": this.routineForm['value']['sbt1'],
-          "duration": this.routineForm['value']['sbd1']
-        },
-        {
-          "title": this.routineForm['value']['sbt2'],
-          "duration": this.routineForm['value']['sbd2']
-        },
-        {
-          "title": this.routineForm['value']['sbt2'],
-          "duration": this.routineForm['value']['sbd2']
-        }
-      ],
-      references: [
-        {
-          "title": this.routineForm['value']['rft1'],
-          "link": this.routineForm['value']['rfl1']
-        },
-        {
-          "title": this.routineForm['value']['rft2'],
-          "link": this.routineForm['value']['rfl1']
-        },
-        {
-          "title": this.routineForm['value']['rft3'],
-          "link": this.routineForm['value']['rfl1']
-        }
-      ],
-      creatorid: localStorage.getItem('userid')
-    }
-    this.routineService.createRoutine(postObj).subscribe(
-      (data) => {
-        console.log(data);
-        this.router.navigate(['/dashboard']);
+    console.log(this.routineForm1.value);
+    
+    
+    // this.routineService.createRoutine(postObj).subscribe(
+    //   (data) => {
+    //     console.log(data);
+    //     this.router.navigate(['/dashboard']);
 
-      },
-      (err) => {
-        console.log(err);
-      }
-    )
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   }
+    // )
   }
   public updateRoutine() {
     var postObj = {
