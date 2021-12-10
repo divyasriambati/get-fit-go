@@ -64,7 +64,7 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  public routineList: any[] | undefined
+  public routineList: any[] | any
   public filterTerm: any;
   public user: String = '';
 

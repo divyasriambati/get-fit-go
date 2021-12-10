@@ -4,13 +4,13 @@
   {{detail.firstname}}
 </div> -->
 
-<div class=" horizontal">
+<div class=" horizontal" *ngIf=isLoaded>
 
 <div class="profileContainer">
     <div  class="profileHeadContainer">
       <!-- <div class="profileHeadBackgoundBox"></div> -->
         <img *ngIf="this.userObj.profilepicture == ''" src="../../assets/default_img.png" alt="profileImage" class="profileIcon" />
-        <img *ngIf="this.userObj.profilepicture != ''" src="http://localhost:3000/user/get-image?name={{userObj['profilepicture']}}" alt="profileImage" class="profileIcon">
+        <img *ngIf="this.userObj.profilepicture != ''" src="{{serverUrl}}/user/get-image?name={{userObj['profilepicture']}}" alt="profileImage" class="profileIcon">
         <input type="file" (change)="selectimage($event)">
         <div class="profileHeadContent">
           <div class="profileHeadContentHeader">
