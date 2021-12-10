@@ -6,15 +6,14 @@
 }
 .searchType{
     align-items: center;
-    padding: 15px 25px;
     border-radius: 15px;
     margin-right: 20px;
-    min-width: 25%;
-    width: 28%;
+    
 }
 input{
     border: none;
     font-family: poppins;
+    margin-left: 20px;
     
 }
 .icon{
@@ -45,47 +44,6 @@ input{
     margin-left: 30px;
     
 }
-.cardSection{
-    padding: 20px;
-    border-radius: 20px;
-    width: 75vw;
-    margin: 20px 0px;
-    overflow-x: scroll;
-}
-.nextBtn{
-    height: 50px;
-    width: 50px;
-    margin-left: -25px;
-    cursor: pointer;
-    z-index: 2;
-}
-.card{
-    padding: 15px;
-    border-radius: 10px;
-    align-items: center;
-    margin-right: 25px;
-}
-.card-img{
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-}
-.routineName{
-    font-size: 16px;
-    font-weight: 500;
-    margin: 10px 0px;
-}
-.activeBtn{
-    font-size: 13px;
-    font-weight: 500;
-    font-family: poppins;
-    text-align: center;
-    border: none;
-    padding: 10px 30px;
-    border-radius: 20px;
-    cursor: pointer;
-  }
-
   .cardBody{
       padding: 15px;
       align-items: center;
@@ -100,7 +58,7 @@ input{
       border-radius: 50%;
   }
   .cardImg{
-      border-radius: 20px;
+      border-radius: 50%;
       width: 250px;
       height: 180px;
       cursor: pointer;
@@ -168,8 +126,143 @@ input{
     width: 100%;
   }
   
-
+/* ************ youtube videos ************* */
 
   .youtube-search{
-      padding: 30px 15px;
+      padding: 30px ;
+      margin-top: 50px;
   }
+  header{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+  }
+  .seachBtn{
+      border: none;
+      padding: 15px;
+      border-radius: 0px 10px 10px 0px;
+      background-color: #d2d1d6;
+      margin-left: 5px;
+
+  }
+  .youtubeCard{
+      width: 350px;
+      height: 320px;
+      border-radius: 20px;
+      padding: 10px;
+      margin-right: 15px;
+  }
+  .youtubeCardImg{
+    border-radius: 10px;
+    height: 200px;
+    width: 100%;
+    cursor: pointer;
+  }
+  .videoName{
+        font-size: 15px;
+        font-weight: 400;
+        font-family: poppins;
+        width: 320px;
+        height: 50px;
+        padding: 15px;
+        cursor: pointer;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        
+      
+  }
+
+  /* ***************** routine list ************ */
+
+  .cardSection{
+    align-items: center;
+    padding: 30px 50px;
+    margin-left: 30px;
+}
+.card{
+    padding: 15px;
+    border-radius: 10px;
+    margin-right: 10px;
+    width: 360px;
+}
+
+.card-img{
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+.card-desc{
+    font-size: 14px;
+    font-weight: 400;
+    font-family: poppins;
+    width: 330px;
+    height: 65px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    
+  }
+  .btns{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+ 
+.routineName{
+    font-size: 16px;
+    font-weight: 500;
+    margin: 10px 0px;
+}
+.activeBtn{
+    font-size: 13px;
+    font-weight: 500;
+    font-family: poppins;
+    text-align: center;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    margin-right: 10px;
+  }
+
+
+  /* ***************** People ***************** */
+  .cardsList{
+    align-items: center;
+    padding: 30px 50px;
+}
+.friendName{
+    font-size: 16px;
+    font-weight: 500;
+    margin: 20px 0px;
+    text-align: center;
+}
+.cards{
+    padding: 15px;
+    border-radius: 10px;
+    margin-right: 10px;
+    width: 250px;
+}
+
+
+.friendCardSection{
+    padding: 20px;
+    border-radius: 20px;
+    width: 97%;
+    margin: 20px 0px;
+}
+.cardSection1{
+    align-items: center;
+    padding: 30px ;
+}
+
+

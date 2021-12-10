@@ -9,7 +9,9 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-
+import { OwlOptions } from 'ngx-owl-carousel-o';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { PopUpComponent } from '../pop-up/pop-up.component';
 
 export interface User {
   name: string;
@@ -23,6 +25,59 @@ export interface User {
 
 export class SearchPageComponent implements OnInit {
 
+  customOptions: OwlOptions = {
+    loop: false,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    navSpeed: 700,
+    navText: ['<i class="fa fa-caret-left"></i>', '<i class="fa fa-caret-right" ></i>'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 2
+      },
+      940: {
+        items: 3
+      }
+    },
+    nav: true
+  }
+
+  customOptions1: OwlOptions = {
+    loop: false,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    navSpeed: 700,
+    navText: ['<i class="fa fa-caret-left"></i>', '<i class="fa fa-caret-right" ></i>'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 2
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
+  }
+
+  openDialog(videoId :any){
+    this.dialog.open(PopUpComponent , {data :{Id : videoId}});
+  }
 
 
   public routines: any[] | undefined
@@ -33,7 +88,7 @@ export class SearchPageComponent implements OnInit {
   public searchValue: any;
 
   constructor(private userService: UserService1, public _dataService: DataService, public router: Router, public route: ActivatedRoute,
-    public routineService: RoutineService, public searchService: SearchPageService, private http: HttpClient) {
+    public routineService: RoutineService, public searchService: SearchPageService, private http: HttpClient,public dialog: MatDialog) {
     this.getLocations();
 
   }
@@ -67,7 +122,7 @@ export class SearchPageComponent implements OnInit {
 
   ngOnInit(): void {
 
-
+    this.getYouTubeVideos(this.defaultType)
 
     this.routines = this._dataService.userData
     this.friendsData = this._dataService.friendsDetails
@@ -213,6 +268,7 @@ export class SearchPageComponent implements OnInit {
     )
   }
   public youtubeData: [] | any
+  public defaultType = "fitness"
   getYouTubeVideos(type: any) {
     this.http.get<any>("https://www.googleapis.com/youtube/v3/search?key=" + "AIzaSyCmC294c56ghJ1QhU4zMYwnfCQGtH0xm-A" +
       "&type=video&part=snippet&maxResults=" + 10 + "&q=" + type).subscribe((data) => {
