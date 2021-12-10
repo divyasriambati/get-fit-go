@@ -56,12 +56,13 @@ export class CreateRoutineComponent implements OnInit {
     duration: [''],
     routineStructure: this.fb.array([ this.addingTask() ]),
     youtubeVideos: this.fb.array([ this.addYoutubeLink() ]),
+    location : ['']
     
   });
 
   addingTask(): FormGroup {
     return this.fb.group({
-      name: '',
+      title: '',
       duration: ''
     });
   }
@@ -76,7 +77,7 @@ export class CreateRoutineComponent implements OnInit {
 
   addYoutubeLink(): FormGroup {
     return this.fb.group({
-      name: '',
+      title: '',
       link: ''
     });
   }
@@ -152,40 +153,15 @@ export class CreateRoutineComponent implements OnInit {
     return form.controls.references.controls;
   }
   submit() {
+    console.log(this.routineForm1.value);
     var postObj = {
-      "title": this.routineForm['value']['title'],
-      "description": this.routineForm['value']['description'],
-      "duration": this.routineForm['value']['duration'],
-      "subtasks": [
-        {
-          "title": this.routineForm['value']['sbt1'],
-          "duration": this.routineForm['value']['sbd1']
-        },
-        {
-          "title": this.routineForm['value']['sbt2'],
-          "duration": this.routineForm['value']['sbd2']
-        },
-        {
-          "title": this.routineForm['value']['sbt2'],
-          "duration": this.routineForm['value']['sbd2']
-        }
-      ],
-      references: [
-        {
-          "title": this.routineForm['value']['rft1'],
-          "link": this.routineForm['value']['rfl1']
-        },
-        {
-          "title": this.routineForm['value']['rft2'],
-          "link": this.routineForm['value']['rfl1']
-        },
-        {
-          "title": this.routineForm['value']['rft3'],
-          "link": this.routineForm['value']['rfl1']
-        }
-      ],
-      creatorid: localStorage.getItem('userid')
+      title : this.routineForm1.value.title,
+      description : this.routineForm1.value.description,
+      subtasks : this.routineForm1.value.routineStructure,
+      references : this.routineForm1.value.youtubeVideos,
+      location : this.routineForm1.value.location
     }
+    
     this.routineService.createRoutine(postObj).subscribe(
       (data) => {
         console.log(data);
