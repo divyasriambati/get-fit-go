@@ -12,11 +12,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CreateRoutineComponent implements OnInit {
   routineStructure: FormArray | any;
   youtubeVideos: FormArray | any;
-  
+
 
   constructor(private routineService: RoutineService, private router: Router, private fb: FormBuilder, public route: ActivatedRoute) { }
   public isEdit = false;
-  public routineId:any
+  public routineId: any
   ngOnInit(): void {
     if (this.router.url.indexOf('/edit') != -1) {
       this.isEdit = true;
@@ -54,10 +54,10 @@ export class CreateRoutineComponent implements OnInit {
     title: [''],
     description: [''],
     duration: [''],
-    routineStructure: this.fb.array([ this.addingTask() ]),
-    youtubeVideos: this.fb.array([ this.addYoutubeLink() ]),
-    location : ['']
-    
+    routineStructure: this.fb.array([this.addingTask()]),
+    youtubeVideos: this.fb.array([this.addYoutubeLink()]),
+    location: ['']
+
   });
 
   addingTask(): FormGroup {
@@ -70,7 +70,7 @@ export class CreateRoutineComponent implements OnInit {
     this.routineStructure = this.routineForm1.get('routineStructure') as FormArray;
     this.routineStructure.push(this.addingTask());
   }
-  
+
   get routineStructureFormGroups() {
     return this.routineForm1.get('routineStructure') as FormArray
   }
@@ -85,11 +85,11 @@ export class CreateRoutineComponent implements OnInit {
     this.youtubeVideos = this.routineForm1.get('youtubeVideos') as FormArray;
     this.youtubeVideos.push(this.addYoutubeLink());
   }
-  
+
   get youtubeLinksFormGroups() {
     return this.routineForm1.get('youtubeVideos') as FormArray
   }
-  
+
   loadForm(data: any) {
     this.routineForm.patchValue({
       title: data.title,
@@ -155,18 +155,18 @@ export class CreateRoutineComponent implements OnInit {
   submit() {
     console.log(this.routineForm1.value);
     var postObj = {
-      title : this.routineForm1.value.title,
-      description : this.routineForm1.value.description,
-      subtasks : this.routineForm1.value.routineStructure,
-      references : this.routineForm1.value.youtubeVideos,
-      location : this.routineForm1.value.location
+      title: this.routineForm1.value.title,
+      description: this.routineForm1.value.description,
+      subtasks: this.routineForm1.value.routineStructure,
+      references: this.routineForm1.value.youtubeVideos,
+      location: this.routineForm1.value.location,
+      creatorid: localStorage.getItem('userid')
     }
-    
+    console.log(postObj)
     this.routineService.createRoutine(postObj).subscribe(
       (data) => {
         console.log(data);
         this.router.navigate(['/dashboard']);
-
       },
       (err) => {
         console.log(err);
@@ -175,7 +175,7 @@ export class CreateRoutineComponent implements OnInit {
   }
   public updateRoutine() {
     var postObj = {
-      "routineid":this.routineId,
+      "routineid": this.routineId,
       "title": this.routineForm['value']['title'],
       "description": this.routineForm['value']['description'],
       "duration": this.routineForm['value']['duration'],
