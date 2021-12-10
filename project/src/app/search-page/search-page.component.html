@@ -58,14 +58,110 @@
         <!-- SEARCH BY ROUTINE  -->
         
 
-        <app-search-by-routine></app-search-by-routine>
+        <!-- <app-search-by-routine></app-search-by-routine> -->
+
+        <div class="horizontal friendsList">
+        <div class="cardSection horizontal secondaryLightBg">
+            <div class="horizontal">
+
+                <div *ngFor="let routine of allRoutines | filter:filterTerm">
+
+                    <div class="cardCont vertical primaryLightBg section cardBody">
+
+
+                        <div><img class="cardImg"  (click)=onSelect(routine.routineid) src="../../assets/img.jfif"></div>
+                        <div class="routineName">{{routine.title}}</div>
+                        <div class="card-desc inActive">{{routine.duration}}</div>
+                        <button (click)=onSelect(routine.routineid)
+                            class="activeBtn primaryDarkBg primaryLight section">More Details</button>
+                        <button (click)=subscribeRoutine(routine.routineid)
+                            class="activeBtn primaryDarkBg primaryLight section">subscribe</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <img class="nextBtn" src="../../assets/arrow_btn.svg"> -->
+    </div>
+
 
         <!-- SEARCH BY FRIENDS  -->
 
 
 
 
-        <app-search-by-friends></app-search-by-friends>
+        <!-- <app-search-by-friends></app-search-by-friends> -->
+
+
+        <div class="vertical mainCont">
+
+            <div class="heading section friendsList">People</div>
+            
+            <div>
+        
+                <!-- <div class="carousel-container">
+                    <owl-carousel-o [options]="customOptions" class="horizontal cardsList secondaryLightBg " >
+                        <ng-template carouselSlide *ngFor="let friend of allFriends | filter:friendFilter" class="carousel-cell " >
+                            <div class="card vertical primaryLightBg">
+                                <div><img class="card-img" src="../../assets/profile.svg"></div>
+                                <div class="routineName">{{friend.firstname}}</div>
+                                <button (click)="generateRoutineDetailsOfUser(friend)"
+                                    class="activeBtn primaryDarkBg primaryLight">More Details</button>
+                                
+                            </div>
+                        </ng-template>  
+                         
+                      </owl-carousel-o>
+                    </div> -->
+        
+                <div class="horizontal friendsList">
+                    <div class="cardSection horizontal secondaryLightBg">
+                        <div *ngFor="let friend of allFriends | filter:friendFilter" class="card vertical primaryLightBg">
+                            <div><img class="card-img" src="../../assets/profile.svg"></div>
+                            <div class="routineName">{{friend.firstname}}</div>
+                            <button (click)="generateRoutineDetailsOfUser(friend)"
+                                class="activeBtn primaryDarkBg primaryLight">More Details</button>
+                        </div>
+                    </div>
+        
+                    <!-- <img class="nextBtn" src="../../assets/arrow_btn.svg"> -->
+                </div>
+        
+                <div *ngIf="isTrue" class=" friendsList ">
+                    <div class="cardSection vertical secondaryLightBg">
+                        <div class="horizontal primaryLightBg cardBody ">
+                            <div class="profile"><img src="../../assets/profile.svg"> </div>
+                            <div class="card-text">
+                                <div class="heading">{{friendName}}</div>
+                                <div class="desc inActive section">{{friendDescription}} </div>
+                            </div>
+                        </div>
+        
+                        <div class="heading section">Subscribed Routines</div>
+                        <div class="horizontal">
+                            <p *ngIf= "friendRoutines===undefined||!friendRoutines.length">No subscribed routines</p>
+        
+        
+                            
+        
+                           
+                            <div *ngFor="let routine of friendRoutines"
+                                class="cardCont vertical primaryLightBg section">
+                                <div><img class="cardImg" src="../../assets/img.jfif"></div>
+                                <div class="routineName">{{routine.title}}</div>
+        
+                                <div class="card-desc inActive">{{routine.description}}</div>
+                                <!-- <div class="subscribers inActive">{{card.subscribers}} subscribers</div> -->
+                                <button class="activeBtn primaryDarkBg primaryLight section" (click)=onSelect(routine.routineid)>More Details</button>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+        
 
         <!-- SEARCH BY LOCATION -->
 
