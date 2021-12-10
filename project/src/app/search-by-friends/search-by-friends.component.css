@@ -1,7 +1,14 @@
+.mainCont{
+    margin:40px;
+}
 .friendsList{
     align-items: center;
     margin-left: 30px;
     
+}
+.cardsList{
+    align-items: center;
+    padding: 30px 50px;
 }
 .cardSection{
     padding: 20px;
@@ -58,10 +65,10 @@
       border-radius: 50%;
   }
   .cardImg{
-      border-radius: 20px;
-      width: 250px;
-      height: 180px;
-      cursor: pointer;
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
   }
   .desc{
     font-size: 13px;
@@ -98,6 +105,12 @@
     margin-right: 15px;
 }
 
+.card{
+    padding: 15px;
+    border-radius: 10px;
+    margin-right: 10px;
+    width: 400px;
+}
 .routineName{
     font-size: 16px;
     font-weight: 500;

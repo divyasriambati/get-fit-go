@@ -31,11 +31,12 @@ export class SearchByFriendsComponent implements OnInit {
         items: 2
       },
       940: {
-        items: 3
+        items: 4
       }
     },
     nav: true
   }
+  
   public routines: any[] | undefined
   public friendsData: any[] | undefined
   public filterTerm: any;

@@ -4,30 +4,42 @@
     
 }
 .cardSection{
-    padding: 20px;
-    border-radius: 20px;
-    width: 75vw;
-    margin: 20px 0px;
-    overflow-x: scroll;
-}
-.nextBtn{
-    height: 50px;
-    width: 50px;
-    margin-left: -25px;
-    cursor: pointer;
-    z-index: 2;
+    align-items: center;
+    padding: 30px 50px;
 }
 .card{
     padding: 15px;
     border-radius: 10px;
-    align-items: center;
-    margin-right: 25px;
+    margin-right: 10px;
+    width: 380px;
 }
+
 .card-img{
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
 }
+.card-desc{
+    font-size: 14px;
+    font-weight: 400;
+    font-family: poppins;
+    width: 370px;
+    height: 65px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    
+  }
+  .btns{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+ 
 .routineName{
     font-size: 16px;
     font-weight: 500;
@@ -42,6 +54,8 @@
     padding: 10px 30px;
     border-radius: 20px;
     cursor: pointer;
+    width: 100%;
+    margin-right: 10px;
   }
 
   .cardBody{
@@ -80,12 +94,7 @@
   .routineList{
     align-items: center;
 }
-.cardSection{
-    padding: 20px;
-    border-radius: 20px;
-    width: 97%;
-    margin: 20px 0px;
-}
+
 .nextBtn{
     height: 50px;
     width: 50px;
@@ -104,11 +113,7 @@
     margin: 10px 0px;
 }
 
-  .card-desc{
-    font-size: 14px;
-    font-weight: 400;
-    margin-top: 10px;
-  }
+ 
   .subscribers{
     font-size: 12px;
     font-weight: 400;

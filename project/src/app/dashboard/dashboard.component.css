@@ -1,7 +1,10 @@
 .mainCont{
-    margin: 10px 10px 10px 30px;
+    margin: 30px 10px 10px 30px;
     width: 75vw;
 
+}
+.secondaryLightBg{
+ border-radius: 20px;
 }
 .routineList{
     align-items: center;
@@ -76,8 +79,11 @@
   .card-desc{
     font-size: 14px;
     font-weight: 400;
-    margin-top: 10px;
-    width: 400px;
+    font-family: poppins;
+    width: 370px;
+    height: 70px;
+    
+    
   }
   .subscribers{
     font-size: 12px;
@@ -159,4 +165,33 @@ background-color: white;
 margin-right: 15px;
 }
 
-  
+.calender-container{
+    padding: 20px 0px;
+    flex: 1;
+    display:flex;
+    justify-content: center;
+}
+.calender-routine-list{
+flex: 1;
+padding: 20px 0px;
+height: 350px;
+}
+.calender-rotines{
+    margin: 20px 0px;
+}
+.routine-name{
+    font-size: 15px;
+    font-weight: 400;
+    font-family: poppins;
+}
+.saveBtn{
+    font-size: 13px;
+    font-weight: 500;
+    font-family: poppins;
+    text-align: center;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    
+}

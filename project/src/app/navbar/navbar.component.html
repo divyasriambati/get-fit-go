@@ -26,8 +26,8 @@
             <img *ngIf="this._userdata.coverPic == ''" class="profile" src="../../assets/default_img.png">
             <img *ngIf="this._userdata.coverPic != ''" class="profile" src="{{coverPic}}">
 
-            <div class="username">{{name}}</div>
-            <img class="dropdown" src="../../assets/dropdown.svg">
+            <div class="username">{{username | titlecase}}</div>
+            <!-- <img class="dropdown" src="../../assets/dropdown.svg"> -->
         </div>
     </div>
 

@@ -117,14 +117,15 @@
             <!-- <img class="nextBtn" src="../../assets/arrow_btn.svg"> -->
 
        
-        <div class="heading" >Calendar</div>
-            <div class="horizontal">
-            <div><ejs-calendar style="margin:20px 100px; width:500px; " id=calendar [value]='currentDate' [min]='minDate' [max]='maxDate'></ejs-calendar></div>
-            <div>
-                <div *ngFor="let routine of routines;let i as index">
-                    <mat-checkbox name="" id="" [(ngModel)]="routine.isChecked" (change)="changeSelection()" >{{routine.title}}</mat-checkbox>
+        <div class="heading" style="margin-bottom: 15px;">Calendar</div>
+
+            <div class="horizontal secondaryLightBg ">
+            <div class="calender-container"><ejs-calendar class="calender" id=calendar [value]='currentDate' [min]='minDate' [max]='maxDate'></ejs-calendar></div>
+            <div class="calender-routine-list">
+                <div *ngFor="let routine of routines;let i as index" class="calender-rotines">
+                    <mat-checkbox name="" id="" [(ngModel)]="routine.isChecked" (change)="changeSelection()" primary class="routine-name">{{routine.title}}</mat-checkbox>
                 </div>
-                <button class="activeBtn primaryDarkBg primaryLight" (click)="createCalendarEvent()"> Save</button>
+                <button class="saveBtn primaryDarkBg primaryLight" (click)="createCalendarEvent()"> Save</button>
             </div>
         </div>
 

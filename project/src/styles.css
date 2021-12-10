@@ -105,7 +105,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .carousel-container{
     padding: 30px;
 }
-
+.carousel-cell{
+    height: auto;
+}
 .carousel-container .owl-next, .carousel-container .owl-prev{
     background-color: lightgray !important;
     color: black !important;
