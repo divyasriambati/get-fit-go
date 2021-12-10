@@ -5,6 +5,7 @@ import { RoutineService } from '../services/routine/routine.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UserService1 } from '../services/user/user.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { SearchPageService } from '../services/search-page/search-page.service';
 
 @Component({
   selector: 'app-search-by-routine',
@@ -43,7 +44,7 @@ export class SearchByRoutineComponent implements OnInit {
   public friendsData: any[] | undefined
   public filterTerm: any;
 
-  constructor(private userService: UserService1, public _dataService: DataService, public router: Router, public route: ActivatedRoute, public routineService: RoutineService) { }
+  constructor(private userService: UserService1, public _dataService: DataService, public router: Router, public route: ActivatedRoute, public routineService: RoutineService, public searchService: SearchPageService) { }
 
   public isTrue = false;
   public isRoutine = false;

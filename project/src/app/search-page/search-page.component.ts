@@ -28,18 +28,12 @@ export class SearchPageComponent implements OnInit {
   public routines: any[] | undefined
   public friendsData: any[] | undefined
   public filterTerm: any;
+  public peopleSearchText: any;
+  public routineSearchText: any;
 
   constructor(private userService: UserService1, public _dataService: DataService, public router: Router, public route: ActivatedRoute,
     public routineService: RoutineService, public searchService: SearchPageService, private http: HttpClient) {
     this.getLocations();
-    this.http.get<any>("https://www.googleapis.com/youtube/v3/search?key=" + "AIzaSyD8eppFMvF0mBZj2d6wXewiQ_05VMLox7A" +
-      "&type=video&part=snippet&maxResults=" + 10 + "&q=" + "meditation").subscribe((data) => {
-        console.log("youtube api data")
-        console.log(data);
-      },
-        (err) => {
-          console.log(err)
-        })
   }
 
   public isTrue = false;
@@ -59,16 +53,19 @@ export class SearchPageComponent implements OnInit {
   }
 
 
-
+  routineFilter() {
+    this.searchService.routineFilter = this.routineSearchText
+  }
+  peopleFilter() {
+    console.log(this.peopleSearchText)
+    this.searchService.peopleFilter = this.peopleSearchText
+  }
 
 
 
   ngOnInit(): void {
 
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value)),
-    );
+
 
     this.routines = this._dataService.userData
     this.friendsData = this._dataService.friendsDetails
@@ -175,6 +172,7 @@ export class SearchPageComponent implements OnInit {
   filteredOptions: Observable<string[]> | undefined;
 
   private _filter(value: string): string[] {
+    console.log(value)
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
@@ -187,7 +185,11 @@ export class SearchPageComponent implements OnInit {
     this.searchService.getLocations().subscribe(
       (data) => {
         console.log("locations data", data.response);
-        this.options = data.response
+        this.filteredOptions = data.response
+        // this.filteredOptions = this.myControl.valueChanges.pipe(
+        //   startWith(''),
+        //   map(value => this._filter(value)),
+        // );
       },
       (err) => {
         console.log(err);
@@ -209,6 +211,15 @@ export class SearchPageComponent implements OnInit {
       }
     )
   }
-
+  getYouTubeVideos(type: any) {
+    this.http.get<any>("https://www.googleapis.com/youtube/v3/search?key=" + "AIzaSyD8eppFMvF0mBZj2d6wXewiQ_05VMLox7A" +
+      "&type=video&part=snippet&maxResults=" + 10 + "&q=" + type).subscribe((data) => {
+        console.log("youtube api data")
+        console.log(data);
+      },
+        (err) => {
+          console.log(err)
+        })
+  }
 
 }

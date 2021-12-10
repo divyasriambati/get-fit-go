@@ -6,7 +6,7 @@
 
         <div class="carousel-container">
             <owl-carousel-o [options]="customOptions" class="horizontal cardsList secondaryLightBg " >
-                <ng-template carouselSlide *ngFor="let friend of allFriends | filter:friendFilter" class="carousel-cell " >
+                <ng-template carouselSlide *ngFor="let friend of allFriends | filter:this.searchService.peopleFilter" class="carousel-cell " >
                     <div class="card vertical primaryLightBg">
                         <div><img class="card-img" src="../../assets/profile.svg"></div>
                         <div class="routineName">{{friend.firstname}}</div>

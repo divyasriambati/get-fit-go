@@ -8,6 +8,8 @@ import { search_get_locations, location_get_routines } from '../../config/server
 export class SearchPageService {
 
   constructor(private http: HttpClient) { }
+  public peopleFilter = "";
+  public routineFilter = "";
   public getLocations() {
     return this.http.get<any>(search_get_locations);
   }
