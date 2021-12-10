@@ -6,15 +6,16 @@
             <div class="horizontal">
                 <div>Youtube Videos Search</div>
                 <div class="horizontal searchType primaryLightBg">
-                    
+
                     <input type="text" placeholder="search people" [(ngModel)]="searchValue">
-                    <button type="button"><img (click)=" getYouTubeVideos(searchValue)" class="icon" src="../../assets/search-solid.svg"></button>
+                    <button type="button"><img (click)=" getYouTubeVideos(searchValue)" class="icon"
+                            src="../../assets/search-solid.svg"></button>
                 </div>
 
 
                 <div>
-                    <div *ngFor = "let video of youtubeData">
-                        
+                    <div *ngFor="let video of youtubeData">
+
                         <!-- <div *ngFor="let name of video.snippet">
 
                         </div> -->
@@ -24,16 +25,16 @@
             </div>
 
         </div>
-        
+
         <!-- SEARCH FILTERS  -->
 
         <div class="searchBar horizontal secondaryLightBg">
 
             <div class="horizontal searchType primaryLightBg">
-        <img class="icon" src="../../assets/user.svg">
-        <input type="text" placeholder="search people" [(ngModel)]="friendFilter">
-        <!-- <img class="dropdown inActive" src="../../assets/dropdown.svg"> -->
-    </div>
+                <img class="icon" src="../../assets/user.svg">
+                <input type="text" placeholder="search people" [(ngModel)]="friendFilter">
+                <!-- <img class="dropdown inActive" src="../../assets/dropdown.svg"> -->
+            </div>
 
             <div class="horizontal searchType primaryLightBg">
                 <img class="icon" src="../../assets/search-solid.svg">
@@ -45,30 +46,27 @@
             <div>
                 <form class="example-form">
                     <mat-form-field class="example-full-width" appearance="fill">
-                      <mat-label>Number</mat-label>
-                      <input type="text"
-                             placeholder="Pick one"
-                             aria-label="Number"
-                             matInput
-                             [formControl]="myControl"
-                             [matAutocomplete]="auto">
-                      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                          {{option}}
-                        </mat-option>
-                      </mat-autocomplete>
+                        <mat-label>Location</mat-label>
+                        <input type="text" placeholder="Select Location" aria-label="Number" matInput
+                            [formControl]="myControl" [matAutocomplete]="auto">
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option"
+                                (click)=getRoutinesByLocation(option)>
+                                {{option}}
+                            </mat-option>
+                        </mat-autocomplete>
                     </mat-form-field>
-                  </form>
+                </form>
             </div>
-</div>
+        </div>
 
-            <!-- <div class="horizontal searchType primaryLightBg">
+        <!-- <div class="horizontal searchType primaryLightBg">
         <img class="icon" src="../../assets/location.svg">
         <input placeholder="Search by Location">
         <img class="dropdown inActive" src="../../assets/dropdown.svg">
     </div> -->
 
-            <!-- <div>
+        <!-- <div>
                 <button class="searchBtn primaryDarkBg primaryLight">Search</button>
             </div>
 
@@ -77,33 +75,34 @@
 
 
         <!-- SEARCH BY ROUTINE  -->
-        
+
 
         <!-- <app-search-by-routine></app-search-by-routine> -->
 
         <div class="horizontal friendsList">
-        <div class="cardSection horizontal secondaryLightBg">
-            <div class="horizontal">
+            <div class="cardSection horizontal secondaryLightBg">
+                <div class="horizontal">
 
-                <div *ngFor="let routine of allRoutines | filter:filterTerm">
+                    <div *ngFor="let routine of allRoutines | filter:filterTerm">
 
-                    <div class="cardCont vertical primaryLightBg section cardBody">
+                        <div class="cardCont vertical primaryLightBg section cardBody">
 
 
-                        <div><img class="cardImg"  (click)=onSelect(routine.routineid) src="../../assets/img.jfif"></div>
-                        <div class="routineName">{{routine.title}}</div>
-                        <div class="card-desc inActive">{{routine.duration}}</div>
-                        <button (click)=onSelect(routine.routineid)
-                            class="activeBtn primaryDarkBg primaryLight section">More Details</button>
-                        <button (click)=subscribeRoutine(routine.routineid)
-                            class="activeBtn primaryDarkBg primaryLight section">subscribe</button>
+                            <div><img class="cardImg" (click)=onSelect(routine.routineid) src="../../assets/img.jfif">
+                            </div>
+                            <div class="routineName">{{routine.title}}</div>
+                            <div class="card-desc inActive">{{routine.duration}}</div>
+                            <button (click)=onSelect(routine.routineid)
+                                class="activeBtn primaryDarkBg primaryLight section">More Details</button>
+                            <button (click)=subscribeRoutine(routine.routineid)
+                                class="activeBtn primaryDarkBg primaryLight section">subscribe</button>
 
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- <img class="nextBtn" src="../../assets/arrow_btn.svg"> -->
         </div>
-        <!-- <img class="nextBtn" src="../../assets/arrow_btn.svg"> -->
-    </div>
 
 
         <!-- SEARCH BY FRIENDS  -->
@@ -117,9 +116,9 @@
         <div class="vertical mainCont">
 
             <div class="heading section friendsList">People</div>
-            
+
             <div>
-        
+
                 <!-- <div class="carousel-container">
                     <owl-carousel-o [options]="customOptions" class="horizontal cardsList secondaryLightBg " >
                         <ng-template carouselSlide *ngFor="let friend of allFriends | filter:friendFilter" class="carousel-cell " >
@@ -134,20 +133,21 @@
                          
                       </owl-carousel-o>
                     </div> -->
-        
+
                 <div class="horizontal friendsList">
                     <div class="cardSection horizontal secondaryLightBg">
-                        <div *ngFor="let friend of allFriends | filter:friendFilter" class="card vertical primaryLightBg">
+                        <div *ngFor="let friend of allFriends | filter:friendFilter"
+                            class="card vertical primaryLightBg">
                             <div><img class="card-img" src="../../assets/profile.svg"></div>
                             <div class="routineName">{{friend.firstname}}</div>
                             <button (click)="generateRoutineDetailsOfUser(friend)"
                                 class="activeBtn primaryDarkBg primaryLight">More Details</button>
                         </div>
                     </div>
-        
+
                     <!-- <img class="nextBtn" src="../../assets/arrow_btn.svg"> -->
                 </div>
-        
+
                 <div *ngIf="isTrue" class=" friendsList ">
                     <div class="cardSection vertical secondaryLightBg">
                         <div class="horizontal primaryLightBg cardBody ">
@@ -157,32 +157,33 @@
                                 <div class="desc inActive section">{{friendDescription}} </div>
                             </div>
                         </div>
-        
+
                         <div class="heading section">Subscribed Routines</div>
                         <div class="horizontal">
-                            <p *ngIf= "friendRoutines===undefined||!friendRoutines.length">No subscribed routines</p>
-        
-        
-                            
-        
-                           
+                            <p *ngIf="friendRoutines===undefined||!friendRoutines.length">No subscribed routines</p>
+
+
+
+
+
                             <div *ngFor="let routine of friendRoutines"
                                 class="cardCont vertical primaryLightBg section">
                                 <div><img class="cardImg" src="../../assets/img.jfif"></div>
                                 <div class="routineName">{{routine.title}}</div>
-        
+
                                 <div class="card-desc inActive">{{routine.description}}</div>
                                 <!-- <div class="subscribers inActive">{{card.subscribers}} subscribers</div> -->
-                                <button class="activeBtn primaryDarkBg primaryLight section" (click)=onSelect(routine.routineid)>More Details</button>
+                                <button class="activeBtn primaryDarkBg primaryLight section"
+                                    (click)=onSelect(routine.routineid)>More Details</button>
                             </div>
                         </div>
-        
+
                     </div>
                 </div>
-        
+
             </div>
         </div>
-        
+
 
         <!-- SEARCH BY LOCATION -->
 

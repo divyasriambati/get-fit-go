@@ -30,14 +30,12 @@ export class SearchPageComponent implements OnInit {
   public filterTerm: any;
   public peopleSearchText: any;
   public routineSearchText: any;
-  public searchValue :any;
+  public searchValue: any;
 
   constructor(private userService: UserService1, public _dataService: DataService, public router: Router, public route: ActivatedRoute,
     public routineService: RoutineService, public searchService: SearchPageService, private http: HttpClient) {
     this.getLocations();
-    this.getPosition().then((resp) => {
-      
-    })
+    
   }
 
   public isTrue = false;
@@ -173,10 +171,9 @@ export class SearchPageComponent implements OnInit {
 
   myControl = new FormControl();
   options: string[] = [];
-  filteredOptions: Observable<string[]> | undefined;
+  filteredOptions: Observable<string[]> | any;
 
   private _filter(value: string): string[] {
-    console.log(value)
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
@@ -189,11 +186,11 @@ export class SearchPageComponent implements OnInit {
     this.searchService.getLocations().subscribe(
       (data) => {
         console.log("locations data", data.response);
-        this.filteredOptions = data.response
-        // this.filteredOptions = this.myControl.valueChanges.pipe(
-        //   startWith(''),
-        //   map(value => this._filter(value)),
-        // );
+        this.options = data.response;
+        this.filteredOptions = this.myControl.valueChanges.pipe(
+          startWith(''),
+          map(value => this._filter(value)),
+        );
       },
       (err) => {
         console.log(err);
@@ -201,10 +198,10 @@ export class SearchPageComponent implements OnInit {
     )
   }
 
-  getRoutinesByLocation() {
+  getRoutinesByLocation(location: any) {
     var postObj = {
       "userid": localStorage.getItem('userid'),
-      "location": ""//pass location
+      "location": location//pass location
     }
     this.searchService.getRoutinesOfLocation(postObj).subscribe(
       (data) => {
@@ -215,16 +212,16 @@ export class SearchPageComponent implements OnInit {
       }
     )
   }
-  public youtubeData :[] | undefined
+  public youtubeData: [] | undefined
   getYouTubeVideos(type: any) {
-    
+
     this.http.get<any>("https://www.googleapis.com/youtube/v3/search?key=" + "AIzaSyD8eppFMvF0mBZj2d6wXewiQ_05VMLox7A" +
       "&type=video&part=snippet&maxResults=" + 10 + "&q=" + type).subscribe((data) => {
         console.log("youtube api data")
         console.log(data);
         this.youtubeData = data.items
         console.log(this.youtubeData);
-        
+
       },
         (err) => {
           console.log(err)
@@ -243,6 +240,11 @@ export class SearchPageComponent implements OnInit {
         });
     });
 
+  }
+  // alternate method
+  async getRoutinesByLocationAlternate(){
+    var locCordObj=await this.getPosition();
+    window.open(`https://www.google.com/maps/search/fitness+center/${locCordObj['lng'],locCordObj['lat']}`)
   }
 
 }
