@@ -5,9 +5,11 @@ import { RoutineService } from '../services/routine/routine.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UserService1 } from '../services/user/user.service';
 import { SearchPageService } from '../services/search-page/search-page.service';
-import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+
 
 export interface User {
   name: string;
@@ -21,15 +23,23 @@ export interface User {
 
 export class SearchPageComponent implements OnInit {
 
-  
-  
+
+
   public routines: any[] | undefined
   public friendsData: any[] | undefined
   public filterTerm: any;
 
   constructor(private userService: UserService1, public _dataService: DataService, public router: Router, public route: ActivatedRoute,
-    public routineService: RoutineService, public searchService: SearchPageService) {
+    public routineService: RoutineService, public searchService: SearchPageService, private http: HttpClient) {
     this.getLocations();
+    this.http.get<any>("https://www.googleapis.com/youtube/v3/search?key=" + "AIzaSyD8eppFMvF0mBZj2d6wXewiQ_05VMLox7A" +
+      "&type=video&part=snippet&maxResults=" + 10 + "&q=" + "meditation").subscribe((data) => {
+        console.log("youtube api data")
+        console.log(data);
+      },
+        (err) => {
+          console.log(err)
+        })
   }
 
   public isTrue = false;
@@ -50,7 +60,7 @@ export class SearchPageComponent implements OnInit {
 
 
 
-  
+
 
 
   ngOnInit(): void {
@@ -72,7 +82,7 @@ export class SearchPageComponent implements OnInit {
 
   }
 
-  
+
 
   getRoutines() {
     this.routineService.getRoutineSuggestions().subscribe(
