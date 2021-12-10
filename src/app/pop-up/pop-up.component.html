@@ -1,9 +1,9 @@
 <!-- <a href="{{data.link}}"></a> -->
 <!-- <div>{{data.link}}</div> -->
 
-{{data.Id}}
+
 
 <div><span class="material-icons" (click)="closeDialoguebox()" style="cursor: pointer;float:right">close</span></div>
 
-<div><iframe width="560" height="315" src="https://www.youtube.com/embed/{{data.Id}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<div><iframe width="560" height="315" [src]='safeURL' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 

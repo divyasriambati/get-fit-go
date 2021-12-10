@@ -8,7 +8,7 @@
                 <div class="heading">Youtube Videos Search</div>
                 <div class="horizontal searchType primaryLightBg">
 
-                    <input type="text" placeholder="search people" [(ngModel)]="searchValue">
+                    <input type="text" placeholder="search videos" [(ngModel)]="searchValue">
                     <button type="button" class="seachBtn"><img style="height: 20px;width: 20px;" (click)=" getYouTubeVideos(searchValue)" class="icon"
                             src="../../assets/search-solid.svg"></button>
                 </div>
@@ -18,7 +18,7 @@
                     <owl-carousel-o [options]="customOptions" class="horizontal cardsList secondaryLightBg " >
                         <ng-template carouselSlide *ngFor="let video of youtubeData" class="carousel-cell " >
                             <div class="youtubeCard vertical primaryLightBg">
-                                <div><img class="youtubeCardImg " src="{{video['snippet']['thumbnails']['default']['url']}}" alt="image not found"></div>
+                                <div><img class="youtubeCardImg " (click)="openDialog(video['id']['videoId'])" src="{{video['snippet']['thumbnails']['default']['url']}}" alt="image not found"></div>
                                 <div class="videoName" (click)="openDialog(video['id']['videoId'])">{{video['snippet']['title']}}</div>
                                
                             </div>

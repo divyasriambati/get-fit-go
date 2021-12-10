@@ -48,7 +48,8 @@ export class RoutineDetailsComponent implements OnInit {
   constructor(public _dataService: DataService, public route: ActivatedRoute, private routineService: RoutineService, public router: Router, public commentService: CommentsService,public dialog: MatDialog) { }
 
   openDialog(currLink :any){
-    this.dialog.open(PopUpComponent , {data :{link : currLink}});
+    currLink=currLink.split("/")
+    this.dialog.open(PopUpComponent , {data :{Id : currLink.pop()}});
   }
 
 
