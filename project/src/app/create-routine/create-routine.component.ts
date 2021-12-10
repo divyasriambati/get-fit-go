@@ -56,12 +56,13 @@ export class CreateRoutineComponent implements OnInit {
     duration: [''],
     routineStructure: this.fb.array([ this.addingTask() ]),
     youtubeVideos: this.fb.array([ this.addYoutubeLink() ]),
+    location : ['']
     
   });
 
   addingTask(): FormGroup {
     return this.fb.group({
-      name: '',
+      title: '',
       duration: ''
     });
   }
@@ -76,7 +77,7 @@ export class CreateRoutineComponent implements OnInit {
 
   addYoutubeLink(): FormGroup {
     return this.fb.group({
-      name: '',
+      title: '',
       link: ''
     });
   }
@@ -153,18 +154,24 @@ export class CreateRoutineComponent implements OnInit {
   }
   submit() {
     console.log(this.routineForm1.value);
+    var postObj = {
+      title : this.routineForm1.value.title,
+      description : this.routineForm1.value.description,
+      subtasks : this.routineForm1.value.routineStructure,
+      references : this.routineForm1.value.youtubeVideos,
+      location : this.routineForm1.value.location
+    }
     
-    
-    // this.routineService.createRoutine(postObj).subscribe(
-    //   (data) => {
-    //     console.log(data);
-    //     this.router.navigate(['/dashboard']);
+    this.routineService.createRoutine(postObj).subscribe(
+      (data) => {
+        console.log(data);
+        this.router.navigate(['/dashboard']);
 
-    //   },
-    //   (err) => {
-    //     console.log(err);
-    //   }
-    // )
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
   }
   public updateRoutine() {
     var postObj = {
