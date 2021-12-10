@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AddRoutineComponent implements OnInit {
   
-  items: FormArray | undefined;
+  items: FormArray | any;
 
   constructor(
     public router: Router,
@@ -59,34 +59,37 @@ export class AddRoutineComponent implements OnInit {
     return this.routineForm.get('items') as FormArray
   }
 
-  get aliases() {
-    return this.routineForm.get('aliases') as FormArray;
-  }
+  // get aliases() {
+  //   return this.routineForm.get('aliases') as FormArray;
+  // }
 
-  addAlias() {
-    this.aliases.push(this.fb.control(''));
-  }
+  // addAlias() {
+  //   this.aliases.push(this.fb.control(''));
+  // }
 
-  get skills() {
-    return this.routineForm.get('skills') as FormArray;
-  }
+  // get skills() {
+  //   return this.routineForm.get('skills') as FormArray;
+  // }
 
-  addskills() {
-    this.aliases.push(this.fb.group([]));
-  }
+  // addskills() {
+  //   this.aliases.push(this.fb.group([]));
+  // }
 
-  routineStructure = this.routineForm.get("routineStructure") as FormArray;
+  // routineStructure = this.routineForm.get("routineStructure") as FormArray;
 
-  addSubTask(){
-    const group = new FormGroup({
-      subTask: new FormControl(''),
-      duration: new FormControl('')
-    });
+  // addSubTask(){
+  //   const group = new FormGroup({
+  //     subTask: new FormControl(''),
+  //     duration: new FormControl('')
+  //   });
 
-    this.routineStructure.push(group);
-  }
+  //   this.routineStructure.push(group);
+  // }
  
   ngOnInit(): void {
   }
 
+  onSubmit(){
+    console.log(this.routineForm.value)
+  }
 }

@@ -19,16 +19,16 @@
             <input formControlName="description" type="text" >
         </div>
         
-        <div formArrayName="aliases">
+        <!-- <div formArrayName="aliases">
             <h2>Aliases</h2>
             <button (click)="addAlias()" type="button">+ Add another alias</button>
           
             <div *ngFor="let alias of aliases.controls; let i=index">
-              <!-- The repeated alias template -->
+              <!-- The repeated alias template --
               <label for="alias-{{ i }}">Alias:</label>
               <input id="alias-{{ i }}" type="text" [formControlName]="i">
             </div>
-          </div>
+          </div> -->
 
           <!-- <div formArrayName="skills">
             <h2>skills</h2>
@@ -58,7 +58,7 @@
 
           
 
-        <button>Save</button>
+        <button type="submit" (click)="onSubmit()">Save</button>
        
     </form>
 </div>

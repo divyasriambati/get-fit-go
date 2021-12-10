@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { RoutineService } from '../services/routine/routine.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,8 +10,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./create-routine.component.css']
 })
 export class CreateRoutineComponent implements OnInit {
+  routineStructure: FormArray | any;
+  youtubeVideos: FormArray | any;
+  
 
-  constructor(private routineService: RoutineService, private router: Router, public route: ActivatedRoute) { }
+  constructor(private routineService: RoutineService, private router: Router, private fb: FormBuilder, public route: ActivatedRoute) { }
   public isEdit = false;
   public routineId:any
   ngOnInit(): void {
@@ -45,6 +49,46 @@ export class CreateRoutineComponent implements OnInit {
     rft3: new FormControl(),
     rfl3: new FormControl(),
   });
+
+  routineForm1 = this.fb.group({
+    title: [''],
+    description: [''],
+    duration: [''],
+    routineStructure: this.fb.array([ this.addingTask() ]),
+    youtubeVideos: this.fb.array([ this.addYoutubeLink() ]),
+    
+  });
+
+  addingTask(): FormGroup {
+    return this.fb.group({
+      name: '',
+      duration: ''
+    });
+  }
+  addTask(): void {
+    this.routineStructure = this.routineForm1.get('routineStructure') as FormArray;
+    this.routineStructure.push(this.addingTask());
+  }
+  
+  get routineStructureFormGroups() {
+    return this.routineForm1.get('routineStructure') as FormArray
+  }
+
+  addYoutubeLink(): FormGroup {
+    return this.fb.group({
+      name: '',
+      link: ''
+    });
+  }
+  addLink(): void {
+    this.youtubeVideos = this.routineForm1.get('youtubeVideos') as FormArray;
+    this.youtubeVideos.push(this.addYoutubeLink());
+  }
+  
+  get youtubeLinksFormGroups() {
+    return this.routineForm1.get('youtubeVideos') as FormArray
+  }
+  
   loadForm(data: any) {
     this.routineForm.patchValue({
       title: data.title,

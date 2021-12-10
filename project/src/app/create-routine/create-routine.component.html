@@ -20,6 +20,41 @@
                 <input type="text" formControlName="duration" placeholder="Enter duration">
             </div>
 
+
+            <div>
+                <div class="fieldnames">Subtasks</div>
+            <div
+            formArrayName="routineStructure"
+            *ngFor="let subtask of routineStructureFormGroups.controls; let i = index;"
+        >
+            <div [formGroupName]="i" style="display: flex;"> 
+            <input formControlName="name" placeholder="name">
+            <input formControlName="duration" placeholder="duration">
+            </div>
+        </div>
+        <button type="button" (click)="addTask()">Add Item</button>
+    </div>
+
+            <div>
+                <div class="fieldnames">Videos</div>
+            <div
+            formArrayName="youtubeVideos"
+            *ngFor="let video of youtubeLinksFormGroups.controls; let i = index;"
+        >
+            <div [formGroupName]="i" style="display: flex;"> 
+            <input formControlName="name" placeholder="name">
+            <input formControlName="link" placeholder="duration">
+            </div>
+        </div>
+        <button type="button" (click)="addLink()">Add Item</button>
+        </div>
+
+
+
+
+
+
+    
             <div class="horizontal field-container">
                 <div>
                     <div class="fieldnames">Subtask1 Name</div>
