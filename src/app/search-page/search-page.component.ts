@@ -253,6 +253,7 @@ export class SearchPageComponent implements OnInit {
     )
   }
 
+  public Locations :[] | any
   getRoutinesByLocation(location: any) {
     var postObj = {
       "userid": localStorage.getItem('userid'),
@@ -261,6 +262,8 @@ export class SearchPageComponent implements OnInit {
     this.searchService.getRoutinesOfLocation(postObj).subscribe(
       (data) => {
         console.log("location wise routines", data);
+        this.Locations = data
+        console.log(this.Locations)
       },
       (err) => {
         console.log(err)
