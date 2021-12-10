@@ -10,14 +10,14 @@
 
             <div class="horizontal searchType primaryLightBg">
                 <img class="icon" src="../../assets/user.svg">
-                <input type="text" placeholder="search people" (keyup)="peopleFilter()" [(ngModel)]="peopleSearchText">
+                <input type="text" placeholder="search people" (keyup)="peopleFilter()" [(ngModel)]="friendFilter">
                 <!-- <img class="dropdown inActive" src="../../assets/dropdown.svg"> -->
             </div>
 
             <div class="horizontal searchType primaryLightBg">
                 <img class="icon" src="../../assets/search-solid.svg">
                 <input type="text" placeholder="search routine" (keyup)="routineFilter()"
-                    [(ngModel)]="routineSearchText">
+                    [(ngModel)]="filterTerm">
 
                 <!-- <img class="dropdown inActive" src="../../assets/dropdown.svg"> -->
             </div>
