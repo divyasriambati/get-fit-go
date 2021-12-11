@@ -99,7 +99,7 @@
             <div class="heading">Routines</div>
 
             <owl-carousel-o [options]="customOptions1" class="horizontal searchBar cardSection secondaryLightBg " >
-                <ng-template carouselSlide *ngFor="let routine of allRoutines;let i as index | filter:this.searchService.routineFilter" class="carousel-cell " >
+                <ng-template carouselSlide *ngFor="let routine of allRoutines;let i as index | filter:filterTerm" class="carousel-cell " >
                     <div class="card vertical primaryLightBg ">
     
                         <div><img class="card-img" (click)=onSelect(routine.routineid) src="../../assets/img.jfif"></div>
@@ -162,7 +162,7 @@
 
                 <div class="carousel-container">
                     <owl-carousel-o [options]="customOptions1" class="horizontal cardsList secondaryLightBg "  style="border-radius: 20px;margin: 0px 20px;">
-                        <ng-template carouselSlide *ngFor="let friend of allFriends | filter:this.searchService.peopleFilter" class="carousel-cell " >
+                        <ng-template carouselSlide *ngFor="let friend of allFriends | filter:friendFilter" class="carousel-cell " >
                             <div class="cards vertical primaryLightBg">
                                 <div><img class="cardImg" src="../../assets/profile.svg"></div>
                                 <div class="friendName">{{friend.firstname}}</div>
