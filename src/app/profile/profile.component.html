@@ -9,21 +9,31 @@
 <div class="profileContainer">
     <div  class="profileHeadContainer">
       <!-- <div class="profileHeadBackgoundBox"></div> -->
+      <div style="display: flex;flex-direction: column;flex: 4;align-self: center;" >
         <img  src={{profileUrl}} alt="profileImage" class="profileIcon" />
-       <div>
-        <input type="file" (change)="selectimage($event)">
+       <div style="margin-top: 15px;">
+        <input type="file" name="uploadfile" id="img" (change)="selectimage($event)" style="display:none;"/>
+        <label for="img" class="choose-file">Upload Image</label>
+      </div>
+        <!-- <input type="file" (change)="selectimage($event)"> -->
         </div>
         <div class="profileHeadContent">
           <div class="profileHeadContentHeader">
-            <div class="profileName">{{userObj['firstname']}}</div>
+            <div class="profileName">{{userObj['firstname'] | titlecase}}</div>
             <!-- <div class="editPrfoileBtn">
               <img src="../../assets/edit.svg" alt="edit icon" class="editIcon" />
               <p class="editProfileText">Edit Profile</p>
             </div> -->
           </div>
+          
+          <div class="profileDescription inActive">
+            Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Nunc blandit facilisis tellus commodo em ipsum dolor sit amet, consectetur adipiscing
+            elit. Nunc blandit facilisis tellus, at commodo Lorem
+          </div> 
           <div class="profileDescription inActive">
             {{userObj['description']}}
-          </div>
+          </div> 
         </div>
      
     </div>

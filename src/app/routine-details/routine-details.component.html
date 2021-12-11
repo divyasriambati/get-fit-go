@@ -9,11 +9,10 @@
         <div class="horizontal">
             <div><img class="image" src="../../assets/img.jfif"></div>
             <div class="vertical routineDetails">
-                <div class="horizontal row ">
+                <div class="horizontal row " >
                     <div>
                         <div class="heading">{{routineDetailsList.title}}</div>
-                        <div class="desc">{{routineDetailsList.duration}}</div>
-                        <div class="desc inActive">{{routineDetailsList.description}}</div>
+                        <!-- <div class="desc">{{routineDetailsList.duration}}</div> -->
                     </div>
                     <div style="display: flex;flex-direction: row;">
                         <button class="activeBtn primaryDarkBg primaryLight"
@@ -24,6 +23,8 @@
                             (click)="deleteRoutine(routineDetailsList['routineid'])">delete</button>
                     </div>
                 </div>
+                <div class="desc inActive">{{routineDetailsList.description}}</div>
+
 
                 
                 <div *ngIf="!(routineDetailsList['creatorid']==userId)">
@@ -62,8 +63,8 @@
     
                          <a 
                         class="heading section links">
-                           <div (click)="openDialog(link.link)" class="card-img"><img src="../../assets/img.jfif"></div>
-                           <div style="margin-top: 15px;" (click)="openDialog(link.link)" class="videoName">{{link.title}}</div>
+                           <div (click)="openDialog(link.link)" class="card-img"><img src={{link.src}}></div>
+                           <div style="margin-top: 15px;" (click)="openDialog(link.link)" class="videoName">{{link.title}}{{link.src}}</div>
                        </a>
                     </div>
                 </ng-template>  
@@ -110,7 +111,7 @@ target="_blank" href="{{link.link}}"
                     <div class="comments">{{comment.description}}</div>
                     <div>
                         <!-- <img src="../../assets/edit_icon.png" alt="edit icon" class="editIcon" /> -->
-                        <img src="../../assets/remove_icon.png" alt="remove icon" (click)="deleteComment(comment.commentid,i)" class="editIcon">
+                        <img src="../../assets/remove_icon.png" alt="remove icon" *ngIf="userId == comment.userid" (click)="deleteComment(comment.commentid,i)" class="editIcon">
                     </div>
                 </div>
             </div>

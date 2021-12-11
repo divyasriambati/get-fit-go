@@ -45,9 +45,15 @@ export class RoutineDetailsComponent implements OnInit {
   public routineDetailsList: any
   public isDataLoaded = false;
   public userId: any;
-  constructor(public _dataService: DataService, public route: ActivatedRoute, private routineService: RoutineService, public router: Router, public commentService: CommentsService, public dialog: MatDialog) { }
+  constructor(public _dataService: DataService, public route: ActivatedRoute, private routineService: RoutineService, public router: Router, public commentService: CommentsService, public dialog: MatDialog) { 
+    
+  }
 
   openDialog(currLink: any) {
+   
+    if(currLink.indexOf('=') != -1)
+    currLink = currLink.split("=")
+    else
     currLink = currLink.split("/")
     this.dialog.open(PopUpComponent, { data: { Id: currLink.pop() } });
   }
@@ -62,6 +68,13 @@ export class RoutineDetailsComponent implements OnInit {
         this.routineDetailsList = data.response;
         this.isDataLoaded = true;
         this.loadComments(data.response);
+        for(let i=0 ; i<data.response['references'].length ; i++){
+          if(data.response['references'][i]['link'].indexOf('=') != -1)
+          data.response['references'][i]['link'] = data.response['references'][i]['link'].split("=")
+          else
+          data.response['references'][i]['link'] = data.response['references'][i]['link'].split("/")
+          data.response['references'][i]['src']="https://img.youtube.com/vi/" + data.response['references'][i]['link'].pop() + "/default.jpg "
+        }
       },
       (err) => {
         console.log(err);
@@ -151,7 +164,8 @@ export class RoutineDetailsComponent implements OnInit {
     this.commentService.createComment(postObj).subscribe(
       (data) => {
         console.log(data);
-        this.allComments.push({description:postObj['description']})
+        this.allComments.push({description:postObj['description'],userid : this.userId})
+        this.currComment = ''
       },
       (err) => {
         console.log(err);

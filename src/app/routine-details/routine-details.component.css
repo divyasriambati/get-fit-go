@@ -6,7 +6,7 @@
 }
 .routineDetails{
     margin-left: 30px;
-    justify-content: space-between;
+    margin-bottom: 30px;
 }
 .row{
     display: flex;

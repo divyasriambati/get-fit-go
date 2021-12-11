@@ -77,7 +77,7 @@
                             <div class="card-desc inActive">{{routine.description}}</div>
                             <div class="btns">
                                 <button (click)=onSelect(routine.routineid)
-                                    class="activeBtn primaryDarkBg primaryLight">More Details</button>
+                                    class="activeBtn primaryDarkBg primaryLight">Details</button>
                                 <button class="activeBtn"
                                     (click)=unsubscribeRoutine(routine.routineid,i)>Unsubscribe</button>
                                 <button class="activeBtn" *ngIf="routine.creatorid==getUserid()"

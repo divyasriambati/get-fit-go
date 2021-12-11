@@ -86,10 +86,13 @@ export class SearchPageComponent implements OnInit {
   public peopleSearchText: any;
   public routineSearchText: any;
   public searchValue: any;
+  public userId : any;
 
   constructor(private userService: UserService1, public _dataService: DataService, public router: Router, public route: ActivatedRoute,
     public routineService: RoutineService, public searchService: SearchPageService, private http: HttpClient,public dialog: MatDialog) {
     this.getLocations();
+    this.userId = localStorage.getItem('userid')
+    this.userId = this.userId.substring(1,this.userId.length -1)
 
   }
 

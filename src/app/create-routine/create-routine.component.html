@@ -15,10 +15,10 @@
                 <div class="fieldnames">Routine Description</div>
                 <input type="text" formControlName="description" placeholder="Enter routine description">
             </div>
-            <div>
+            <!-- <div>
                 <div class="fieldnames">Duration (in hours)</div>
-                <input type="text" formControlName="duration" placeholder="Enter duration">
-            </div>
+                <input type="number" formControlName="duration" placeholder="Enter duration">
+            </div> -->
 
 
             <div>
@@ -28,8 +28,8 @@
             *ngFor="let subtask of routineStructureFormGroups.controls; let i = index;"
         >
             <div [formGroupName]="i" style="display: flex;"> 
-            <input formControlName="title" placeholder="title">
-            <input formControlName="duration" placeholder="duration">
+            <input type="text" formControlName="title" placeholder="title">
+            <input type="number" formControlName="duration" placeholder="duration">
             </div>
         </div>
         <button type="button" class="activeBtn" (click)="addTask()">+ Add Subtask</button>
@@ -42,8 +42,8 @@
             *ngFor="let video of youtubeLinksFormGroups.controls; let i = index;"
         >
             <div [formGroupName]="i" style="display: flex;"> 
-            <input formControlName="title" placeholder="title">
-            <input formControlName="link" placeholder="Link">
+            <input type="text" formControlName="title" placeholder="title">
+            <input type="text" formControlName="link" placeholder="Link">
             </div>
         </div>
         <button type="button" class="activeBtn" (click)="addLink()">+ Add Reference Links</button>
