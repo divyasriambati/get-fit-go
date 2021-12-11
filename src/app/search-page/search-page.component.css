@@ -52,8 +52,8 @@ input{
 
  
 
-  .profile img{
-      height: 100px;
+  .profile{
+      height: 150px;
       width: 100px;
       border-radius: 50%;
   }
