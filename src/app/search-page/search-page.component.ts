@@ -45,7 +45,7 @@ export class SearchPageComponent implements OnInit {
         items: 2
       },
       940: {
-        items: 3
+        items: 2
       }
     },
     nav: true
@@ -70,7 +70,7 @@ export class SearchPageComponent implements OnInit {
         items: 2
       },
       940: {
-        items: 4
+        items: 3
       }
     },
     nav: true
