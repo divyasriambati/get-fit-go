@@ -1,5 +1,5 @@
-export const serverUrl = "https://get-fit-go-be.herokuapp.com";
-// export const serverUrl="http://localhost:3000";
+// export const serverUrl = "https://get-fit-go-be.herokuapp.com";
+export const serverUrl="http://localhost:3000";
 export const signup = serverUrl + '/auth/signup';
 export const login = serverUrl + '/auth/login';
 export const get_user_routines = serverUrl + '/routine/user-routines';
@@ -21,3 +21,4 @@ export const delete_comment = serverUrl + '/comments/delete-comment';
 export const search_get_locations = serverUrl + '/search/get-locations';
 export const location_get_routines = serverUrl + '/search/get-routines';
 export const add_calendar_event = serverUrl + '/user/calendar';
+export const get_particular_user_details=serverUrl+'/user//user-details';

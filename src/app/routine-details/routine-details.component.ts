@@ -45,12 +45,12 @@ export class RoutineDetailsComponent implements OnInit {
   public routineDetailsList: any
   public isDataLoaded = false;
   public userId: any;
-  constructor(public _dataService: DataService, public route: ActivatedRoute, private routineService: RoutineService, public router: Router, public commentService: CommentsService, public dialog: MatDialog) { 
-    
+  constructor(public _dataService: DataService, public route: ActivatedRoute, private routineService: RoutineService, public router: Router, public commentService: CommentsService, public dialog: MatDialog, public userService: UserService1) {
+
   }
 
   openDialog(currLink: any) {
-   console.log(currLink)
+    console.log(currLink)
     // if(currLink.indexOf('=') != -1)
     // currLink = currLink.split("=")
     // else
@@ -68,12 +68,12 @@ export class RoutineDetailsComponent implements OnInit {
         this.routineDetailsList = data.response;
         this.isDataLoaded = true;
         this.loadComments(data.response);
-        for(let i=0 ; i<data.response['references'].length ; i++){
-          if(data.response['references'][i]['link'].indexOf('=') != -1)
-          data.response['references'][i]['link'] = data.response['references'][i]['link'].split("=")
+        for (let i = 0; i < data.response['references'].length; i++) {
+          if (data.response['references'][i]['link'].indexOf('=') != -1)
+            data.response['references'][i]['link'] = data.response['references'][i]['link'].split("=")
           else
-          data.response['references'][i]['link'] = data.response['references'][i]['link'].split("/")
-          data.response['references'][i]['src']="https://img.youtube.com/vi/" + data.response['references'][i]['link'][data.response['references'][i]['link'].length-1] + "/default.jpg "
+            data.response['references'][i]['link'] = data.response['references'][i]['link'].split("/")
+          data.response['references'][i]['src'] = "https://img.youtube.com/vi/" + data.response['references'][i]['link'][data.response['references'][i]['link'].length - 1] + "/default.jpg "
         }
       },
       (err) => {
@@ -164,18 +164,18 @@ export class RoutineDetailsComponent implements OnInit {
     this.commentService.createComment(postObj).subscribe(
       (data) => {
         console.log(data);
-        this.allComments.push({description:postObj['description'],userid : this.userId})
+        this.allComments.push({ description: postObj['description'], userid: this.userId })
         this.currComment = ''
       },
       (err) => {
         console.log(err);
       }
     )
-    
+
   }
 
   deleteComment(commnetId: any, index: any) {
-    console.log(this.routineId,"    ",commnetId)
+    console.log(this.routineId, "    ", commnetId)
     this.commentService.deleteComment(this.routineId, commnetId).subscribe(
       (data) => {
         console.log(data);
@@ -186,10 +186,21 @@ export class RoutineDetailsComponent implements OnInit {
       }
     )
   }
+  getUerDetails(userid: any) {
+    return new Promise((resolve, reject) => {
+      this.userService.getParticularUserDetails(userid).subscribe((data) => {
+        resolve(data.response);
+      }, (err) => {
+        reject(err)
+      }
+      )
+    })
+  }
   getComment(commentid: any) {
     return new Promise((resolve, reject) => {
       this.commentService.getComment(commentid).subscribe(
-        (data) => {
+        async (data) => {
+          data.response['userdetails'] = await this.getUerDetails(data.response['userid']);
           resolve(data.response);
         },
         (err) => {
