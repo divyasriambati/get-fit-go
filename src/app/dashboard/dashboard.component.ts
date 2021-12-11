@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit {
         items: 2
       },
       940: {
-        items: 3
+        items: 2
       }
     },
     nav: true
@@ -130,7 +130,7 @@ public randomArr : any
         console.log("data", data);
         this.isDataLoaded = true;
         this._dataService.routineDetails = this.routines;
-        
+
         for(let i=0;i<this.routines.length;i++){
           var c=Math.floor(Math.random() * this.routineCoverPic.length)
           this.randomArr.push(c)
