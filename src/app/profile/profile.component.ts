@@ -106,7 +106,7 @@ export class ProfileComponent implements OnInit {
       (data) => {
         console.log(data);
         localStorage.clear();
-        window.location.replace(`http://localhost:4200/login`);
+        window.location.replace(`${serverUrl}/login`);
       },
       (err) => {
         console.log(err);
