@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { RoutineService } from '../services/routine/routine.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { serverUrl } from '../config/serverurls';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,11 +12,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SidebarComponent implements OnInit {
 
   public suggestions: any[] | undefined
-
+  public serverUrl=serverUrl
   constructor(public router: Router,public _dataService: DataService, private routineService: RoutineService) { }
 
 onSelect(id:any){
-  window.location.replace(`http://localhost:4200/routine-details/${id}`)
+  window.location.replace(`${serverUrl}/routine-details/${id}`)
 }
 
   ngOnInit(): void {
