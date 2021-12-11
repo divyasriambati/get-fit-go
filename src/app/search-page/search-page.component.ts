@@ -262,7 +262,7 @@ export class SearchPageComponent implements OnInit {
     this.searchService.getRoutinesOfLocation(postObj).subscribe(
       (data) => {
         console.log("location wise routines", data);
-        this.Locations = data
+        this.Locations = data.response
         console.log(this.Locations)
       },
       (err) => {

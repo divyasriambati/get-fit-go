@@ -65,7 +65,7 @@
 
         <div class="carousel-container">
 
-            <owl-carousel-o [options]="customOptions1" class="horizontal searchBar cardSection secondaryLightBg " >
+            <owl-carousel-o [options]="customOptions" class="horizontal searchBar cardSection secondaryLightBg " >
                 <ng-template carouselSlide *ngFor="let routine of allRoutines;let i as index | filter:this.searchService.routineFilter" class="carousel-cell " >
                     <div class="card vertical primaryLightBg ">
     
@@ -272,6 +272,8 @@
 
         <!-- SEARCH BY LOCATION -->
 
+        
+
         <!-- <div class="carousel-container">
             
             <div class="heading">Locations</div>
@@ -319,23 +321,49 @@
                 </form>
             </div>
         </div>
+
+
+                 <div class="carousel-container">
+                    <owl-carousel-o [options]="customOptions" class="horizontal searchBar cardSection1 secondaryLightBg " >
+                        <ng-template carouselSlide *ngFor="let location of Locations" class="carousel-cell " >
+                            <div class="card vertical primaryLightBg " style="margin-right: 15px;width: 330px;">
+            
+                                <div><img class="card-img" src="../../assets/img.jfif"></div>
+                                <div class="routineName" >{{location.title}}</div>
+                                
+                                <div class="card-desc inActive" style="width: 310px;">{{location.description}}</div>
+                                <div class="btns">
+                                        <button class="activeBtn primaryDarkBg primaryLight section"
+                                        (click)=onSelect(location.routineid)>More Details</button>
+                                </div>
+                            </div>
+                        </ng-template>  
+                            
+                        </owl-carousel-o>
+                    </div>
+
+<!-- 
         <div *ngFor="let location of Locations" class="horizontal friendsList">
             <div class="cardSection horizontal secondaryLightBg" >
-                {{location.title}}
-                    <div class="cardCont horizontal   cardBody">
+                    <div class="cardCont vertical   cardBody">
                         <div ><img class="image" src="../../assets/img.jfif"></div>
-                        <div class="vertical routineDetails">
+                        <div class="vertical card routineDetails">
                             <div class="routineName">{{location.title}}</div>
-                            <div class="desc inActive">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit
-                                facilisis tellus commodo em ipsum dolor sit amet, consectetur adipiscing
-                               elit. Nunc blandit facilisis  tellus, at commodo Lorem 
+                            <div class="desc inActive">{{location.duration}}</div>
+                            <div class="desc inActive">{{location.description}}</div>
+                            <div class="btns">
+                                <button (click)=onSelect(location.routineid)
+                                    class="activeBtn  ">More Details</button>
+                                <button (click)=subscribeRoutine(location.routineid)
+                                    class="activeBtn primaryDarkBg primaryLight ">subscribe</button>
+        
                             </div>
-                            <div><button class="activeBtn primaryDarkBg primaryLight section">View Location</button></div>
+
                         </div>
                        
                     </div>
             </div>
-        </div>
+        </div> -->
 
         </div>
 
