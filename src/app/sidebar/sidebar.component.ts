@@ -16,7 +16,6 @@ export class SidebarComponent implements OnInit {
 
 onSelect(id:any){
   window.location.replace(`http://localhost:4200/routine-details/${id}`)
-  // this.router.navigate(['/routine-details', id]);
 }
 
   ngOnInit(): void {

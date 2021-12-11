@@ -106,15 +106,25 @@ target="_blank" href="{{link.link}}"
 
         <div style="margin: 20px 0px;">
             <div class="commentsCount"> {{allComments.length}} Comments</div>
+
+            
             
             <div *ngFor="let comment of allComments;let i=index">
-                <div class="primaryLightBg commentDisplay" >
-                    <div class="comments">{{comment.description}}</div>
-                    <div>
-                        <!-- <img src="../../assets/edit_icon.png" alt="edit icon" class="editIcon" /> -->
-                        <img src="../../assets/remove_icon.png" alt="remove icon" *ngIf="userId == comment.userid" (click)="deleteComment(comment.commentid,i)" class="editIcon">
+                <div style="display: flex;flex-direction: row;margin-right: 20px;">
+                    <div style="margin-right: 20px;"><img style="height: 30px;width: 30px;border-radius: 50%;" src={{comment.userdetails.profilepicture}}></div>
+                        <div class="primaryLightBg" style="display: flex;flex-direction: column;margin-bottom: 15px;width: 500px;">
+                        <div style="margin: 10px;">{{comment.userdetails.firstname | titlecase}}</div>
+                        <div style="display: flex;flex-direction: row;justify-content: space-between;border-radius: 15px;padding: 10px 15px;">
+                            <div class="comments">{{comment.description}}</div>
+                            <div>
+                                <!-- <img src="../../assets/edit_icon.png" alt="edit icon" class="editIcon" /> -->
+                                <img src="../../assets/remove_icon.png" alt="remove icon" *ngIf="userId == comment.userid" (click)="deleteComment(comment.commentid,i)" class="editIcon">
+                            </div>
+                        </div>
                     </div>
+
                 </div>
+                
             </div>
         </div>
 
