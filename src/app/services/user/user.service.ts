@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { update_user_details, get_user_details, delete_account, get_user_suggestion, add_calendar_event } from '../../config/serverurls';
+import { update_user_details, get_user_details, delete_account, get_user_suggestion, add_calendar_event, get_particular_user_details } from '../../config/serverurls';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +21,9 @@ export class UserService1 {
   }
   public addCalendarEvent(Data: any) {
     return this.http.post<any>(add_calendar_event, Data);
+  }
+  public getParticularUserDetails(userid: any) {
+    return this.http.get<any>(get_particular_user_details + '/' + userid);
   }
 }
 
