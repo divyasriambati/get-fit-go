@@ -273,7 +273,7 @@ export class SearchPageComponent implements OnInit {
   public youtubeData: [] | any
   public defaultType = "fitness"
   getYouTubeVideos(type: any) {
-    this.http.get<any>("https://www.googleapis.com/youtube/v3/search?key=" + "AIzaSyCmC294c56ghJ1QhU4zMYwnfCQGtH0xm-A" +
+    this.http.get<any>("https://www.googleapis.com/youtube/v3/search?key=" + "AIzaSyD8eppFMvF0mBZj2d6wXewiQ_05VMLox7A" +
       "&type=video&part=snippet&maxResults=" + 10 + "&q=" + type).subscribe((data) => {
         console.log("youtube api data")
         console.log(data);
