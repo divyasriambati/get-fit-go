@@ -23,7 +23,7 @@
 .loginSection{
     width: 65%;
     margin-left: 15%;
-  margin-top: 5%;
+  margin-top: 20%;
 }
 .heading{
     font-size: 25px;
@@ -125,3 +125,9 @@ button{
 
 /* RIGHTSIDE PART CSS  */
 
+
+.landing-img{
+    height: 800px;
+    width: 500px;
+    margin-left: 20px;
+    }
