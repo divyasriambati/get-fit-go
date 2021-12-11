@@ -45,3 +45,16 @@ input{
     align-items: center;
     cursor: pointer;
 }
+.activeBtn{
+    font-size: 13px;
+    font-weight: 500;
+    font-family: poppins;
+    text-align: center;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: auto;
+    margin: 15px;
+    background-color: lightgray;
+}

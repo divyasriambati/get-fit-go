@@ -11,7 +11,10 @@
       <!-- <div class="profileHeadBackgoundBox"></div> -->
         <img *ngIf="this.userObj.profilepicture == ''" src="../../assets/default_img.png" alt="profileImage" class="profileIcon" />
         <img *ngIf="this.userObj.profilepicture != ''" src="{{serverUrl}}/user/get-image?name={{userObj['profilepicture']}}" alt="profileImage" class="profileIcon">
+       <div>
         <input type="file" (change)="selectimage($event)">
+        <label for="file">Upload</label>
+        </div>
         <div class="profileHeadContent">
           <div class="profileHeadContentHeader">
             <div class="profileName">{{userObj['firstname']}}</div>
