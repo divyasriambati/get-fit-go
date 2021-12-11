@@ -137,7 +137,7 @@
                             <div class="youtubeCard vertical primaryLightBg">
                                 <div><img class="youtubeCardImg "
                                         src="{{video['snippet']['thumbnails']['default']['url']}}"
-                                        alt="image not found"></div>
+                                        alt="image not found" (click)="openDialog(video['id']['videoId'])"></div>
                                 <div class="videoName" (click)="openDialog(video['id']['videoId'])">
                                     {{video['snippet']['title']}}</div>
 
