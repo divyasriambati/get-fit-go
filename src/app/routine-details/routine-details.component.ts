@@ -50,11 +50,11 @@ export class RoutineDetailsComponent implements OnInit {
   }
 
   openDialog(currLink: any) {
-   
-    if(currLink.indexOf('=') != -1)
-    currLink = currLink.split("=")
-    else
-    currLink = currLink.split("/")
+   console.log(currLink)
+    // if(currLink.indexOf('=') != -1)
+    // currLink = currLink.split("=")
+    // else
+    // currLink = currLink.split("/")
     this.dialog.open(PopUpComponent, { data: { Id: currLink.pop() } });
   }
 
@@ -73,7 +73,7 @@ export class RoutineDetailsComponent implements OnInit {
           data.response['references'][i]['link'] = data.response['references'][i]['link'].split("=")
           else
           data.response['references'][i]['link'] = data.response['references'][i]['link'].split("/")
-          data.response['references'][i]['src']="https://img.youtube.com/vi/" + data.response['references'][i]['link'].pop() + "/default.jpg "
+          data.response['references'][i]['src']="https://img.youtube.com/vi/" + data.response['references'][i]['link'][data.response['references'][i]['link'].length-1] + "/default.jpg "
         }
       },
       (err) => {
