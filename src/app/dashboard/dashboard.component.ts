@@ -9,6 +9,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { UserService1 } from '../services/user/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -52,6 +54,7 @@ export class DashboardComponent implements OnInit {
   }
 
 
+
   fetchCheckedIds() {
     this.checkedIDs = []
     this.routines.forEach((value: { isChecked: any; routineid: any; }, index: any) => {
@@ -89,7 +92,7 @@ export class DashboardComponent implements OnInit {
 
 
 
-  constructor(private _userService: UserService, private _dataService: DataService, public router: Router, public routineService: RoutineService, public dialog: MatDialog, private userService: UserService1) {
+  constructor(private _userService: UserService, private _dataService: DataService, public router: Router, public routineService: RoutineService, public dialog: MatDialog, private userService: UserService1,private snackBar : MatSnackBar) {
   }
  
   openDialog() {
@@ -105,9 +108,18 @@ export class DashboardComponent implements OnInit {
   onSelect(id: any) {
     this.router.navigate(['/dashboard', id]);
   }
-
+  public routineCoverPic = ["../../assets/img.jfif","../../assets/img2.jfif","../../assets/img3.jfif","../../assets/img4.jfif","../../assets/img5.jfif","../../assets/img6.jfif"];
+  public random :any
+  public src :any
+public randomArr : any
+  // getImage(){
+  //   // this.random = 
+  //   return this.random
+  //   // console.log(this.random,this.routineCoverPic[this.random] + "hello") ;
+  // }
   ngOnInit(): void {
 
+    this.randomArr=[]
     this.routineList = this._dataService.userData;
     this.getRoutines();
   }
@@ -118,6 +130,11 @@ export class DashboardComponent implements OnInit {
         console.log("data", data);
         this.isDataLoaded = true;
         this._dataService.routineDetails = this.routines;
+        
+        for(let i=0;i<this.routines.length;i++){
+          var c=Math.floor(Math.random() * this.routineCoverPic.length)
+          this.randomArr.push(c)
+        }
 
       }
       , (err) => {
@@ -163,6 +180,10 @@ export class DashboardComponent implements OnInit {
       "routineids":this.checkedIDs,//pass selected routine ids array
       "date": this.currentDate //pass today date
     }
+    this.snackBar.open('saved succesfully' , 'ok')
+    
+
+    
     this.userService.addCalendarEvent(postObj).subscribe(
       (data) => {
         console.log(data);

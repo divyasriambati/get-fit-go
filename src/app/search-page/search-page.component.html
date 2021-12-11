@@ -162,6 +162,15 @@
 
         </div>
 
+
+        <div style="display: flex;flex-direction: column;justify-content: center;padding: 30px 0px;margin: 0px 20px;border-radius: 20px;align-items: center;">
+            <!-- <div class="heading  "></div> -->
+            <div >
+                <button class="activeBtn primaryDarkBg primaryLight " style="width: 400px;margin-top: 20px;"
+                    (click)="getRoutinesByLocationAlternate()">Search fitness centers near me</button>
+            </div>
+        </div>
+
         <!-- SEARCH BY FRIENDS  -->
 
 
@@ -193,7 +202,15 @@
                             <ng-template carouselSlide *ngFor="let friend of allFriends | filter:friendFilter"
                                 class="carousel-cell ">
                                 <div class="cards vertical primaryLightBg">
-                                    <div><img class="cardImg" src="../../assets/profile.svg"></div>
+                                    <!-- <div><img class="cardImg" src="../../assets/profile.svg"></div> -->
+                                    <div>
+                                        <img *ngIf="friend.profilepicture == ''" src="../../assets/default_img.png" alt="profile"
+                class="profile" />
+            <img *ngIf="friend.profilepicture != ''"
+                src="{{serverUrl}}/user/get-image?name={{friend['profilepicture']}}" alt="profile"
+                class="profile">
+
+                                    </div>
                                     <div class="friendName">{{friend.firstname}}</div>
                                     <button (click)="generateRoutineDetailsOfUser(friend)"
                                         class="activeBtn primaryDarkBg primaryLight">More Details</button>
@@ -311,7 +328,7 @@
               </owl-carousel-o>
             </div> -->
 
-        <div class="vertical secondaryLightBg" style="margin: 30px;border-radius: 20px;padding: 20px;">
+        <!-- <div class="vertical secondaryLightBg" style="margin: 30px;border-radius: 20px;padding: 20px;">
 
             <div class="heading section friendsList">Search Location</div>
             <div style="display: flex;align-items: baseline;">
@@ -354,30 +371,9 @@
                 </owl-carousel-o>
             </div>
 
-            <!-- 
-        <div *ngFor="let location of Locations" class="horizontal friendsList">
-            <div class="cardSection horizontal secondaryLightBg" >
-                    <div class="cardCont vertical   cardBody">
-                        <div ><img class="image" src="../../assets/img.jfif"></div>
-                        <div class="vertical card routineDetails">
-                            <div class="routineName">{{location.title}}</div>
-                            <div class="desc inActive">{{location.duration}}</div>
-                            <div class="desc inActive">{{location.description}}</div>
-                            <div class="btns">
-                                <button (click)=onSelect(location.routineid)
-                                    class="activeBtn  ">More Details</button>
-                                <button (click)=subscribeRoutine(location.routineid)
-                                    class="activeBtn primaryDarkBg primaryLight ">subscribe</button>
-        
-                            </div>
+            
 
-                        </div>
-                       
-                    </div>
-            </div>
         </div> -->
-
-        </div>
 
     </div>
     <div class="sideCont">

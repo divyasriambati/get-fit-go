@@ -196,3 +196,7 @@ overflow-y: scroll;
     cursor: pointer;
     
 }
+button [disabled=disabled], button:disabled {
+    background-color: lightgray;
+    color: black;
+}

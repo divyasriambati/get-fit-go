@@ -8,7 +8,8 @@
 
         <div class="horizontal">
             <div><img class="image" src="../../assets/img.jfif"></div>
-            <div class="vertical routineDetails">
+            <div class="vertical routineDetails" style="justify-content: space-between;">
+                <div>
                 <div class="horizontal row " >
                     <div>
                         <div class="heading">{{routineDetailsList.title}}</div>
@@ -24,7 +25,7 @@
                     </div>
                 </div>
                 <div class="desc inActive">{{routineDetailsList.description}}</div>
-
+            </div>
 
                 
                 <div *ngIf="!(routineDetailsList['creatorid']==userId)">

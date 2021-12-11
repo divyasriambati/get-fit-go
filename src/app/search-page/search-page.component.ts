@@ -12,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
+import { serverUrl } from '../config/serverurls';
 
 export interface User {
   name: string;
@@ -121,9 +122,15 @@ export class SearchPageComponent implements OnInit {
     this.searchService.peopleFilter = this.peopleSearchText
   }
 
-
+  public routineCoverPic = ["../../assets/img.jfif","../../assets/img2.jfif","../../assets/img3.jfif","../../assets/img4.jfif","../../assets/img5.jfif","../../assets/img6.jfif"];
+  public random :any
+  public src :any
+public randomArr : any
+public serverUrl = serverUrl
 
   ngOnInit(): void {
+
+    this.randomArr=[]
 
     this.getYouTubeVideos(this.defaultType)
 
@@ -140,11 +147,17 @@ export class SearchPageComponent implements OnInit {
   }
 
 
-
+public isDataLoaded = false
   getRoutines() {
     this.routineService.getRoutineSuggestions().subscribe(
       (data) => {
         this.allRoutines = data['response']
+
+        for(let i=0;i< data['response'].length;i++){
+          var c=Math.floor(Math.random() * this.routineCoverPic.length)
+          this.randomArr.push(c)
+        }
+        this.isDataLoaded = true
       }
       , (err) => {
         console.log(err);
