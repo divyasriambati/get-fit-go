@@ -10,28 +10,28 @@
             <div><img class="image" src="../../assets/img.jfif"></div>
             <div class="vertical routineDetails" style="justify-content: space-between;">
                 <div>
-                <div class="horizontal row " >
-                    <div>
-                        <div class="heading">{{routineDetailsList.title}}</div>
-                        <!-- <div class="desc">{{routineDetailsList.duration}}</div> -->
+                    <div class="horizontal row ">
+                        <div>
+                            <div class="heading">{{routineDetailsList.title}}</div>
+                            <!-- <div class="desc">{{routineDetailsList.duration}}</div> -->
+                        </div>
+                        <div style="display: flex;flex-direction: row;">
+                            <button class="activeBtn primaryDarkBg primaryLight"
+                                *ngIf="routineDetailsList['creatorid']==userId"
+                                (click)="editRoutine(routineDetailsList['routineid'])">Edit</button>
+                            <button class="activeBtn1 primaryDarkBg primaryLight"
+                                *ngIf="routineDetailsList['creatorid']==userId"
+                                (click)="deleteRoutine(routineDetailsList['routineid'])">delete</button>
+                        </div>
                     </div>
-                    <div style="display: flex;flex-direction: row;">
-                        <button class="activeBtn primaryDarkBg primaryLight"
-                            *ngIf="routineDetailsList['creatorid']==userId"
-                            (click)="editRoutine(routineDetailsList['routineid'])">Edit</button>
-                        <button class="activeBtn1 primaryDarkBg primaryLight"
-                            *ngIf="routineDetailsList['creatorid']==userId"
-                            (click)="deleteRoutine(routineDetailsList['routineid'])">delete</button>
-                    </div>
+                    <div class="desc inActive">{{routineDetailsList.description}}</div>
                 </div>
-                <div class="desc inActive">{{routineDetailsList.description}}</div>
-            </div>
 
-                
+
                 <div *ngIf="!(routineDetailsList['creatorid']==userId)">
                     <button class="activeBtn " style="background-color: lightgray;" *ngIf="!checkeligibility()"
                         (click)="unsubscribeRoutine(routineDetailsList.routineid)">unsubscribe</button>
-                    <button class="activeBtn primaryLight primaryDarkBg"  *ngIf="checkeligibility()"
+                    <button class="activeBtn primaryLight primaryDarkBg" *ngIf="checkeligibility()"
                         (click)="subscribeRoutine(routineDetailsList.routineid)">subscribe</button>
                 </div>
             </div>
@@ -58,20 +58,21 @@
         <div class="heading section">Youtube Videos</div>
 
         <div class="carousel-container">
-            <owl-carousel-o [options]="customOptions" class="horizontal routineList secondaryLightBg " >
-                <ng-template carouselSlide *ngFor="let link of routineDetailsList.references ; let i=index" class="carousel-cell " >
+            <owl-carousel-o [options]="customOptions" class="horizontal routineList secondaryLightBg ">
+                <ng-template carouselSlide *ngFor="let link of routineDetailsList.references ; let i=index"
+                    class="carousel-cell ">
                     <div class="card vertical primaryLightBg">
-    
-                         <a 
-                        class="heading section links">
-                           <div (click)="openDialog(link.link)" class="card-img"><img src={{link.src}}></div>
-                           <div style="margin-top: 15px;" (click)="openDialog(link.link)" class="videoName">{{link.title}}</div>
-                       </a>
+
+                        <a class="heading section links">
+                            <div (click)="openDialog(link.link)" class="card-img"><img src={{link.src}}></div>
+                            <div style="margin-top: 15px;" (click)="openDialog(link.link)" class="videoName">
+                                {{link.title}}</div>
+                        </a>
                     </div>
-                </ng-template>  
-                 
-              </owl-carousel-o>
-            </div>
+                </ng-template>
+
+            </owl-carousel-o>
+        </div>
 
         <!-- <div class="horizontal section">
             <div *ngFor="let link of routineDetailsList.references ; let i=index" class="card primaryLightBg">
@@ -97,38 +98,50 @@ target="_blank" href="{{link.link}}"
     </div> -->
 
         <!-- COMMENT SECTION -->
-        
+
         <div style="margin: 30px 0px 20px 0px;" class="heading"> Comments</div>
         <div style="display: flex;align-items: center;">
-            <div> <textarea style= "width:800px; height:50px;border-radius: 5px ;padding: 10px;" type ="text" id="comment" [(ngModel)]="currComment"></textarea></div>
-            <div style="margin-left: 20px;"><button  class="activeBtn primaryLight primaryDarkBg" (click) = "createComment()">post</button></div>
+            <div> <textarea style="width:800px; height:50px;border-radius: 5px ;padding: 10px;" type="text" id="comment"
+                    [(ngModel)]="currComment"></textarea></div>
+            <div style="margin-left: 20px;"><button class="activeBtn primaryLight primaryDarkBg"
+                    (click)="createComment()">post</button></div>
         </div>
 
         <div style="margin: 20px 0px;">
             <div class="commentsCount"> {{allComments.length}} Comments</div>
 
-            
-            
+
+
             <div *ngFor="let comment of allComments;let i=index">
                 <div style="display: flex;flex-direction: row;margin-right: 20px;">
-                    <div style="margin-right: 20px;"><img style="height: 30px;width: 30px;border-radius: 50%;" src={{comment.userdetails.profilepicture}}></div>
-                        <div class="primaryLightBg" style="display: flex;flex-direction: column;margin-bottom: 15px;width: 500px;">
+                    <div style="margin-right: 20px;">
+                        <img style="height: 30px;width: 30px;border-radius: 50%;"  *ngIf="comment.userdetails.profilepicture == ''" src="../../assets/default_img.png" alt="profile"
+                            class="profile" />
+                        <img style="height: 30px;width: 30px;border-radius: 50%;"  *ngIf="comment.userdetails.profilepicture != ''"
+                            src="{{serverUrl}}/user/get-image?name={{comment['userdetails']['profilepicture']}}" alt="profile"
+                            class="profile">
+                    </div>
+                    <div class="primaryLightBg"
+                        style="display: flex;flex-direction: column;margin-bottom: 15px;width: 500px;">
                         <div style="margin: 10px;">{{comment.userdetails.firstname | titlecase}}</div>
-                        <div style="display: flex;flex-direction: row;justify-content: space-between;border-radius: 15px;padding: 10px 15px;">
+                        <div
+                            style="display: flex;flex-direction: row;justify-content: space-between;border-radius: 15px;padding: 10px 15px;">
                             <div class="comments">{{comment.description}}</div>
                             <div>
                                 <!-- <img src="../../assets/edit_icon.png" alt="edit icon" class="editIcon" /> -->
-                                <img src="../../assets/remove_icon.png" alt="remove icon" *ngIf="userId == comment.userid" (click)="deleteComment(comment.commentid,i)" class="editIcon">
+                                <img src="../../assets/remove_icon.png" alt="remove icon"
+                                    *ngIf="userId == comment.userid" (click)="deleteComment(comment.commentid,i)"
+                                    class="editIcon">
                             </div>
                         </div>
                     </div>
 
                 </div>
-                
+
             </div>
         </div>
 
-       
+
     </div>
     <div class="sideCont">
         <app-sidebar></app-sidebar>

@@ -8,6 +8,7 @@ import { CommentsService } from '../services/comments/comments.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { serverUrl } from '../config/serverurls';
 @Component({
   selector: 'app-routine-details',
   templateUrl: './routine-details.component.html',
@@ -131,7 +132,7 @@ export class RoutineDetailsComponent implements OnInit {
     )
   }
   public allComments: any = [];
-
+  public serverUrl = serverUrl;
   async loadComments(routineObj: any) {
     console.log(routineObj)
     for (let id of routineObj['commentids']) {
